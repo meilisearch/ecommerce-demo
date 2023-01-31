@@ -1,10 +1,10 @@
-# Nuxt 3 Minimal Starter
+# Meilisearch ecommerce demo
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
 
-Make sure to install the dependencies:
+Install the dependencies with your preferred package manager:
 
 ```bash
 # yarn
@@ -12,9 +12,6 @@ yarn install
 
 # npm
 npm install
-
-# pnpm
-pnpm install
 ```
 
 ## Development Server
@@ -24,6 +21,14 @@ Start the development server on http://localhost:3000
 ```bash
 npm run dev
 ```
+
+This project uses [Storybook v7]() to document components. Open Storybook by running:
+
+```bash
+yarn storybook
+```
+
+> The `vite.config.ts` is used by Storybook to enable auto-imports and path aliases.
 
 ## Production
 
