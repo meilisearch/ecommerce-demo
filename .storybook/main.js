@@ -1,5 +1,5 @@
-const path = require('path')
-const { loadConfigFromFile, mergeConfig } = require("vite")
+import path from 'path'
+import { loadConfigFromFile, mergeConfig } from "vite"
 
 module.exports = {
   stories: [
@@ -28,7 +28,7 @@ module.exports = {
     return mergeConfig(config, {
       ...userConfig,
       // manually specify plugins to avoid conflict
-      plugins: [],
+      // plugins: [],
     })
   }
 }

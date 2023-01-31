@@ -11,8 +11,17 @@ declare module '@vue/runtime-core' {
     AtomsBaseLogo: typeof import('./components/atoms/BaseLogo.vue')['default']
     AtomsSearchInput: typeof import('./components/atoms/SearchInput.vue')['default']
     AtomsXIcon: typeof import('./components/atoms/XIcon.vue')['default']
+    BaseButton: typeof import('./components/atoms/BaseButton.vue')['default']
+    BaseLogo: typeof import('./components/atoms/BaseLogo.vue')['default']
+    GithubIcon: typeof import('./components/atoms/GithubIcon.vue')['default']
     MoleculesSearchInput: typeof import('./components/molecules/SearchInput.vue')['default']
+    OrganismsNavbar: typeof import('./components/organisms/Navbar.vue')['default']
+    OrganismsTheNavbar: typeof import('./components/organisms/TheNavbar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SearchInput: typeof import('./components/molecules/SearchInput.vue')['default']
+    TheNavbar: typeof import('./components/organisms/TheNavbar.vue')['default']
+    TwitterIcon: typeof import('./components/atoms/TwitterIcon.vue')['default']
+    XIcon: typeof import('./components/atoms/XIcon.vue')['default']
   }
 }

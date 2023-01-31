@@ -8,6 +8,6 @@
 
 <style scoped>
 .logo {
-  height: 2.5rem;
+  height: 2.25rem;
 }
 </style>

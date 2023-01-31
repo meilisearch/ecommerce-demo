@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import XIcon from '~/components/atoms/XIcon.vue'
-
 interface Props {
   placeholder?: string
 }
@@ -8,13 +6,15 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   placeholder: 'Search something...'
 })
+
+const placeholder = toRef(props, 'placeholder')
 </script>
 
 <template>
   <form class="search-form">
     <input
       type="search"
-      :placeholder="props.placeholder"
+      :placeholder="placeholder"
       class="input search-input"
     >
     <button type="reset" class="search-input-reset">

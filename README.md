@@ -29,7 +29,7 @@ yarn storybook
 ```
 
 > The `vite.config.ts` is used by Storybook to enable auto-imports and path aliases.
-
+> The output files `auto-imports.d.ts` and `components.d.ts` should not be updated manually.
 ## Production
 
 Build the application for production:

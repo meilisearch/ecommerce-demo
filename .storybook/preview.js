@@ -1,4 +1,17 @@
+// Import global CSS here
+import '~/assets/css/typography.css'
+import '~/assets/css/spacing.css'
+
 export const parameters = {
+  backgrounds: {
+    default: 'light',
+    values: [
+      {
+        name: 'light',
+        value: '#f1f1f9',
+      },
+    ],
+  },
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {

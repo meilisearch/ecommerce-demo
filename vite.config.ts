@@ -15,7 +15,11 @@ export default defineConfig({
       vueTemplate: true
     }),
     Components({
-      dirs: ['./components'],
+      dirs: [
+        './components/atoms',
+        './components/molecules',
+        './components/organisms'
+      ],
       dts: true,
       directoryAsNamespace: true
     })

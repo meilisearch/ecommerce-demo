@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const buttonColorClass = computed(() => `btn-${props.color}`)
-const buttonPrimaryClass = computed(() => props.primary ? '' : 'btn-secondary')
+const buttonPrimaryClass = computed(() => toRef(props, 'primary') ? '' : 'btn-secondary')
 const buttonSizeClass = computed(() => {
   if (props.size === 'default') { return '' }
   return props.size === 'large'
