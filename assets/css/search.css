@@ -1,0 +1,73 @@
+@import '~/assets/css/base.css';
+@import "~/assets/css/input.css";
+
+.search-form {
+  display: flex;
+  height: 2.8rem;
+  position: relative;
+  width: 100%;
+}
+
+.search-form::before {
+  background: var(--transparent) url("data:image/svg+xml,%3Csvg viewBox='0 0 22 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.6115 1C5.30323 1 1 5.2082 1 10.3993C1 15.5904 5.30323 19.7986 10.6115 19.7986C12.8819 19.7986 14.9684 19.0288 16.613 17.7415L19.7371 20.7886L19.8202 20.8586C20.1102 21.0685 20.5214 21.0446 20.7839 20.7873C21.0726 20.5043 21.072 20.0459 20.7825 19.7636L17.6952 16.7523C19.2649 15.0794 20.2231 12.8488 20.2231 10.3993C20.2231 5.2082 15.9198 1 10.6115 1ZM10.6116 2.44781C15.1023 2.44781 18.7427 6.00783 18.7427 10.3993C18.7427 14.7909 15.1023 18.3509 10.6116 18.3509C6.12089 18.3509 2.48047 14.7909 2.48047 10.3993C2.48047 6.00783 6.12089 2.44781 10.6116 2.44781Z' fill='%23E4E7EE' stroke='%23E4E7EE'/%3E%3C/svg%3E ") repeat scroll 0% 0%;
+  content: '';
+  height: 1rem;
+  left: 1rem;
+  margin-top: -0.5rem;
+  position: absolute;
+  top: 50%;
+  width: 1rem;
+  z-index: 1;
+}
+
+.search-input {
+  flex: 1 1 0%;
+  font: inherit;
+  max-width: 100%;
+  padding-left: 2.5rem;
+  /* outline: none; */
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
+.search-input-reset {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  cursor: pointer;
+}
+
+.search-input::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.search-input-reset svg path {
+  fill: var(--ashes-900);
+  transition: 0.3s;
+}
+
+button.search-input-reset {
+  background-color: transparent;
+  border: none;
+}
+
+button.search-input-reset[hidden] {
+  display: none;
+}
+
+button.search-input-reset:focus-visible {
+  outline: none;
+}
+
+button.search-input-reset:focus-visible svg,
+button.search-input-reset:hover svg {
+  fill: var(--valhalla-100);
+}

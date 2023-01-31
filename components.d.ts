@@ -9,6 +9,9 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AtomsBaseButton: typeof import('./components/atoms/BaseButton.vue')['default']
     AtomsBaseLogo: typeof import('./components/atoms/BaseLogo.vue')['default']
+    AtomsSearchInput: typeof import('./components/atoms/SearchInput.vue')['default']
+    AtomsXIcon: typeof import('./components/atoms/XIcon.vue')['default']
+    MoleculesSearchInput: typeof import('./components/molecules/SearchInput.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
