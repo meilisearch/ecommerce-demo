@@ -4,7 +4,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  placeholder: 'Search something...'
+  placeholder: 'Search...'
 })
 
 const placeholder = toRef(props, 'placeholder')

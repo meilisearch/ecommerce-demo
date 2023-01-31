@@ -8,6 +8,12 @@
 
 <style scoped>
 .logo {
-  height: 2.25rem;
+  height: 1.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .logo {
+    height: 2.25rem;
+  }
 }
 </style>
