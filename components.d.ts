@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AtomsBaseButton: typeof import('./components/atoms/BaseButton.vue')['default']
+    AtomsBaseLogo: typeof import('./components/atoms/BaseLogo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

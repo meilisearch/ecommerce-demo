@@ -3,12 +3,12 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+// import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    // vue(),
     AutoImport({
       imports: ['vue', 'vue-router'],
       dirs: ['./composables'],
