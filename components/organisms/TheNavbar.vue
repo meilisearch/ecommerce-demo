@@ -3,7 +3,9 @@
   <nav class="navbar p-5">
     <div class="mobile-nav">
       <div class="menu mb-5">
-        <BaseLogo />
+        <NuxtLink to="/">
+          <BaseLogo />
+        </NuxtLink>
         <TwitterIcon class="social-icon ml-auto" />
         <GithubIcon class="social-icon ml-2" />
       </div>
@@ -25,6 +27,9 @@
 
 .desktop-nav {
   display: none;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mobile-nav .menu {
@@ -41,8 +46,6 @@
   }
   .mobile-nav {
     display: none;
-  }
-  .social-icon {
   }
 }
 

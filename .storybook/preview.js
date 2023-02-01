@@ -1,6 +1,7 @@
 // Import global CSS here
 import '~/assets/css/typography.css'
 import '~/assets/css/spacing.css'
+import '~/assets/css/shadow.css'
 
 export const parameters = {
   backgrounds: {

@@ -2866,7 +2866,7 @@
     "@vue/compiler-core" "3.2.45"
     "@vue/shared" "3.2.45"
 
-"@vue/compiler-sfc@3.2.45", "@vue/compiler-sfc@^3.2.0":
+"@vue/compiler-sfc@3.2.45", "@vue/compiler-sfc@^3.2.0", "@vue/compiler-sfc@^3.2.24":
   version "3.2.45"
   resolved "https://registry.yarnpkg.com/@vue/compiler-sfc/-/compiler-sfc-3.2.45.tgz#7f7989cc04ec9e7c55acd406827a2c4e96872c70"
   integrity sha512-1jXDuWah1ggsnSAOGsec8cFjT/K6TMZ0sPL3o3d84Ft2AYZi2jWJgRMjw4iaK0rBfA89L5gw427H4n1RZQBu6Q==
@@ -6820,7 +6820,7 @@ magic-string@^0.25.7:
   dependencies:
     sourcemap-codec "^1.4.8"
 
-magic-string@^0.26.1, magic-string@^0.26.7:
+magic-string@^0.26.1, magic-string@^0.26.4, magic-string@^0.26.7:
   version "0.26.7"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.26.7.tgz#caf7daf61b34e9982f8228c4527474dac8981d6f"
   integrity sha512-hX9XH3ziStPoPhJxLq1syWuZMxbDvGNbVchfrdCtanC7D13888bMFow61x8axrx+GfHLtVeAx2kxL7tTGRl+Ow==
@@ -9819,6 +9819,19 @@ vite-plugin-checker@^0.5.4:
     vscode-languageserver "^7.0.0"
     vscode-languageserver-textdocument "^1.0.1"
     vscode-uri "^3.0.2"
+
+vite-plugin-vue-type-imports@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/vite-plugin-vue-type-imports/-/vite-plugin-vue-type-imports-0.2.4.tgz#733fb75e64681950e01e58d2f82089f0fbd53a64"
+  integrity sha512-qjz1RMd1MgG1gd2KNGo2uDSpGbaB7KwcuUVFZfC8mBdzUG63eR/gJzMUvfpM9JWQ+JTEfEGiLxe6NJvg4n3Kuw==
+  dependencies:
+    "@babel/types" "^7.19.0"
+    "@vue/compiler-sfc" "^3.2.24"
+    debug "^4.3.4"
+    fast-glob "^3.2.12"
+    local-pkg "^0.4.2"
+    magic-string "^0.26.4"
+    picocolors "^1.0.0"
 
 "vite@^3.0.0 || ^4.0.0", vite@~4.0.4:
   version "4.0.4"

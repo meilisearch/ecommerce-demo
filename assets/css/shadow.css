@@ -1,0 +1,7 @@
+.shadow-l {
+  box-shadow: 0px 0px 50px rgba(57, 72, 110, 0.1);
+}
+
+.shadow-m {
+  box-shadow: 0px 0px 30px rgba(57, 72, 110, 0.05);
+}
