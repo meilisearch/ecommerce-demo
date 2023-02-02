@@ -34,9 +34,10 @@ const items = reactive([
           >
             VOSAREA 25pcs Disposable Ashtrays for Cigarettes Aluminum Foil Ashtrays Unbreakable Cigar Ashtrays for Cigarettes Outdoor Indoor Use
           </BaseText>
-          <BaseText size="m">
+          <BaseText size="m" class="mb-1">
             <span class="text-ashes-900">$</span> <span class="text-valhalla-100">99</span>
           </BaseText>
+          <SolidStarIcon class="text-ashes-900" height="14" width="14" />
         </BaseCard>
       </div>
     </div>

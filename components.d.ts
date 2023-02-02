@@ -31,6 +31,7 @@ declare module '@vue/runtime-core' {
     SearchInput: typeof import('./components/molecules/SearchInput.vue')['default']
     SolidStarIcon: typeof import('./components/atoms/SolidStarIcon.vue')['default']
     StarIcon: typeof import('./components/atoms/StarIcon.vue')['default']
+    StarRating: typeof import('./components/molecules/StarRating.vue')['default']
     TheNavbar: typeof import('./components/organisms/TheNavbar.vue')['default']
     TwitterIcon: typeof import('./components/atoms/TwitterIcon.vue')['default']
     XIcon: typeof import('./components/atoms/XIcon.vue')['default']
