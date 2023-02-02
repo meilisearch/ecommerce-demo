@@ -12,6 +12,8 @@ const props = defineProps({
 
 const rating = toRef(props, 'rating')
 
+const ratingText = computed(() => `${rating.value} out of 5`)
+
 const solidStars = computed(() => Math.floor(rating.value))
 
 const halfStars = computed(() => {
@@ -19,7 +21,7 @@ const halfStars = computed(() => {
   if (solidStars.value === 5 || rating.value % 1 === 0) {
     return 0
   }
-  return (rating.value % 1) >= 0.3
+  return (rating.value % 1) >= 0.299 // JS % operator is weird
     ? 1
     : 0
 })
@@ -28,9 +30,16 @@ const emptyStars = computed(() => (5 - solidStars.value - halfStars.value))
 </script>
 
 <template>
-  <div>
-    <SolidStarIcon v-for="i in solidStars" :key="i" />
-    <HalfSolidStarIcon v-if="halfStars === 1" />
-    <StarIcon v-for="i in emptyStars" :key="i" />
+  <div :title="ratingText">
+    <SolidStarIcon v-for="i in solidStars" :key="i" height="14" width="14" class="star-icon" />
+    <HalfSolidStarIcon v-if="halfStars === 1" height="14" width="14" class="star-icon" />
+    <StarIcon v-for="i in emptyStars" :key="i" height="14" width="14" class="star-icon" />
   </div>
 </template>
+
+<style>
+.star-icon path {
+  /* fill: var(--ashes-900); */
+  fill: var(--valhalla-100);
+}
+</style>

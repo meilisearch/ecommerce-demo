@@ -37,7 +37,7 @@ const items = reactive([
           <BaseText size="m" class="mb-1">
             <span class="text-ashes-900">$</span> <span class="text-valhalla-100">99</span>
           </BaseText>
-          <SolidStarIcon class="text-ashes-900" height="14" width="14" />
+          <StarRating class="text-ashes-900" :rating="4.3" />
         </BaseCard>
       </div>
     </div>
