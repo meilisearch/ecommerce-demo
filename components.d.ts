@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     BaseButton: typeof import('./components/atoms/BaseButton.vue')['default']
     BaseCheckbox: typeof import('./components/atoms/BaseCheckbox.vue')['default']
     BaseLogo: typeof import('./components/atoms/BaseLogo.vue')['default']
+    BaseText: typeof import('./components/atoms/BaseText.vue')['default']
     BaseTitle: typeof import('./components/atoms/BaseTitle.vue')['default']
     CheckboxList: typeof import('./components/molecules/CheckboxList.vue')['default']
     FacetTitle: typeof import('./components/atoms/FacetTitle.vue')['default']

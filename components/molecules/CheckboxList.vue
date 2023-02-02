@@ -11,7 +11,7 @@ const { title, items } = toRefs(props)
 
 <template>
   <div>
-    <BaseTitle class="mb-3">
+    <BaseTitle class="mb-3 text-valhalla-100">
       {{ title }}
     </BaseTitle>
     <BaseCheckbox
