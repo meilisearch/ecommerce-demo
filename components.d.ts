@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     AtomsSearchInput: typeof import('./components/atoms/SearchInput.vue')['default']
     AtomsXIcon: typeof import('./components/atoms/XIcon.vue')['default']
     BaseButton: typeof import('./components/atoms/BaseButton.vue')['default']
+    BaseCard: typeof import('./components/atoms/BaseCard.vue')['default']
     BaseCheckbox: typeof import('./components/atoms/BaseCheckbox.vue')['default']
     BaseLogo: typeof import('./components/atoms/BaseLogo.vue')['default']
     BaseText: typeof import('./components/atoms/BaseText.vue')['default']

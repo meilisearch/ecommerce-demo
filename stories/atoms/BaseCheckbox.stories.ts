@@ -8,8 +8,8 @@ const meta: Meta<typeof BaseCheckbox> = {
     setup: () => ({ args }),
     template: `
       <BaseCheckbox
-        name="home-and-kitchen"
-        label="Home & Kitchen"
+        name="name"
+        label="Label"
       />
     `
   })
@@ -19,5 +19,13 @@ export default meta
 
 type Story = StoryObj<typeof BaseCheckbox>
 
-export const Default: Story = {
+export const Unchecked: Story = {
+  args: {
+    modelValue: false
+  }
+}
+export const Checked: Story = {
+  args: {
+    modelValue: true
+  }
 }
