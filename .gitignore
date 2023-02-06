@@ -6,3 +6,6 @@ node_modules
 .output
 .env
 dist
+
+# storybook build
+storybook-static

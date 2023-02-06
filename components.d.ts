@@ -7,10 +7,6 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    AtomsBaseButton: typeof import('./components/atoms/BaseButton.vue')['default']
-    AtomsBaseLogo: typeof import('./components/atoms/BaseLogo.vue')['default']
-    AtomsSearchInput: typeof import('./components/atoms/SearchInput.vue')['default']
-    AtomsXIcon: typeof import('./components/atoms/XIcon.vue')['default']
     BaseButton: typeof import('./components/atoms/BaseButton.vue')['default']
     BaseCard: typeof import('./components/atoms/BaseCard.vue')['default']
     BaseCheckbox: typeof import('./components/atoms/BaseCheckbox.vue')['default']
@@ -18,14 +14,8 @@ declare module '@vue/runtime-core' {
     BaseText: typeof import('./components/atoms/BaseText.vue')['default']
     BaseTitle: typeof import('./components/atoms/BaseTitle.vue')['default']
     CheckboxList: typeof import('./components/molecules/CheckboxList.vue')['default']
-    FacetTitle: typeof import('./components/atoms/FacetTitle.vue')['default']
-    FacetValue: typeof import('./components/atoms/FacetValue.vue')['default']
     GithubIcon: typeof import('./components/atoms/GithubIcon.vue')['default']
     HalfSolidStarIcon: typeof import('./components/atoms/HalfSolidStarIcon.vue')['default']
-    HalfStarIcon: typeof import('./components/atoms/HalfStarIcon.vue')['default']
-    MoleculesSearchInput: typeof import('./components/molecules/SearchInput.vue')['default']
-    OrganismsNavbar: typeof import('./components/organisms/Navbar.vue')['default']
-    OrganismsTheNavbar: typeof import('./components/organisms/TheNavbar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SearchInput: typeof import('./components/molecules/SearchInput.vue')['default']
