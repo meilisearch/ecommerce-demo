@@ -4,6 +4,12 @@ const items = reactive([
   { name: '2', label: 'Health & Household', modelValue: false },
   { name: '3', label: 'Beauty & Personal Care', modelValue: false }
 ])
+
+const sortingOptions = reactive([
+  { value: '1', label: 'Recommended' },
+  { value: '2', label: 'Price (asc)' },
+  { value: '3', label: 'Price (desc)' }
+])
 </script>
 
 <template>
@@ -13,9 +19,12 @@ const items = reactive([
       <CheckboxList title="Category" :items="items" />
     </div>
     <div class="results">
-      <BaseText size="m" class="text-valhalla-100 mb-5">
-        40940 results found in 15ms.
-      </BaseText>
+      <div class="results-meta mb-5">
+        <BaseText size="m" class="text-valhalla-100 mb-5">
+          40940 results found in 15ms.
+        </BaseText>
+        <BaseSelect :options="sortingOptions" />
+      </div>
       <div class="items">
         <BaseCard v-for="i in 12" :key="i">
           <img src="https://images-na.ssl-images-amazon.com/images/I/412gpuRRA0L._.jpg" alt="" width="100" class="mb-3">
@@ -57,6 +66,12 @@ const items = reactive([
 
 .results {
   width: 75%;
+}
+
+.results-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 .items {
