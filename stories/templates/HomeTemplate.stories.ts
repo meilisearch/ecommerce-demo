@@ -9,7 +9,10 @@ const meta: Meta<typeof HomeTemplate> = {
     template: `
       <HomeTemplate/>
     `
-  })
+  }),
+  parameters: {
+    layout: 'fullscreen'
+  }
 }
 
 export default meta

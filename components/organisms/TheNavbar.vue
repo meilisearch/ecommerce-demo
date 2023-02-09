@@ -1,20 +1,20 @@
 
 <template>
-  <nav class="navbar p-5">
+  <nav class="p-5 navbar">
     <div class="mobile-nav">
-      <div class="menu mb-5">
+      <div class="mb-5 menu">
         <NuxtLink to="/">
           <BaseLogo />
         </NuxtLink>
-        <TwitterIcon class="social-icon ml-auto" />
-        <GithubIcon class="social-icon ml-2" />
+        <TwitterIcon class="ml-auto social-icon" />
+        <GithubIcon class="ml-2 social-icon" />
       </div>
       <SearchInput class="mr-5" />
     </div>
-    <div class="desktop-nav">
+    <div class="tablet-nav">
       <BaseLogo class="mr-5" />
-      <SearchInput class="mr-5" />
-      <TwitterIcon class="social-icon mr-5" height="36" width="36" />
+      <SearchInput class="tablet-search-bar" />
+      <TwitterIcon class="mr-5 social-icon" height="36" width="36" />
       <GithubIcon class="social-icon" height="36" width="36" />
     </div>
   </nav>
@@ -23,13 +23,12 @@
 <style>
 .navbar {
   background-color: var(--white);
+  padding-left: calc(2 * var(--size-5));
+  padding-right: calc(2 * var(--size-5));
 }
 
-.desktop-nav {
+.tablet-nav {
   display: none;
-  max-width: 1024px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .mobile-nav .menu {
@@ -39,13 +38,24 @@
 }
 
 @media screen and (min-width: 768px) {
-  .desktop-nav {
+  .tablet-nav {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
+  .tablet-search-bar {
+    margin-left: var(--size-5);
+    margin-right: var(--size-5);
+  }
   .mobile-nav {
     display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .tablet-search-bar {
+    margin-left: calc(4 * var(--size-5));
+    margin-right: calc(4 * var(--size-5));
   }
 }
 

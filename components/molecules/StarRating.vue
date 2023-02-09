@@ -30,7 +30,7 @@ const emptyStars = computed(() => (5 - solidStars.value - halfStars.value))
 </script>
 
 <template>
-  <div :title="ratingText">
+  <div :title="ratingText" class="star-rating">
     <SolidStarIcon v-for="i in solidStars" :key="i" height="14" width="14" class="star-icon" />
     <HalfSolidStarIcon v-if="halfStars === 1" height="14" width="14" class="star-icon" />
     <StarIcon v-for="i in emptyStars" :key="i" height="14" width="14" class="star-icon" />
@@ -41,5 +41,11 @@ const emptyStars = computed(() => (5 - solidStars.value - halfStars.value))
 .star-icon path {
   /* fill: var(--ashes-900); */
   fill: var(--valhalla-100);
+}
+</style>
+
+<style scoped>
+.star-rating {
+  display: flex;
 }
 </style>

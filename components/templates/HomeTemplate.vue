@@ -18,13 +18,13 @@ const sortingOptions = reactive([
 
 <template>
   <TheNavbar class="mb-5 shadow-l" />
-  <div class="container">
+  <div class="container mb-5">
     <div class="mr-5 filters">
       <CheckboxList title="Category" :items="items" />
     </div>
     <div class="results">
       <div class="mb-5 results-meta">
-        <BaseText size="m" class="mb-5 text-valhalla-100">
+        <BaseText size="m" class="text-valhalla-100">
           40940 results found in 15ms.
         </BaseText>
         <BaseSelect :options="sortingOptions" />
@@ -47,17 +47,17 @@ const sortingOptions = reactive([
 
 <style>
 .container {
-  max-width: 1024px;
-  margin: auto;
+  margin-left: calc(2 * var(--size-5));
+  margin-right: calc(2 * var(--size-5));
   display: flex;
 }
 
 .filters {
-  width: 25%;
+  width: 20%;
 }
 
 .results {
-  width: 75%;
+  width: 80%;
 }
 
 .results-meta {
@@ -68,7 +68,8 @@ const sortingOptions = reactive([
 
 .items {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--size-5);
+  grid-template-columns: repeat( auto-fill, minmax(200px, 1fr) );
+  column-gap: calc(1.5 * var(--size-5));
+  row-gap: calc(1.5 * var(--size-5));
 }
 </style>

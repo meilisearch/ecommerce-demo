@@ -363,3 +363,8 @@
   margin-top: var(--size-5);
   margin-bottom: var(--size-5);
 }
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
