@@ -15,6 +15,11 @@ export default defineNuxtConfig({
   modules: [
     // Handle interface imports for defineProps
     // Docs: https://github.com/wheatjs/vite-plugin-vue-type-imports
-    'vite-plugin-vue-type-imports/nuxt'
-  ]
+    'vite-plugin-vue-type-imports/nuxt',
+    // Optimized images with progressive loading
+    '@twicpics/components/nuxt3'
+  ],
+  twicpics: {
+    domain: process.env.TWICPICS_DOMAIN
+  }
 })

@@ -1,4 +1,8 @@
 <script lang="ts" setup>
+import data from '~/database/data.json'
+
+const products = data.slice(0, 12)
+
 const items = reactive([
   { name: '1', label: 'Home & Kitchen', modelValue: true },
   { name: '2', label: 'Health & Household', modelValue: false },
@@ -13,41 +17,29 @@ const sortingOptions = reactive([
 </script>
 
 <template>
-  <TheNavbar class="shadow-l mb-5" />
+  <TheNavbar class="mb-5 shadow-l" />
   <div class="container">
-    <div class="filters mr-5">
+    <div class="mr-5 filters">
       <CheckboxList title="Category" :items="items" />
     </div>
     <div class="results">
-      <div class="results-meta mb-5">
-        <BaseText size="m" class="text-valhalla-100 mb-5">
+      <div class="mb-5 results-meta">
+        <BaseText size="m" class="mb-5 text-valhalla-100">
           40940 results found in 15ms.
         </BaseText>
         <BaseSelect :options="sortingOptions" />
       </div>
       <div class="items">
-        <BaseCard v-for="i in 12" :key="i">
-          <img src="https://images-na.ssl-images-amazon.com/images/I/412gpuRRA0L._.jpg" alt="" width="100" class="mb-3">
-          <BaseTitle size="xs" class="mb-1 text-hot-pink-500 -900">
-            Caroline's Treasures
-          </BaseTitle>
-          <BaseText
-            size="m"
-            class="text-valhalla-500 mb-1"
-            style="
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            "
-            title="VOSAREA 25pcs Disposable Ashtrays for Cigarettes Aluminum Foil Ashtrays Unbreakable Cigar Ashtrays for Cigarettes Outdoor Indoor Use"
-          >
-            VOSAREA 25pcs Disposable Ashtrays for Cigarettes Aluminum Foil Ashtrays Unbreakable Cigar Ashtrays for Cigarettes Outdoor Indoor Use
-          </BaseText>
-          <BaseText size="m" class="mb-1">
-            <span class="text-ashes-900">$</span> <span class="text-valhalla-100">99</span>
-          </BaseText>
-          <StarRating class="text-ashes-900" :rating="4.3" />
-        </BaseCard>
+        <ProductCard
+          v-for="product in products"
+          :key="product.id"
+          :name="product.title"
+          :brand="product.brand"
+          :price="product.price"
+          :image-url="product.images[0]"
+          :rating="product.rating"
+          :reviews-count="product.reviews_count"
+        />
       </div>
     </div>
   </div>
@@ -77,6 +69,6 @@ const sortingOptions = reactive([
 .items {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: var(--size-5);
 }
 </style>

@@ -2431,6 +2431,11 @@
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
+"@twicpics/components@^0.15.1":
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/@twicpics/components/-/components-0.15.1.tgz#39753c2f099c0a740ba7d953409cc541f537b8b0"
+  integrity sha512-N5Aupa5gPg+PxydBjJw37yzIu1/X719ot2AV9MdfFwctUN4Y/3KA4MAjSNPGqxM/UPc4qH3c/Vat9G6T68Gh/A==
+
 "@types/aria-query@^5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@types/aria-query/-/aria-query-5.0.1.tgz#3286741fb8f1e1580ac28784add4c7a1d49bdfbc"

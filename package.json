@@ -22,6 +22,7 @@
     "@storybook/testing-library": "^0.0.14-next.1",
     "@storybook/vue3": "^7.0.0-beta.36",
     "@storybook/vue3-vite": "^7.0.0-beta.36",
+    "@twicpics/components": "^0.15.1",
     "babel-loader": "^8.3.0",
     "eslint": "^8.33.0",
     "nuxt": "^3.1.0",

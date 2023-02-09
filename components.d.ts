@@ -18,6 +18,7 @@ declare module '@vue/runtime-core' {
     DropdownArrow: typeof import('./components/atoms/DropdownArrow.vue')['default']
     GithubIcon: typeof import('./components/atoms/GithubIcon.vue')['default']
     HalfSolidStarIcon: typeof import('./components/atoms/HalfSolidStarIcon.vue')['default']
+    ProductCard: typeof import('./components/organisms/ProductCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SearchInput: typeof import('./components/molecules/SearchInput.vue')['default']
