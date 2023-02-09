@@ -1,5 +1,6 @@
 {
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -8,7 +9,8 @@
     "postinstall": "nuxt prepare",
     "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "seed": "node database/seed.js"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -32,5 +34,8 @@
     "vite-plugin-vue-type-imports": "^0.2.4",
     "vue-loader": "^16.8.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "meilisearch": "^0.31.1"
+  }
 }
