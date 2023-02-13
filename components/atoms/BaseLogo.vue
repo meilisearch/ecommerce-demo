@@ -1,6 +1,6 @@
 <template>
   <img
-    src="/assets/logos/light-background/default.svg"
+    src="/images/logo/light-background/default.svg"
     alt="Meilisearch"
     class="logo"
   >
