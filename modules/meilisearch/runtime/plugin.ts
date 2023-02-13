@@ -1,4 +1,3 @@
-import InstantSearch from 'vue-instantsearch/vue3/es'
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -11,6 +10,4 @@ export default defineNuxtPlugin((nuxtApp) => {
   )
 
   nuxtApp.provide('meilisearch', meilisearchClient)
-
-  nuxtApp.vueApp.use(InstantSearch)
 })
