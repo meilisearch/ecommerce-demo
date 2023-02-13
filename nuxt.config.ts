@@ -21,7 +21,10 @@ export default defineNuxtConfig({
     // Meilisearch
     ['./modules/meilisearch', {
       host: process.env.MEILISEARCH_HOST,
-      searchApiKey: process.env.MEILISEARCH_SEARCH_API_KEY
+      searchApiKey: process.env.MEILISEARCH_SEARCH_API_KEY,
+      options: {
+        primaryKey: 'id'
+      }
     }]
   ],
   twicpics: {

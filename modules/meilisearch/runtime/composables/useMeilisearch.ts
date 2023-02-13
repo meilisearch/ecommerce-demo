@@ -1,4 +1,4 @@
-import { InstantMeiliSearchInstance } from '@meilisearch/instant-meilisearch'
+import type { InstantMeiliSearchInstance } from '@meilisearch/instant-meilisearch'
 
 export default function useMeilisearch () {
   const nuxtApp = useNuxtApp()

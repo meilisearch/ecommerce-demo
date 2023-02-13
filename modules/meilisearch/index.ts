@@ -2,10 +2,12 @@ import { resolve } from 'path'
 import { fileURLToPath } from 'url'
 import { defineNuxtModule, addPlugin } from '@nuxt/kit'
 import { defu } from 'defu'
+import type { InstantMeiliSearchOptions } from '@meilisearch/instant-meilisearch'
 
 interface ModuleOptions {
   host: string
   searchApiKey: string
+  options?: InstantMeiliSearchOptions
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -26,11 +28,10 @@ export default defineNuxtModule<ModuleOptions>({
       throw new Error('`[Meilisearch]` Missing `searchApiKey`')
     }
 
-    nuxtApp.options.css.push('instantsearch.css/themes/algolia-min.css')
-
     nuxtApp.options.runtimeConfig.public.meilisearch = defu(nuxtApp.options.runtimeConfig.meilisearch, {
       host: resolvedOptions.host,
-      searchApiKey: resolvedOptions.searchApiKey
+      searchApiKey: resolvedOptions.searchApiKey,
+      options: resolvedOptions.options
     })
 
     addPlugin(resolve(runtimeDir, 'plugin'))
