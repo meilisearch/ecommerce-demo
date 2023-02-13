@@ -14,6 +14,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
+    "@meilisearch/instant-meilisearch": "^0.10.1",
+    "@nuxt/kit": "^3.2.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@storybook/addon-actions": "^7.0.0-beta.36",
     "@storybook/addon-essentials": "^7.0.0-beta.36",
@@ -24,7 +26,9 @@
     "@storybook/vue3-vite": "^7.0.0-beta.36",
     "@twicpics/components": "^0.15.1",
     "babel-loader": "^8.3.0",
+    "defu": "^6.1.2",
     "eslint": "^8.33.0",
+    "instantsearch.css": "^8.0.0",
     "nuxt": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -33,6 +37,7 @@
     "unplugin-auto-import": "^0.13.0",
     "unplugin-vue-components": "^0.23.0",
     "vite-plugin-vue-type-imports": "^0.2.4",
+    "vue-instantsearch": "^4.8.3",
     "vue-loader": "^16.8.3"
   },
   "dependencies": {
