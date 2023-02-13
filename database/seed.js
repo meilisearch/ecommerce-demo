@@ -7,15 +7,19 @@ import data from './data.json' assert { type: 'json' }
 dotenv.config()
 
 const credentials = {
-  host: process.env.MEILI_HOST,
-  apiKey: process.env.MEILI_ADMIN_API_KEY
+  host: process.env.MEILISEARCH_HOST,
+  apiKey: process.env.MEILISEARCH_ADMIN_API_KEY
 }
 
 const INDEX_NAME = 'products'
 
 const setup = async () => {
-  if (!credentials.host || !credentials.apiKey) {
-    console.error('Missing MEILI_HOST or MEILI_ADMIN_API_KEY environment variable.')
+  if (!credentials.host) {
+    console.error('Missing `MEILISEARCH_HOST` environment variable')
+    process.exit(1)
+  }
+  if (!credentials.apiKey) {
+    console.error('Missing `MEILISEARCH_ADMIN_API_KEY` environment variable')
     process.exit(1)
   }
 
