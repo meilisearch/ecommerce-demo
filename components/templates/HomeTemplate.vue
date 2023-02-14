@@ -1,7 +1,13 @@
 <script lang="ts" setup>
-import data from '~/database/data.json'
+import type { InstantMeiliSearchInstance } from '@meilisearch/instant-meilisearch'
+import { AisInstantSearch } from 'vue-instantsearch/vue3/es'
 
-const products = data.slice(0, 12)
+const props = defineProps<{
+  searchClient: InstantMeiliSearchInstance
+  indexName: string
+}>()
+
+const { searchClient, indexName } = toRefs(props)
 
 const items = reactive([
   { name: '1', label: 'Home & Kitchen', modelValue: true },
@@ -17,32 +23,21 @@ const sortingOptions = reactive([
 </script>
 
 <template>
-  <TheNavbar class="mb-5 shadow-l" />
-  <div class="container mb-5">
-    <div class="mr-5 filters">
-      <CheckboxList title="Category" :items="items" />
-    </div>
-    <div class="results">
-      <div class="mb-5 results-meta">
-        <BaseText size="m" class="text-valhalla-100">
-          40940 results found in 15ms.
-        </BaseText>
-        <BaseSelect :options="sortingOptions" />
+  <ais-instant-search :search-client="searchClient" :index-name="indexName">
+    <TheNavbar class="mb-5 shadow-l" />
+    <div class="container mb-5">
+      <div class="mr-5 filters">
+        <CheckboxList title="Category" :items="items" />
       </div>
-      <div class="items">
-        <ProductCard
-          v-for="product in products"
-          :key="product.id"
-          :name="product.title"
-          :brand="product.brand"
-          :price="product.price"
-          :image-url="product.images[0]"
-          :rating="product.rating"
-          :reviews-count="product.reviews_count"
-        />
+      <div class="results">
+        <div class="mb-5 results-meta">
+          <MeiliSearchStats />
+          <BaseSelect :options="sortingOptions" />
+        </div>
+        <MeiliSearchResults />
       </div>
     </div>
-  </div>
+  </ais-instant-search>
 </template>
 
 <style>
