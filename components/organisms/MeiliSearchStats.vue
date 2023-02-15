@@ -6,7 +6,7 @@ import { AisStats } from 'vue-instantsearch/vue3/es'
   <ais-stats>
     <template #default="{ nbHits, processingTimeMS, query }">
       <BaseText size="m" class="text-valhalla-100">
-        {{ nbHits }} results found in {{ processingTimeMS }}ms span for <q>{{ query }}</q>
+        {{ nbHits }} results found in {{ processingTimeMS }}ms for <q>{{ query }}</q>
       </BaseText>
     </template>
   </ais-stats>
