@@ -31,11 +31,19 @@ export const WithShortOptions: Story = {
     ]
   }
 }
+
 export const WithVariableOptionsSize: Story = {
   args: {
     options: [
       { value: '1', label: 'A very long option label that seems to never end' },
       { value: '2', label: 'Shorter option' }
     ]
+  }
+}
+
+export const WithDefaultValue: Story = {
+  args: {
+    options: WithShortOptions.args?.options,
+    value: '2'
   }
 }

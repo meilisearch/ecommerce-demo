@@ -20,6 +20,7 @@ declare module '@vue/runtime-core' {
     HalfSolidStarIcon: typeof import('./components/atoms/HalfSolidStarIcon.vue')['default']
     MeiliSearchInput: typeof import('./components/organisms/MeiliSearchInput.vue')['default']
     MeiliSearchResults: typeof import('./components/organisms/MeiliSearchResults.vue')['default']
+    MeiliSearchSorting: typeof import('./components/organisms/MeiliSearchSorting.vue')['default']
     MeiliSearchStats: typeof import('./components/organisms/MeiliSearchStats.vue')['default']
     ProductCard: typeof import('./components/organisms/ProductCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
