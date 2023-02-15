@@ -1,29 +1,41 @@
 <script lang="ts" setup>
-import type { InstantMeiliSearchInstance } from '@meilisearch/instant-meilisearch'
-import { AisInstantSearch } from 'vue-instantsearch/vue3/es'
-
-const props = defineProps<{
-  searchClient: InstantMeiliSearchInstance
-  indexName: string
-}>()
-
-const { searchClient, indexName } = toRefs(props)
+import { AisInstantSearchSsr } from 'vue-instantsearch/vue3/es'
 
 const items = reactive([
   { name: '1', label: 'Home & Kitchen', modelValue: true },
   { name: '2', label: 'Health & Household', modelValue: false },
   { name: '3', label: 'Beauty & Personal Care', modelValue: false }
 ])
-
 const sortingOptions = reactive([
   { value: '1', label: 'Recommended' },
   { value: '2', label: 'Price (asc)' },
   { value: '3', label: 'Price (desc)' }
 ])
+
+const defaultQuery = ref('')
+
+const initialUiState = reactive({
+  products: {
+    query: defaultQuery
+  }
+})
+
+const { instantsearch } = useServerRootMixin('products')
+
+const { data } = await useFetch('/api/search', {
+  method: 'POST',
+  body: { query: defaultQuery }
+})
+
+instantsearch.hydrate({
+  products: {
+    results: [data.value?.results]
+  }
+})
 </script>
 
 <template>
-  <ais-instant-search :search-client="searchClient" :index-name="indexName">
+  <ais-instant-search-ssr :initial-ui-state="initialUiState">
     <TheNavbar class="mb-5 shadow-l" />
     <div class="container mb-5">
       <div class="mr-5 filters">
@@ -37,7 +49,7 @@ const sortingOptions = reactive([
         <MeiliSearchResults />
       </div>
     </div>
-  </ais-instant-search>
+  </ais-instant-search-ssr>
 </template>
 
 <style>

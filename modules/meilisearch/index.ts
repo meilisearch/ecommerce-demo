@@ -1,6 +1,6 @@
 import { resolve } from 'path'
 import { fileURLToPath } from 'url'
-import { defineNuxtModule, addPlugin } from '@nuxt/kit'
+import { defineNuxtModule, addPlugin, addServerHandler } from '@nuxt/kit'
 import { defu } from 'defu'
 import type { InstantMeiliSearchOptions } from '@meilisearch/instant-meilisearch'
 
@@ -38,6 +38,11 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxtApp.hook('imports:dirs', (dirs) => {
       dirs.push(resolve(runtimeDir, 'composables'))
+    })
+
+    addServerHandler({
+      middleware: true,
+      handler: resolve(runtimeDir, 'server/middleware/createMeilisearch')
     })
   }
 })
