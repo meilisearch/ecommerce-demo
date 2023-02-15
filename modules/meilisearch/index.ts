@@ -42,7 +42,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     addServerHandler({
       middleware: true,
-      handler: resolve(runtimeDir, 'server/middleware/createMeilisearch')
+      handler: resolve(runtimeDir, 'server/middleware/createInstantMeilisearch')
     })
   }
 })

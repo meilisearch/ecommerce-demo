@@ -6,11 +6,6 @@ const items = reactive([
   { name: '2', label: 'Health & Household', modelValue: false },
   { name: '3', label: 'Beauty & Personal Care', modelValue: false }
 ])
-const sortingOptions = reactive([
-  { value: '1', label: 'Recommended' },
-  { value: '2', label: 'Price (asc)' },
-  { value: '3', label: 'Price (desc)' }
-])
 
 const defaultQuery = ref('')
 
@@ -22,15 +17,13 @@ const initialUiState = reactive({
 
 const { instantsearch } = useServerRootMixin('products')
 
-const { data } = await useFetch('/api/search', {
+const { data: searchResults } = await useFetch('/api/search', {
   method: 'POST',
   body: { query: defaultQuery }
 })
 
 instantsearch.hydrate({
-  products: {
-    results: [data.value?.results]
-  }
+  products: searchResults.value
 })
 </script>
 
@@ -44,7 +37,7 @@ instantsearch.hydrate({
       <div class="results">
         <div class="mb-5 results-meta">
           <MeiliSearchStats />
-          <BaseSelect :options="sortingOptions" />
+          <MeiliSearchSorting />
         </div>
         <MeiliSearchResults />
       </div>

@@ -1,14 +1,16 @@
 import { defineEventHandler } from 'h3'
+import type { InstantMeiliSearchInstance } from '@meilisearch/instant-meilisearch'
 
 export default defineEventHandler(async (event) => {
-  // Meilisearch is binded into Nitro Context
-  const { meilisearch } = event.context
+  // InstantMeilisearch is binded into Nitro Context
+  const meilisearch = event.context.meilisearch as InstantMeiliSearchInstance
 
   const { query } = await readBody(event)
 
-  console.log(query)
+  const results = await meilisearch.search([{
+    indexName: 'products',
+    query
+  }])
 
-  const results = await meilisearch.index('products').search(query)
-
-  return { results }
+  return results
 })
