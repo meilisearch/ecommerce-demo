@@ -1,18 +1,13 @@
 <script lang="ts" setup>
-const items = reactive([
-  { name: '1', label: 'Home & Kitchen', modelValue: true },
-  { name: '2', label: 'Health & Household', modelValue: false },
-  { name: '3', label: 'Beauty & Personal Care', modelValue: false }
-])
-
 </script>
 
 <template>
-  <MeiliSearchProvider index-name="products" :ssr="true">
+  <MeiliSearchProvider index-name="products" :ssr="false">
     <TheNavbar class="mb-5 shadow-l" />
     <div class="container mb-5">
       <div class="mr-5 filters">
-        <CheckboxList title="Category" :items="items" />
+        <MeiliSearchFacet attribute="category" class="mb-5" />
+        <MeiliSearchFacet attribute="brand" />
       </div>
       <div class="results">
         <div class="mb-5 results-meta">

@@ -1,15 +1,17 @@
 <script lang="ts" setup>
 const props = withDefaults(defineProps<{
   size?: 'l' | 'm' | 's' | 'xs'
+  tag?: string
 }>(), {
-  size: 'l'
+  size: 'l',
+  tag: 'p'
 })
 
 const textSizeClass = computed(() => `body-${toRef(props, 'size').value}`)
 </script>
 
 <template>
-  <p class="body" :class="textSizeClass">
+  <component :is="tag" class="body" :class="textSizeClass">
     <slot name="default" />
-  </p>
+  </component>
 </template>

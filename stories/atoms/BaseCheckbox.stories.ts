@@ -21,11 +21,11 @@ type Story = StoryObj<typeof BaseCheckbox>
 
 export const Unchecked: Story = {
   args: {
-    modelValue: false
+    value: false
   }
 }
 export const Checked: Story = {
   args: {
-    modelValue: true
+    value: true
   }
 }
