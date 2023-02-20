@@ -1,34 +1,14 @@
 <script lang="ts" setup>
-import { AisInstantSearchSsr } from 'vue-instantsearch/vue3/es'
-
 const items = reactive([
   { name: '1', label: 'Home & Kitchen', modelValue: true },
   { name: '2', label: 'Health & Household', modelValue: false },
   { name: '3', label: 'Beauty & Personal Care', modelValue: false }
 ])
 
-const defaultQuery = ref('')
-
-const initialUiState = reactive({
-  products: {
-    query: defaultQuery
-  }
-})
-
-const { instantsearch } = useServerRootMixin('products')
-
-const { data: searchResults } = await useFetch('/api/search', {
-  method: 'POST',
-  body: { query: defaultQuery }
-})
-
-instantsearch.hydrate({
-  products: searchResults.value
-})
 </script>
 
 <template>
-  <ais-instant-search-ssr :initial-ui-state="initialUiState">
+  <MeiliSearchProvider index-name="products" :ssr="true">
     <TheNavbar class="mb-5 shadow-l" />
     <div class="container mb-5">
       <div class="mr-5 filters">
@@ -42,7 +22,7 @@ instantsearch.hydrate({
         <MeiliSearchResults />
       </div>
     </div>
-  </ais-instant-search-ssr>
+  </MeiliSearchProvider>
 </template>
 
 <style>
