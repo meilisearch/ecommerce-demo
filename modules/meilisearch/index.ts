@@ -11,12 +11,21 @@ interface ModuleOptions {
   options?: InstantMeiliSearchOptions
 }
 
+const parseBoolean = (str: string) => {
+  if (str === 'true') {
+    return true
+  } else if (str === 'false') {
+    return false
+  }
+  return undefined
+}
+
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     configKey: 'meilisearch'
   },
   defaults: {
-    enabled: process.env.MEILISEARCH_ENABLED || true,
+    enabled: parseBoolean(process.env.MEILISEARCH_ENABLED as string) || true,
     host: process.env.MEILISEARCH_HOST || '',
     searchApiKey: process.env.MEILISEARCH_SEARCH_API_KEY || ''
   },
