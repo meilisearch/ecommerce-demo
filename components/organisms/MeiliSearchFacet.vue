@@ -22,7 +22,7 @@ const { attribute } = toRefs(props)
         :name="item.value"
         @change="refine(item.value)"
       >
-        <BaseText tag="span" size="m">
+        <BaseText tag="span" size="m" class="text-valhalla-500">
           {{ item.label }} <BaseText tag="span" size="s" class="text-ashes-900">
             ({{ item.count.toLocaleString() }})
           </BaseText>
