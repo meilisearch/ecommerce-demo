@@ -5,6 +5,7 @@ import { defu } from 'defu'
 import type { InstantMeiliSearchOptions } from '@meilisearch/instant-meilisearch'
 
 interface ModuleOptions {
+  enabled: boolean
   host: string
   searchApiKey: string
   options?: InstantMeiliSearchOptions
@@ -15,10 +16,16 @@ export default defineNuxtModule<ModuleOptions>({
     configKey: 'meilisearch'
   },
   defaults: {
+    enabled: process.env.MEILISEARCH_ENABLED || true,
     host: process.env.MEILISEARCH_HOST || '',
     searchApiKey: process.env.MEILISEARCH_SEARCH_API_KEY || ''
   },
   setup (resolvedOptions, nuxtApp) {
+    if (!resolvedOptions.enabled) {
+      console.log('`[Meilisearch]` Module is not enabled')
+      return
+    }
+
     const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
 
     if (!resolvedOptions.host) {
