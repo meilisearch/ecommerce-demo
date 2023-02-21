@@ -14,8 +14,8 @@
     <div class="tablet-nav">
       <BaseLogo class="mr-5" />
       <MeiliSearchInput class="tablet-search-bar" />
-      <TwitterIcon class="mr-5 social-icon" height="36" width="36" />
-      <GithubIcon class="social-icon" height="36" width="36" />
+      <SocialLink url="https://twitter.com/meilisearch" icon="twitter" class="mr-5" />
+      <SocialLink url="https://github.com/meilisearch/ecommerce-demo" icon="github" />
     </div>
   </nav>
 </template>
@@ -62,9 +62,5 @@
     margin-left: calc(4 * var(--size-5));
     margin-right: calc(4 * var(--size-5));
   }
-}
-
-.social-icon path {
-  fill: var(--ashes-900);
 }
 </style>

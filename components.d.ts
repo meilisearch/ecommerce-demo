@@ -29,6 +29,7 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     SearchInput: typeof import('./components/molecules/SearchInput.vue')['default']
     SelectArrow: typeof import('./components/atoms/SelectArrow.vue')['default']
+    SocialLink: typeof import('./components/molecules/SocialLink.vue')['default']
     SolidStarIcon: typeof import('./components/atoms/SolidStarIcon.vue')['default']
     StarIcon: typeof import('./components/atoms/StarIcon.vue')['default']
     StarRating: typeof import('./components/molecules/StarRating.vue')['default']
