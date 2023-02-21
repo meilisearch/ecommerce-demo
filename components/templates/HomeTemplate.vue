@@ -5,7 +5,7 @@
   <MeiliSearchProvider index-name="products">
     <TheNavbar class="mb-5 shadow-l" />
     <div class="container mb-5">
-      <div class="mr-5 filters">
+      <div class="filters">
         <MeiliSearchRangeSlider attribute="price" class="mb-5" />
         <MeiliSearchFacet attribute="category" class="mb-5" />
         <MeiliSearchFacet attribute="brand" class="mb-5" />
@@ -30,7 +30,8 @@
 }
 
 .filters {
-  width: 20%;
+  width: min(20%, 280px);
+  margin-right: calc(2 * var(--size-5));
 }
 
 .results {
