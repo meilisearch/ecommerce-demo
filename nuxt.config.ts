@@ -30,9 +30,7 @@ export default defineNuxtConfig({
       options: {
         primaryKey: 'id'
       }
-    }],
-    // Remove extra CSS from Primevue
-    'nuxt-purgecss'
+    }]
   ],
   twicpics: {
     domain: process.env.TWICPICS_DOMAIN
