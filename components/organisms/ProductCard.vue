@@ -19,7 +19,11 @@ const optimizedImageUrl = computed(() => imageUrl.value.replace('https://images-
 
 <template>
   <BaseCard class="product-card">
-    <TwicImg :src="optimizedImageUrl" class="mb-5" />
+    <TwicImg
+      :alt="name"
+      :src="optimizedImageUrl"
+      class="mb-5"
+    />
     <div class="px-5 pb-5">
       <BaseTitle size="xs" class="mb-1 text-hot-pink-500 -900">
         {{ brand }}
