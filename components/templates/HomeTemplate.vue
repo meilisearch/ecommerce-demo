@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <MeiliSearchProvider index-name="products" :ssr="false">
+  <MeiliSearchProvider index-name="products">
     <TheNavbar class="mb-5 shadow-l" />
     <div class="container mb-5">
       <div class="mr-5 filters">
