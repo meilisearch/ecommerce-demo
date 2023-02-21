@@ -1,5 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  build: {
+    transpile: ['primevue']
+  },
+  css: [
+    'primevue/resources/themes/saga-blue/theme.css',
+    'primevue/resources/primevue.css',
+    '~/assets/css/typography.css',
+    '~/assets/css/spacing.css',
+    '~/assets/css/shadow.css'
+  ],
   components: {
     dirs: [
       '~/components/atoms',
@@ -7,11 +17,6 @@ export default defineNuxtConfig({
       '~/components/organisms'
     ]
   },
-  css: [
-    '~/assets/css/typography.css',
-    '~/assets/css/spacing.css',
-    '~/assets/css/shadow.css'
-  ],
   modules: [
     // Handle interface imports for defineProps
     // Docs: https://github.com/wheatjs/vite-plugin-vue-type-imports
@@ -25,7 +30,9 @@ export default defineNuxtConfig({
       options: {
         primaryKey: 'id'
       }
-    }]
+    }],
+    // Remove extra CSS from Primevue
+    'nuxt-purgecss'
   ],
   twicpics: {
     domain: process.env.TWICPICS_DOMAIN
