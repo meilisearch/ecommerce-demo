@@ -30,8 +30,8 @@ export default defineNuxtModule<ModuleOptions>({
     searchApiKey: process.env.MEILISEARCH_SEARCH_API_KEY || ''
   },
   setup (resolvedOptions, nuxtApp) {
-    if (!resolvedOptions.enabled) {
-      console.log('`[Meilisearch]` Module is not enabled')
+    if (!resolvedOptions.enabled || !parseBoolean(process.env.MEILISEARCH_ENABLED as string)) {
+      console.log('`[Meilisearch]` Module is disabled')
       return
     }
 
@@ -49,6 +49,8 @@ export default defineNuxtModule<ModuleOptions>({
       searchApiKey: resolvedOptions.searchApiKey,
       options: resolvedOptions.options
     })
+
+    console.log('runtimeConfig', nuxtApp.options.runtimeConfig.public.meilisearch)
 
     addPlugin(resolve(runtimeDir, 'plugin'))
 
