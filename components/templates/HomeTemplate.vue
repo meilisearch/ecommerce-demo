@@ -9,6 +9,7 @@
         <MeiliSearchRangeSlider attribute="price" class="mb-5" />
         <MeiliSearchFacet attribute="category" class="mb-5" />
         <MeiliSearchFacet attribute="brand" class="mb-5" />
+        <MeiliSearchRatingFilter attribute="rating" />
       </div>
       <div class="results">
         <div class="mb-5 results-meta">

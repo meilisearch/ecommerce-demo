@@ -38,7 +38,7 @@ const optimizedImageUrl = computed(() => imageUrl.value.replace('https://images-
         <BaseText size="s" class="mr-1 text-valhalla-100">
           {{ rating }}
         </BaseText>
-        <StarRating :rating="rating" class="my-auto mr-2" />
+        <StarRating :rating="rating" class="my-auto mr-2 text-valhalla-100" />
         <BaseText size="xs" class="text-ashes-900">
           {{ reviewsCount }} reviews
         </BaseText>

@@ -23,6 +23,7 @@ declare module '@vue/runtime-core' {
     MeiliSearchInput: typeof import('./components/organisms/MeiliSearchInput.vue')['default']
     MeiliSearchProvider: typeof import('./components/organisms/MeiliSearchProvider.vue')['default']
     MeiliSearchRangeSlider: typeof import('./components/organisms/MeiliSearchRangeSlider.vue')['default']
+    MeiliSearchRatingFilter: typeof import('./components/organisms/MeiliSearchRatingFilter.vue')['default']
     MeiliSearchResults: typeof import('./components/organisms/MeiliSearchResults.vue')['default']
     MeiliSearchSorting: typeof import('./components/organisms/MeiliSearchSorting.vue')['default']
     MeiliSearchStats: typeof import('./components/organisms/MeiliSearchStats.vue')['default']
