@@ -25,16 +25,19 @@ const { attribute } = toRefs(props)
         href="#"
         @click.prevent="refine(item.value)"
       >
-        <StarRating :rating="Number(item.value)" />
-        <BaseText
-          tag="span"
-          size="m"
-        >
-          & Up
-        </BaseText>
-        <BaseText tag="span" size="s" class="text-ashes-900">
-          ({{ item.count.toLocaleString() }})
-        </BaseText>
+        <span class="rating-label">
+          <StarRating :rating="Number(item.value)" />
+          <BaseText
+            tag="span"
+            size="m"
+            class="ml-1"
+          >
+            & Up
+            <BaseText tag="span" size="s" class="text-ashes-900">
+              ({{ item.count.toLocaleString() }})
+            </BaseText>
+          </BaseText>
+        </span>
       </a>
     </template>
   </AisRatingMenu>
@@ -42,11 +45,13 @@ const { attribute } = toRefs(props)
 
 <style scoped>
 .link {
+  display: block;
   text-decoration: none;
   cursor: pointer;
 }
 
-.link:hover {
-  color: var(--dodge-blue-500);
+.rating-label {
+  display: inline-flex;
+  align-items: center;
 }
 </style>
