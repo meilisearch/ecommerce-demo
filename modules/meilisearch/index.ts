@@ -2,14 +2,7 @@ import { resolve } from 'path'
 import { fileURLToPath } from 'url'
 import { defineNuxtModule, addPlugin, addServerHandler } from '@nuxt/kit'
 import { defu } from 'defu'
-import type { InstantMeiliSearchOptions } from '@meilisearch/instant-meilisearch'
-
-interface ModuleOptions {
-  enabled: boolean
-  host: string
-  searchApiKey: string
-  options?: InstantMeiliSearchOptions
-}
+import { ModuleOptions } from './types'
 
 const parseBoolean = (str: string) => {
   if (str === 'true') {

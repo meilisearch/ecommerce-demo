@@ -28,7 +28,9 @@ export default defineNuxtConfig({
       host: process.env.MEILISEARCH_HOST,
       searchApiKey: process.env.MEILISEARCH_SEARCH_API_KEY,
       options: {
-        primaryKey: 'id'
+        primaryKey: 'id',
+        keepZeroFacets: true,
+        finitePagination: true
       }
     }]
   ],
