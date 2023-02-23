@@ -6,9 +6,9 @@
     <TheNavbar class="mb-5 shadow-l" />
     <div class="container mb-5">
       <div class="filters">
-        <MeiliSearchRangeSlider attribute="price" class="mb-5" />
         <MeiliSearchFacet attribute="category" class="mb-5" />
         <MeiliSearchFacet attribute="brand" class="mb-5" />
+        <MeiliSearchRangeSlider attribute="price" class="mb-5" />
         <MeiliSearchRatingFilter attribute="rating" />
       </div>
       <div class="results">
