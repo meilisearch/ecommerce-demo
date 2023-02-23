@@ -9,7 +9,10 @@ const { attribute } = toRefs(props)
 </script>
 
 <template>
-  <ais-refinement-list :attribute="attribute">
+  <ais-refinement-list
+    :attribute="attribute"
+    operator="or"
+  >
     <template #default="{ items, refine }">
       <BaseTitle class="mb-3 text-valhalla-100">
         {{ attribute }}

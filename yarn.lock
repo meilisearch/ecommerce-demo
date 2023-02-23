@@ -1451,12 +1451,12 @@
     "@types/mdx" "^2.0.0"
     "@types/react" ">=16"
 
-"@meilisearch/instant-meilisearch@^0.10.1":
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/@meilisearch/instant-meilisearch/-/instant-meilisearch-0.10.1.tgz#07220e88d30121d1f07c465fdeae7c048d20ed4a"
-  integrity sha512-uEw1P5zTRNtZvXrFqs2I2O1RNRZMXH2n6d3WEV7IWjKMO9drRLnI69YZALvG50238/9qWam4h07zXsq8ElXPBA==
+"@meilisearch/instant-meilisearch@0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@meilisearch/instant-meilisearch/-/instant-meilisearch-0.11.0.tgz#28dfecf30427726ddcf54e7eb673943cd6a22de5"
+  integrity sha512-JaSiF8aWeN/ZZQYpPTws2a7M3RWam8dtRxMb7Im2oJ6ui7Iacc6qxgmVXsY6SgW+mBC8SqEQGPLZTWUQfPvBQQ==
   dependencies:
-    meilisearch "^0.30.0"
+    meilisearch "^0.31.1"
 
 "@netlify/functions@^1.4.0":
   version "1.4.0"
@@ -6671,13 +6671,6 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==
-
-meilisearch@^0.30.0:
-  version "0.30.0"
-  resolved "https://registry.yarnpkg.com/meilisearch/-/meilisearch-0.30.0.tgz#707f9a6b07440c496b965379616e084f112160ae"
-  integrity sha512-3y1hALOwTDpquYar+gDREqRasFPWKxkWAhk6h+RF+nKObPVf9N77wcTNvukGwOKbxRyJnKge0OPgAB1BkB9VVw==
-  dependencies:
-    cross-fetch "^3.1.5"
 
 meilisearch@^0.31.1:
   version "0.31.1"
