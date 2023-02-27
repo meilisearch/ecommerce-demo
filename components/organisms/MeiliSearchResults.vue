@@ -3,7 +3,7 @@ import { AisHits } from 'vue-instantsearch/vue3/es'
 </script>
 
 <template>
-  <ais-hits>
+  <AisHits>
     <template #default="{ items }">
       <div class="results-items">
         <ProductCard
@@ -18,7 +18,7 @@ import { AisHits } from 'vue-instantsearch/vue3/es'
         />
       </div>
     </template>
-  </ais-hits>
+  </AisHits>
 </template>
 
 <style scoped>

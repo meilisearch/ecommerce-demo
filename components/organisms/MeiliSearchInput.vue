@@ -3,7 +3,7 @@ import { AisSearchBox } from 'vue-instantsearch/vue3/es'
 </script>
 
 <template>
-  <ais-search-box>
+  <AisSearchBox>
     <template #default="{ currentRefinement, isSearchStalled, refine }">
       <SearchInput
         :value="currentRefinement"
@@ -11,5 +11,5 @@ import { AisSearchBox } from 'vue-instantsearch/vue3/es'
       />
       <span :hidden="!isSearchStalled">Loading...</span>
     </template>
-  </ais-search-box>
+  </AisSearchBox>
 </template>
