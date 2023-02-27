@@ -18,6 +18,7 @@ declare module '@vue/runtime-core' {
     HalfSolidStarIcon: typeof import('./components/atoms/HalfSolidStarIcon.vue')['default']
     MeiliSearchFacet: typeof import('./components/organisms/MeiliSearchFacet.vue')['default']
     MeiliSearchInput: typeof import('./components/organisms/MeiliSearchInput.vue')['default']
+    MeiliSearchListFilter: typeof import('./components/organisms/MeiliSearchListFilter.vue')['default']
     MeiliSearchPagination: typeof import('./components/organisms/MeiliSearchPagination.vue')['default']
     MeiliSearchProvider: typeof import('./components/organisms/MeiliSearchProvider.vue')['default']
     MeiliSearchRangeSlider: typeof import('./components/organisms/MeiliSearchRangeSlider.vue')['default']
