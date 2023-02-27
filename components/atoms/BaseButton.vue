@@ -1,21 +1,23 @@
 <script lang="ts" setup>
 interface Props {
   color: 'dodger-blue' | 'hot-pink'
-  primary?: boolean
+  secondary?: boolean
   size?: 'default' | 'small' | 'large'
 }
 
 const props = withDefaults(defineProps<Props>(), {
   color: 'hot-pink',
-  primary: true,
+  secondary: false,
   size: 'default'
 })
 
-const buttonColorClass = computed(() => `btn-${props.color}`)
-const buttonPrimaryClass = computed(() => toRef(props, 'primary') ? '' : 'btn-secondary')
+const { color, secondary, size } = toRefs(props)
+
+const buttonColorClass = computed(() => `btn-${color.value}`)
+const buttonSecondaryClass = computed(() => secondary.value ? 'btn-secondary' : '')
 const buttonSizeClass = computed(() => {
-  if (props.size === 'default') { return '' }
-  return props.size === 'large'
+  if (size.value === 'default') { return '' }
+  return size.value === 'large'
     ? 'btn-lg'
     : 'btn-sm'
 })
@@ -24,7 +26,7 @@ const buttonSizeClass = computed(() => {
 <template>
   <button
     class="btn"
-    :class="[buttonColorClass, buttonPrimaryClass, buttonSizeClass]"
+    :class="[buttonColorClass, buttonSecondaryClass, buttonSizeClass]"
     type="button"
   >
     <slot name="default" />

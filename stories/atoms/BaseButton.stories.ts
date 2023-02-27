@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import BaseButton from '~/components/atoms/BaseButton.vue'
 
-const meta: Meta<typeof BaseButton> = {
+const meta = {
   component: BaseButton,
   render: args => ({
     components: { BaseButton },
@@ -11,46 +11,59 @@ const meta: Meta<typeof BaseButton> = {
     `
   }),
   argTypes: {
+    secondary: { type: 'boolean' },
     color: { options: ['dodger-blue', 'hot-pink'] },
     size: { options: ['default', 'large', 'small'] }
+  },
+  args: {
+    secondary: false
   }
-}
+} satisfies Meta<typeof BaseButton>
 
 export default meta
 
-type Story = StoryObj<typeof BaseButton>
+type Story = StoryObj<typeof meta>
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/7.0/vue/api/csf
- * to learn how to use render functions.
- */
-export const Primary: Story = {
+export const PrimaryDodgerBlue: Story = {
   args: {
     color: 'dodger-blue',
-    primary: true,
     size: 'default'
   }
-}
+} satisfies Story
 
-export const Secondary: Story = {
+export const SecondaryDodgerBlue: Story = {
   args: {
     color: 'dodger-blue',
-    primary: false,
+    secondary: true,
     size: 'default'
   }
-}
+} satisfies Story
+
+export const PrimaryHotPink: Story = {
+  args: {
+    color: 'hot-pink',
+    size: 'default'
+  }
+} satisfies Story
+
+export const SecondaryHotPink: Story = {
+  args: {
+    color: 'hot-pink',
+    secondary: true,
+    size: 'default'
+  }
+} satisfies Story
 
 export const Small: Story = {
   args: {
-    ...Primary.args,
+    ...PrimaryDodgerBlue.args,
     size: 'small'
   }
-}
+} satisfies Story
 
 export const Large: Story = {
   args: {
-    ...Primary.args,
+    ...PrimaryDodgerBlue.args,
     size: 'large'
   }
-}
+} satisfies Story
