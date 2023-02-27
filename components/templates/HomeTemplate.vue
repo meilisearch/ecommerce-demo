@@ -8,7 +8,7 @@
       <div class="filters">
         <MeiliSearchListFilter attribute="category" class="mb-5" />
         <MeiliSearchListFilter attribute="brand" class="mb-5" />
-        <MeiliSearchRangeSlider attribute="price" class="mb-5" />
+        <MeiliSearchRangeFilter attribute="price" class="mb-5" />
         <MeiliSearchRatingFilter attribute="rating_rounded" />
       </div>
       <div class="results">
