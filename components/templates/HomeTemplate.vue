@@ -9,7 +9,7 @@
         <MeiliSearchListFilter attribute="category" class="mb-5" />
         <MeiliSearchListFilter attribute="brand" class="mb-5" />
         <MeiliSearchRangeFilter attribute="price" class="mb-5" />
-        <MeiliSearchRatingFilter attribute="rating_rounded" />
+        <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" />
       </div>
       <div class="results">
         <div class="mb-5 results-meta">

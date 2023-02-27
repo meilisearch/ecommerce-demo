@@ -3,6 +3,7 @@ import { AisRatingMenu } from 'vue-instantsearch/vue3/es'
 
 const props = defineProps<{
   attribute: string
+  label?: string
 }>()
 
 const { attribute } = toRefs(props)
@@ -15,7 +16,7 @@ const { attribute } = toRefs(props)
   >
     <template #default="{ items, refine }">
       <BaseTitle class="mb-3 text-valhalla-100">
-        {{ attribute }}
+        {{ label ?? attribute }}
       </BaseTitle>
       <a
         v-for="item in items"
