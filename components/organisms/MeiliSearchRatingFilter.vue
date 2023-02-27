@@ -25,7 +25,7 @@ const { attribute } = toRefs(props)
         href="#"
         @click.prevent="refine(item.value)"
       >
-        <span class="rating-label">
+        <span class="label">
           <StarRating :rating="Number(item.value)" />
           <BaseText
             tag="span"
@@ -50,7 +50,7 @@ const { attribute } = toRefs(props)
   cursor: pointer;
 }
 
-.rating-label {
+.label {
   display: inline-flex;
   align-items: center;
 }
