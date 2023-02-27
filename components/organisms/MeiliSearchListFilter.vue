@@ -9,7 +9,7 @@ const { attribute } = toRefs(props)
 </script>
 
 <template>
-  <ais-refinement-list
+  <AisRefinementList
     :attribute="attribute"
     operator="or"
   >
@@ -32,5 +32,5 @@ const { attribute } = toRefs(props)
         </BaseText>
       </BaseCheckbox>
     </template>
-  </ais-refinement-list>
+  </AisRefinementList>
 </template>
