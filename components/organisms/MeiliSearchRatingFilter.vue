@@ -21,12 +21,12 @@ const { attribute } = toRefs(props)
       <a
         v-for="item in items"
         :key="item.value"
-        class="link"
+        class="rating-link"
         :class="[item.isRefined ? 'text-dodger-500' : 'text-valhalla-500']"
         href="#"
         @click.prevent="refine(item.value)"
       >
-        <span class="label">
+        <span class="rating-label">
           <StarRating :rating="Number(item.value)" />
           <BaseText
             tag="span"
@@ -45,13 +45,13 @@ const { attribute } = toRefs(props)
 </template>
 
 <style scoped>
-.link {
+.rating-link {
   display: block;
   text-decoration: none;
   cursor: pointer;
 }
 
-.label {
+.rating-label {
   display: inline-flex;
   align-items: center;
 }
