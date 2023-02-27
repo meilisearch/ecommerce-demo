@@ -14,6 +14,7 @@ import { AisPagination } from 'vue-instantsearch/vue3/es'
         isLastPage
       }"
     >
+      <!-- First page -->
       <BaseTitle v-if="!isFirstPage && !pages.includes(0)" tag="span">
         <a href="#" class="link" @click.prevent="refine(0)">
           Page 1
