@@ -60,7 +60,4 @@ import { AisPagination } from 'vue-instantsearch/vue3/es'
 .link.active {
   color: var(--dodger-blue-500);
 }
-
-.pages {
-}
 </style>
