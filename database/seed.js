@@ -32,7 +32,7 @@ const setup = async () => {
     'brand',
     'category',
     'tag',
-    'rating',
+    'rating_rounded',
     'reviews_count',
     'price'
   ])
