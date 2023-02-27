@@ -10,7 +10,7 @@
     "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build",
     "lint": "eslint .",
-    "seed": "node database/seed.js"
+    "setup": "node database/setup.js"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
