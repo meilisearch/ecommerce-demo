@@ -3,7 +3,11 @@
 
 <template>
   <MeiliSearchProvider index-name="products">
-    <TheNavbar class="mb-5 shadow-l" />
+    <TheNavbar class="mb-5 shadow-l">
+      <template #search-input>
+        <MeiliSearchInput />
+      </template>
+    </TheNavbar>
     <div class="container mb-5">
       <div class="filters">
         <MeiliSearchListFilter attribute="category" class="mb-5" />

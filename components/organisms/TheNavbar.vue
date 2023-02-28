@@ -9,11 +9,15 @@
         <TwitterIcon class="ml-auto social-icon" />
         <GithubIcon class="ml-2 social-icon" />
       </div>
-      <MeiliSearchInput class="mobile-search-bar mr-5" />
+      <div class="mobile-search-bar mr-5">
+        <slot name="search-input" />
+      </div>
     </div>
     <div class="tablet-nav">
       <BaseLogo class="mr-5" />
-      <MeiliSearchInput class="tablet-search-bar" />
+      <div class="tablet-search-bar">
+        <slot name="search-input" />
+      </div>
       <SocialLink url="https://twitter.com/meilisearch" icon="twitter" class="mr-5" />
       <SocialLink url="https://github.com/meilisearch/ecommerce-demo" icon="github" />
     </div>
