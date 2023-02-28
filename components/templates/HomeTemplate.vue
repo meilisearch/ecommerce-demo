@@ -27,7 +27,7 @@
   </MeiliSearchProvider>
 </template>
 
-<style>
+<style scoped>
 .container {
   margin-left: calc(2 * var(--size-5));
   margin-right: calc(2 * var(--size-5));
@@ -47,12 +47,5 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-}
-
-.items {
-  display: grid;
-  grid-template-columns: repeat( auto-fill, minmax(200px, 1fr) );
-  column-gap: calc(1.5 * var(--size-5));
-  row-gap: calc(1.5 * var(--size-5));
 }
 </style>
