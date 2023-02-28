@@ -5,7 +5,7 @@ import { AisHits } from 'vue-instantsearch/vue3/es'
 <template>
   <AisHits>
     <template #default="{ items }">
-      <div class="results-items">
+      <div class="items">
         <ProductCard
           v-for="product in items"
           :key="product.id"
@@ -22,9 +22,10 @@ import { AisHits } from 'vue-instantsearch/vue3/es'
 </template>
 
 <style scoped>
-.results-items {
+.items {
   display: grid;
   grid-template-columns: repeat( auto-fill, minmax(200px, 1fr) );
   column-gap: calc(1.5 * var(--size-5));
   row-gap: calc(1.5 * var(--size-5));
-}</style>
+}
+</style>
