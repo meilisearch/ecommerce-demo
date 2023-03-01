@@ -1451,10 +1451,10 @@
     "@types/mdx" "^2.0.0"
     "@types/react" ">=16"
 
-"@meilisearch/instant-meilisearch@0.11.0":
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/@meilisearch/instant-meilisearch/-/instant-meilisearch-0.11.0.tgz#28dfecf30427726ddcf54e7eb673943cd6a22de5"
-  integrity sha512-JaSiF8aWeN/ZZQYpPTws2a7M3RWam8dtRxMb7Im2oJ6ui7Iacc6qxgmVXsY6SgW+mBC8SqEQGPLZTWUQfPvBQQ==
+"@meilisearch/instant-meilisearch@0.11.1":
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/@meilisearch/instant-meilisearch/-/instant-meilisearch-0.11.1.tgz#1b8fdbbfee9d67ed8dcab46cedfae05bc0ded11c"
+  integrity sha512-FOAp1Lh1CAoY1CIJ2aYBYqw3oHcgzYEOBarPcrNqBfw0wQXuj6rHgANGm21pSxl8BNHLyYX85ntyOcUfD5f03g==
   dependencies:
     meilisearch "^0.31.1"
 
