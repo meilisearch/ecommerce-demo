@@ -1,4 +1,10 @@
 <script lang="ts" setup>
+const sortingOptions = [
+  { value: 'products', label: 'Featured' },
+  { value: 'products:price:asc', label: 'Price: Low to High' },
+  { value: 'products:price:desc', label: 'Price: High to Low' },
+  { value: 'products:rating:desc', label: 'Rating: High to Low' }
+]
 </script>
 
 <template>
@@ -18,7 +24,7 @@
       <div class="results">
         <div class="mb-5 results-meta">
           <MeiliSearchStats />
-          <MeiliSearchSorting />
+          <MeiliSearchSorting :options="sortingOptions" />
         </div>
         <MeiliSearchResults class="mb-5" />
         <MeiliSearchPagination />
