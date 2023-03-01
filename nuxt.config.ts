@@ -1,7 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   build: {
-    transpile: ['primevue']
+    transpile: [
+      'primevue',
+      'vue-instantsearch'
+    ]
   },
   css: [
     'primevue/resources/themes/saga-blue/theme.css',
