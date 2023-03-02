@@ -2,13 +2,10 @@
 export default defineNuxtConfig({
   build: {
     transpile: [
-      'primevue',
       'vue-instantsearch'
     ]
   },
   css: [
-    'primevue/resources/themes/saga-blue/theme.css',
-    'primevue/resources/primevue.css',
     '~/assets/css/typography.css',
     '~/assets/css/spacing.css',
     '~/assets/css/shadow.css'
