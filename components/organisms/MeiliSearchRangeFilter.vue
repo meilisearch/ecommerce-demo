@@ -24,7 +24,7 @@ const toValue = (currentValue: Range, boundaries: Range): [number, number] => {
 </script>
 
 <template>
-  <ais-range-input
+  <AisRangeInput
     :attribute="attribute"
     :min="minPrice"
     :max="maxPrice"
@@ -48,7 +48,7 @@ const toValue = (currentValue: Range, boundaries: Range): [number, number] => {
         @update:model-value="refine($event)"
       />
     </template>
-  </ais-range-input>
+  </AisRangeInput>
 </template>
 
 <style scoped>
