@@ -16,10 +16,10 @@ const sortingOptions = [
     </TheNavbar>
     <div class="container mb-5">
       <div class="filters">
-        <!-- <MeiliSearchListFilter attribute="category" class="mb-5" /> -->
-        <!-- <MeiliSearchListFilter attribute="brand" class="mb-5" /> -->
-        <!-- <MeiliSearchRangeFilter attribute="price" class="mb-5" /> -->
-        <!-- <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" /> -->
+        <MeiliSearchListFilter attribute="category" class="mb-5" />
+        <MeiliSearchListFilter attribute="brand" class="mb-5" />
+        <MeiliSearchRangeFilter attribute="price" class="mb-5" />
+        <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" />
       </div>
       <div class="results">
         <div class="mb-5 results-meta">
@@ -27,7 +27,7 @@ const sortingOptions = [
           <MeiliSearchSorting :options="sortingOptions" />
         </div>
         <MeiliSearchResults class="mb-5" />
-        <!-- <MeiliSearchPagination /> -->
+        <MeiliSearchPagination />
       </div>
     </div>
   </MeiliSearchProvider>
