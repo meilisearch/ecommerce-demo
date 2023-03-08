@@ -1,10 +1,12 @@
 <script lang="ts" setup>
-import { BaseCheckboxProps } from '~/types'
-
-const props = defineProps<BaseCheckboxProps>()
+const props = defineProps<{
+  value: boolean
+  name: string
+  label: string
+}>()
 
 defineEmits<{
- (e: 'update:modelValue', checked: boolean): void
+ (e: 'update:value', checked: boolean): void
 }>()
 
 const { name, label } = toRefs(props)
@@ -17,10 +19,14 @@ const { name, label } = toRefs(props)
       type="checkbox"
       :name="name"
       class="mr-2"
-      :checked="modelValue"
-      @update="$emit('update:modelValue', $event.target.checked)"
+      :checked="value"
+      @update="$emit('update:value', $event.target.checked)"
     >
-    <label :for="name" class="body">{{ label }}</label>
+    <label :for="name" class="body">
+      <slot name="default">
+        {{ label }}
+      </slot>
+    </label>
   </div>
 </template>
 

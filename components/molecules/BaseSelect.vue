@@ -1,26 +1,30 @@
 <script lang="ts" setup>
 const props = defineProps<{
+  value?: string
   options: Array<{
     value: string
     label: string
   }>
 }>()
 
+defineEmits(['change'])
+
 const options = toRef(props, 'options')
 </script>
 
 <template>
   <div class="select-group">
-    <select id="" name="" class="input pr-5">
+    <select class="pr-5 input" @change="$emit('change', $event)">
       <option
         v-for="option in options"
         :key="option.value"
         :value="option.value"
+        :selected="option.value === value"
       >
         {{ option.label }}
       </option>
     </select>
-    <SelectArrow class="select-arrow mr-4" />
+    <SelectArrow class="mr-4 select-arrow" />
   </div>
 </template>
 

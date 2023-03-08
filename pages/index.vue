@@ -1,7 +1,9 @@
 <script lang="ts" setup>
-import HomeTemplate from '~/components/templates/HomeTemplate.vue';
+import HomeTemplate from '~/components/templates/HomeTemplate.vue'
+
+// const meilisearch = useMeilisearch()
 </script>
 
 <template>
-  <HomeTemplate/>
+  <HomeTemplate />
 </template>

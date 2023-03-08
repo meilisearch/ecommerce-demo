@@ -1,51 +1,39 @@
 <script lang="ts" setup>
-import data from '~/database/data.json'
-
-const products = data.slice(0, 12)
-
-const items = reactive([
-  { name: '1', label: 'Home & Kitchen', modelValue: true },
-  { name: '2', label: 'Health & Household', modelValue: false },
-  { name: '3', label: 'Beauty & Personal Care', modelValue: false }
-])
-
-const sortingOptions = reactive([
-  { value: '1', label: 'Recommended' },
-  { value: '2', label: 'Price (asc)' },
-  { value: '3', label: 'Price (desc)' }
-])
+const sortingOptions = [
+  { value: 'products', label: 'Featured' },
+  { value: 'products:price:asc', label: 'Price: Low to High' },
+  { value: 'products:price:desc', label: 'Price: High to Low' },
+  { value: 'products:rating:desc', label: 'Rating: High to Low' }
+]
 </script>
 
 <template>
-  <TheNavbar class="mb-5 shadow-l" />
-  <div class="container mb-5">
-    <div class="mr-5 filters">
-      <CheckboxList title="Category" :items="items" />
-    </div>
-    <div class="results">
-      <div class="mb-5 results-meta">
-        <BaseText size="m" class="text-valhalla-100">
-          40940 results found in 15ms.
-        </BaseText>
-        <BaseSelect :options="sortingOptions" />
+  <MeiliSearchProvider index-name="products">
+    <TheNavbar class="mb-5 shadow-l">
+      <template #search-input>
+        <MeiliSearchInput />
+      </template>
+    </TheNavbar>
+    <div class="container mb-5">
+      <div class="filters">
+        <MeiliSearchListFilter attribute="category" class="mb-5" />
+        <MeiliSearchListFilter attribute="brand" class="mb-5" />
+        <MeiliSearchRangeFilter attribute="price" class="mb-5" />
+        <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" />
       </div>
-      <div class="items">
-        <ProductCard
-          v-for="product in products"
-          :key="product.id"
-          :name="product.title"
-          :brand="product.brand"
-          :price="product.price"
-          :image-url="product.images[0]"
-          :rating="product.rating"
-          :reviews-count="product.reviews_count"
-        />
+      <div class="results">
+        <div class="mb-5 results-meta">
+          <MeiliSearchStats />
+          <MeiliSearchSorting :options="sortingOptions" />
+        </div>
+        <MeiliSearchResults class="mb-5" />
+        <MeiliSearchPagination />
       </div>
     </div>
-  </div>
+  </MeiliSearchProvider>
 </template>
 
-<style>
+<style scoped>
 .container {
   margin-left: calc(2 * var(--size-5));
   margin-right: calc(2 * var(--size-5));
@@ -53,7 +41,8 @@ const sortingOptions = reactive([
 }
 
 .filters {
-  width: 20%;
+  width: min(20%, 280px);
+  margin-right: calc(2 * var(--size-5));
 }
 
 .results {
@@ -64,12 +53,5 @@ const sortingOptions = reactive([
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-}
-
-.items {
-  display: grid;
-  grid-template-columns: repeat( auto-fill, minmax(200px, 1fr) );
-  column-gap: calc(1.5 * var(--size-5));
-  row-gap: calc(1.5 * var(--size-5));
 }
 </style>
