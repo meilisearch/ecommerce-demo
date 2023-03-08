@@ -1,5 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      fathomSiteID: process.env.FATHOM_SITE_ID
+    }
+  },
   components: {
     dirs: [
       '~/components/atoms',

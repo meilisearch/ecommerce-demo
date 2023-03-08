@@ -23,6 +23,7 @@
     "@storybook/vue3": "^7.0.0-beta.36",
     "@storybook/vue3-vite": "^7.0.0-beta.36",
     "@twicpics/components": "^0.15.1",
+    "@ubclaunchpad/vue-fathom": "^2.0.0",
     "babel-loader": "^8.3.0",
     "eslint": "^8.33.0",
     "nuxt": "^3.1.0",
