@@ -2830,6 +2830,14 @@
     "@typescript-eslint/types" "5.51.0"
     eslint-visitor-keys "^3.3.0"
 
+"@ubclaunchpad/vue-fathom@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@ubclaunchpad/vue-fathom/-/vue-fathom-2.0.0.tgz#22f822a37ede999ea5a60e5105c836ca4eff6590"
+  integrity sha512-QbO0O46a2uVpGhufDyqUArOUR5mgvbpS7p0Ug01hNtXK0Qhhy1Mh1Kn6xaVpkd0+8Vp9RsvJAMoufakpTT4iRQ==
+  dependencies:
+    fathom-client "^3.0.0"
+    vue "^3.0.0"
+
 "@unhead/dom@1.0.21", "@unhead/dom@^1.0.21":
   version "1.0.21"
   resolved "https://registry.yarnpkg.com/@unhead/dom/-/dom-1.0.21.tgz#f42c004bd26046f4b2a870c3bac3282e88015a73"
@@ -5063,6 +5071,11 @@ fastq@^1.6.0:
   integrity sha512-wBrocU2LCXXa+lWBt8RoIRD89Fi8OdABODa/kEnyeyjS5aZO5/GNvI5sEINADqP/h8M29UHTHUb53sUu5Ihqdw==
   dependencies:
     reusify "^1.0.4"
+
+fathom-client@^3.0.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/fathom-client/-/fathom-client-3.5.0.tgz#47bf3e67fa789ec415fe6efdc0ec02b9187b4b0d"
+  integrity sha512-BiRDS9Q9a8Zma0H717FWC5cvf545K/CsxBpxKT22TcSl1EbRhhlHWIJgrdeiQUfdorBK2ppy09TwMOhRsbos/A==
 
 fb-watchman@^2.0.0:
   version "2.0.2"
@@ -9552,7 +9565,7 @@ vue-router@^4.1.6:
   dependencies:
     "@vue/devtools-api" "^6.4.5"
 
-vue@^3.2.47:
+vue@^3.0.0, vue@^3.2.47:
   version "3.2.47"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.47.tgz#3eb736cbc606fc87038dbba6a154707c8a34cff0"
   integrity sha512-60188y/9Dc9WVrAZeUVSDxRQOZ+z+y5nO2ts9jWXSTkMvayiWxCWOWtBQoYjLeccfXkiiPZWAHcV+WTPhkqJHQ==
