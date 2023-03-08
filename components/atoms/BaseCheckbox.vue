@@ -36,4 +36,8 @@ const { name, label } = toRefs(props)
   flex-direction: row;
   align-items: center;
 }
+
+.input-group input, .input-group label {
+  cursor: pointer;
+}
 </style>
