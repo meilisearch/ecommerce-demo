@@ -1,0 +1,191 @@
+@import '~/assets/css/base.css';
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.625rem 1.25rem;
+  gap: 0.563rem;
+  min-width: 4.9rem;
+  height: 2.37rem;
+  font-size: 0.75rem;
+  border-radius: 11rem;
+  border-width: 0.1rem;
+  border-style: solid;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s ease;
+  transition-property: background-color, border-color;
+  color: var(--white);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  gap: 0.75rem;
+  min-width: 5.875rem;
+  height: 2.813rem;
+  font-size: 0.875rem;
+}
+
+.btn-sm {
+  padding: 0.313rem 0.75rem;
+  gap: 0.438rem;
+  min-width: 3.938rem;
+  height: 1.75rem;
+  font-size: 0.75rem;
+}
+
+.btn-dodger-blue {
+  background-color: var(--dodger-blue-500);
+  border-color: var(--dodger-blue-500);
+}
+
+.btn-hot-pink {
+  background-color: var(--hot-pink-500);
+  border-color: var(--hot-pink-500);
+}
+
+.btn-lila {
+  background-color: var(--lila-500);
+  border-color: var(--lila-500);
+}
+
+.btn-turquoise {
+  background-color: var(--turquoise-600);
+  border-color: var(--turquoise-600);
+}
+
+.btn-watermelon {
+  background-color: var(--watermelon-500);
+  border-color: var(--watermelon-500);
+}
+
+.btn-peppermint {
+  background-color: var(--peppermint-500);
+  border-color: var(--peppermint-500);
+}
+
+.btn-candlelight {
+  background-color: var(--candlelight-600);
+  border-color: var(--candlelight-600);
+}
+
+.btn:disabled {
+  background-color: var(--ashes-900);
+  border-color: var(--ashes-900);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.btn-dodger-blue:hover,
+.btn-dodger-blue:focus {
+  background-color: var(--dodger-blue-600);
+  border-color: var(--dodger-blue-600);
+  color: var(--white);
+}
+
+.btn-hot-pink:hover,
+.btn-hot-pink:focus {
+  background-color: var(--hot-pink-600);
+  border-color: var(--hot-pink-600);
+  color: var(--white);
+}
+
+.btn-lila:hover,
+.btn-lila:focus {
+  background-color: var(--lila-600);
+  border-color: var(--lila-600);
+  color: var(--white);
+}
+
+.btn-turquoise:hover,
+.btn-turquoise:focus {
+  background-color: var(--turquoise-700);
+  border-color: var(--turquoise-700);
+  color: var(--white);
+}
+
+.btn-watermelon:hover,
+.btn-watermelon:focus {
+  background-color: var(--watermelon-600);
+  border-color: var(--watermelon-600);
+  color: var(--white);
+}
+
+.btn-peppermint:hover,
+.btn-peppermint:focus {
+  background-color: var(--peppermint-600);
+  border-color: var(--peppermint-600);
+  color: var(--white);
+}
+
+.btn-candlelight:hover,
+.btn-candlelight:focus {
+  background-color: var(--candlelight-700);
+  border-color: var(--candlelight-700);
+  color: var(--white);
+}
+
+.btn-secondary {
+  background-color: var(--transparent);
+  color: var(--valhalla-300)
+}
+
+.btn-secondary:disabled {
+  color: var(--ashes-600);
+  border-color: var(--ashes-600);
+  background-color: var(--transparent);
+}
+
+.btn-dodger-blue.btn-secondary:hover,
+.btn-dodger-blue.btn-secondary:focus {
+  background-color: var(--dodger-blue-500);
+  border-color: var(--dodger-blue-500);
+  color: var(--white);
+}
+
+.btn-hot-pink.btn-secondary:hover,
+.btn-hot-pink.btn-secondary:focus {
+  background-color: var(--hot-pink-500);
+  border-color: var(--hot-pink-500);
+  color: var(--white);
+}
+
+.btn-lila.btn-secondary:hover,
+.btn-lila.btn-secondary:focus {
+  background-color: var(--lila-500);
+  border-color: var(--lila-500);
+  color: var(--white);
+}
+
+.btn-turquoise.btn-secondary:hover,
+.btn-turquoise.btn-secondary:focus {
+  background-color: var(--turquoise-600);
+  border-color: var(--turquoise-600);
+  color: var(--white);
+}
+
+.btn-watermelon.btn-secondary:hover,
+.btn-watermelon.btn-secondary:focus {
+  background-color: var(--watermelon-500);
+  border-color: var(--watermelon-500);
+  color: var(--white);
+}
+
+.btn-peppermint.btn-secondary:hover,
+.btn-peppermint.btn-secondary:focus {
+  background-color: var(--peppermint-500);
+  border-color: var(--peppermint-500);
+  color: var(--white);
+}
+
+.btn-candlelight.btn-secondary:hover,
+.btn-candlelight.btn-secondary:focus {
+  background-color: var(--candlelight-600);
+  border-color: var(--candlelight-600);
+  color: var(--white);
+}

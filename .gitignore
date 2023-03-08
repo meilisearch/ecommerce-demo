@@ -6,3 +6,9 @@ node_modules
 .output
 .env
 dist
+
+# storybook build
+storybook-static
+
+# Local Meilisearch data
+meili_data/

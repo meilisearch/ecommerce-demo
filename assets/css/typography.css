@@ -1,0 +1,236 @@
+@import "~/assets/css/base.css";
+
+.title {
+  font-family: "Poppins", sans-serif;
+}
+
+.title-xl {
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 140%;
+  letter-spacing: -0.01rem;
+}
+
+.title-l {
+  font-weight: 700;
+  font-size: 1.9rem;
+  line-height: 140%;
+  letter-spacing: -0.01rem;
+}
+
+.title-m {
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 140%;
+  letter-spacing: -0.01rem;
+}
+
+.title-s {
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 140%;
+  letter-spacing: -0.01rem;
+}
+
+.title-xs {
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 140%;
+  letter-spacing: 0rem;
+}
+
+.title-caps {
+  font-weight: 700;
+  font-size: 0.7rem;
+  line-height: 130%;
+  letter-spacing: 0.03rem;
+  text-transform: uppercase;
+}
+
+.title-caps-xs {
+  font-weight: 700;
+  font-size: 0.6rem;
+  line-height: 130%;
+  letter-spacing: 0.03rem;
+  text-transform: uppercase;
+}
+
+.body {
+  font-family: "Inter", sans-serif;
+}
+
+.body-l {
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 150%;
+  letter-spacing: 0rem;
+}
+
+.body-m {
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 150%;
+  letter-spacing: 0rem;
+}
+
+.body-s {
+  font-weight: 400;
+  font-size: 0.6rem;
+  line-height: 150%;
+  letter-spacing: 0rem;
+}
+
+.body-xs {
+  font-weight: 400;
+  font-size: 0.6rem;
+  line-height: 150%;
+  letter-spacing: 0rem;
+}
+
+@media screen and (min-width: 768px) {
+  .title-xl {
+    font-size: 3.25rem;
+  }
+
+  .title-l {
+    font-size: 2.6rem;
+  }
+
+  .title-m {
+    font-size: 2.1rem;
+  }
+
+  .title-s {
+    font-size: 1.6rem;
+  }
+
+  .title-xs {
+    font-size: 1.4rem;
+  }
+
+  .title-caps {
+    font-size: 0.8rem;
+  }
+
+  .body-l {
+    font-size: 1rem;
+  }
+
+  .body-m {
+    font-size: 0.9rem;
+  }
+
+  .body-s {
+    font-size: 0.8rem;
+  }
+
+  .body-xs {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .title-xl {
+    font-size: 4rem;
+  }
+
+  .title-l {
+    font-size: 3.25rem;
+  }
+
+  .title-m {
+    font-size: 2.5rem;
+  }
+
+  .title-s {
+    font-size: 2rem;
+  }
+
+  .title-xs {
+    font-size: 1.6rem;
+  }
+
+  .title-caps {
+    font-size: 0.9rem;
+  }
+
+  .title-caps-xs {
+    font-size: 0.6rem;
+  }
+
+  .body-l {
+    font-size: 1.1rem;
+  }
+
+  .body-m {
+    font-size: 1rem;
+  }
+
+  .body-s {
+    font-size: 0.9rem;
+  }
+
+  .body-xs {
+    font-size: 0.75rem;
+  }
+}
+
+.text-bold {
+  font-weight: 600;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-white {
+  color: var(--white);
+}
+
+.text-valhalla-500 {
+  color: var(--valhalla-500)
+}
+
+.text-valhalla-300 {
+  color: var(--valhalla-300)
+}
+
+.text-valhalla-100 {
+  color: var(--valhalla-100)
+}
+
+.text-ashes-900 {
+  color: var(--ashes-900)
+}
+
+.text-ashes-500 {
+  color: var(--ashes-500)
+}
+
+.text-hot-pink-500 {
+  color: var(--hot-pink-500);
+}
+
+.text-hot-pink-400 {
+  color: var(--hot-pink-400);
+}
+
+.text-dodger-blue-500 {
+  color: var(--dodger-blue-500);
+}
+
+.text-dodger-blue-400 {
+  color: var(--dodger-blue-400);
+}
+
+.text-peppermint-500 {
+  color: var(--pepermint-500);
+}
+
+.text-candlelight-500 {
+  color: var(--candlelight-500);
+}
+
+.text-watermelon-500 {
+  color: var(--watermelon-500);
+}

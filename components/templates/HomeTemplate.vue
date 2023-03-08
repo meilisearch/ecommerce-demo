@@ -1,0 +1,57 @@
+<script lang="ts" setup>
+const sortingOptions = [
+  { value: 'products', label: 'Featured' },
+  { value: 'products:price:asc', label: 'Price: Low to High' },
+  { value: 'products:price:desc', label: 'Price: High to Low' },
+  { value: 'products:rating:desc', label: 'Rating: High to Low' }
+]
+</script>
+
+<template>
+  <MeiliSearchProvider index-name="products">
+    <TheNavbar class="mb-5 shadow-l">
+      <template #search-input>
+        <MeiliSearchInput />
+      </template>
+    </TheNavbar>
+    <div class="container mb-5">
+      <div class="filters">
+        <MeiliSearchListFilter attribute="category" class="mb-5" />
+        <MeiliSearchListFilter attribute="brand" class="mb-5" />
+        <MeiliSearchRangeFilter attribute="price" class="mb-5" />
+        <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" />
+      </div>
+      <div class="results">
+        <div class="mb-5 results-meta">
+          <MeiliSearchStats />
+          <MeiliSearchSorting :options="sortingOptions" />
+        </div>
+        <MeiliSearchResults class="mb-5" />
+        <MeiliSearchPagination />
+      </div>
+    </div>
+  </MeiliSearchProvider>
+</template>
+
+<style scoped>
+.container {
+  margin-left: calc(2 * var(--size-5));
+  margin-right: calc(2 * var(--size-5));
+  display: flex;
+}
+
+.filters {
+  width: min(20%, 280px);
+  margin-right: calc(2 * var(--size-5));
+}
+
+.results {
+  width: 80%;
+}
+
+.results-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+</style>

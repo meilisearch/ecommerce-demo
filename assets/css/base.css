@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;600;700&display=swap');
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --transparent: #0000;
+
+  --ashes-100: #fafbfe;
+  --ashes-200: #f8f8fc;
+  --ashes-300: #f5f5fb;
+  --ashes-400: #f1f1f9;
+  --ashes-500: #edeef7;
+  --ashes-600: #e1e0ee;
+  --ashes-700: #d6d4e8;
+  --ashes-800: #c9c5dc;
+  --ashes-900: #bdb7d3;
+  --candlelight-100: #fffbec;
+  --candlelight-200: #fff3c7;
+  --candlelight-300: #ffeaa2;
+  --candlelight-400: #ffe27d;
+  --candlelight-500: #ffda58;
+  --candlelight-600: #ffc51b;
+  --candlelight-700: #d39a11;
+  --candlelight-800: #a16822;
+  --candlelight-900: #6a3e22;
+  --dodger-blue-100: #efeffc;
+  --dodger-blue-200: #cfd0f7;
+  --dodger-blue-300: #9fa1f0;
+  --dodger-blue-400: #7b7eef;
+  --dodger-blue-500: #4f55e3;
+  --dodger-blue-600: #232adc;
+  --dodger-blue-700: #1c22b0;
+  --dodger-blue-800: #151984;
+  --dodger-blue-900: #0e1158;
+  --hot-pink-100: #ffeff7;
+  --hot-pink-200: #ffcee6;
+  --hot-pink-300: #ffaed4;
+  --hot-pink-400: #ff8dc4;
+  --hot-pink-500: #ff5caa;
+  --hot-pink-600: #ff1786;
+  --hot-pink-700: #d00064;
+  --hot-pink-800: #8b0042;
+  --hot-pink-900: #450021;
+  --lila-100: #f5edfc;
+  --lila-200: #e5d0f7;
+  --lila-300: #d7b7f3;
+  --lila-400: #c392ed;
+  --lila-500: #ad6de7;
+  --lila-600: #8e33de;
+  --lila-700: #6b1db0;
+  --lila-800: #6b1db0;
+  --lila-900: #240a3b;
+  --peppermint-100: #e5f9f1;
+  --peppermint-200: #ccf2e2;
+  --peppermint-300: #99e6c6;
+  --peppermint-400: #66d9a9;
+  --peppermint-500: #33cc8c;
+  --peppermint-600: #29a370;
+  --peppermint-700: #1f7a54;
+  --peppermint-800: #145238;
+  --peppermint-900: #0a291c;
+  --turquoise-100: #eefcfb;
+  --turquoise-200: #cbf6f4;
+  --turquoise-300: #a8f0ed;
+  --turquoise-400: #85eae5;
+  --turquoise-500: #51e1d9;
+  --turquoise-600: #23d1c9;
+  --turquoise-700: #1b9d96;
+  --turquoise-800: #126964;
+  --turquoise-900: #093432;
+  --valhalla-100: #705b8c;
+  --valhalla-200: #5c447c;
+  --valhalla-300: #492e6c;
+  --valhalla-400: #35175b;
+  --valhalla-500: #21004b;
+  --valhalla-600: #1a003c;
+  --valhalla-700: #14002d;
+  --valhalla-800: #0d001e;
+  --valhalla-900: #07000f;
+  --watermelon-100: #ffedef;
+  --watermelon-200: #ffcad0;
+  --watermelon-300: #ffa6b0;
+  --watermelon-400: #ff7989;
+  --watermelon-500: #ff4e62;
+  --watermelon-600: #fb1a34;
+  --watermelon-700: #c80017;
+  --watermelon-800: #85000f;
+  --watermelon-900: #430008;
+
+  --size-0: 0px;
+  --size-1: 0.25rem;
+  --size-2: 0.5rem;
+  --size-3: 0.75rem;
+  --size-4: 1rem;
+  --size-5: 1.25rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+}
