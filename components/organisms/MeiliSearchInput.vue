@@ -4,12 +4,11 @@ import { AisSearchBox } from 'vue-instantsearch/vue3/es'
 
 <template>
   <AisSearchBox>
-    <template #default="{ currentRefinement, isSearchStalled, refine }">
+    <template #default="{ currentRefinement, refine }">
       <SearchInput
         :value="currentRefinement"
         @input="refine($event.currentTarget.value)"
       />
-      <span :hidden="!isSearchStalled">Loading...</span>
     </template>
   </AisSearchBox>
 </template>
