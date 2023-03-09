@@ -23,9 +23,10 @@ const { attribute } = toRefs(props)
         :value="item.isRefined"
         :label="item.label"
         :name="item.value"
+        :disabled="item.count === 0"
         @change="refine(item.value)"
       >
-        <BaseText tag="span" size="m" class="text-valhalla-500">
+        <BaseText tag="span" size="m" :class="[ item.count ? 'text-valhalla-500' : 'text-ashes-900']">
           {{ item.label }} <BaseText tag="span" size="s" class="text-ashes-900">
             ({{ item.count.toLocaleString() }})
           </BaseText>
