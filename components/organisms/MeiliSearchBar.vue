@@ -1,14 +1,8 @@
 <script lang="ts" setup>
 import { AisSearchBox } from 'vue-instantsearch/vue3/es'
+import SearchInput from '~/components/molecules/SearchInput.vue'
 </script>
 
 <template>
-  <AisSearchBox>
-    <template #default="{ currentRefinement, refine }">
-      <SearchInput
-        :value="currentRefinement"
-        @input="refine($event.currentTarget.value)"
-      />
-    </template>
-  </AisSearchBox>
+  <!-- Insert template code here -->
 </template>
