@@ -7,7 +7,7 @@
 <h4 align="center">
   <a href="https://github.com/meilisearch/MeiliSearch">MeiliSearch</a> |
   <a href="https://docs.meilisearch.com">Documentation</a> |
-  <a href="https://slack.meilisearch.com">Slack</a> |
+  <a href="https://discord.gg/meilisearch">Discord</a> |
   <a href="https://www.meilisearch.com">Website</a> |
   <a href="https://docs.meilisearch.com/faq">FAQ</a>
 </h4>
@@ -28,6 +28,8 @@ This project requires:
 
 ## 🛠️ Setup
 
+### Dependencies
+
 > **Warning**
 > Ensure that you are using a Node version compatible with the one in `.nvmrc`.
 
@@ -37,7 +39,39 @@ Install the dependencies with Yarn:
 yarn install
 ```
 
-### Development Server
+### Environment
+
+Environment variables should hold your Meilisearch database credentials. The easiest way to launch a database is to [create a free project](https://cloud.meilisearch.com/) on Meilisearch Cloud. Alternatively, you can read [local installation](https://docs.meilisearch.com/learn/getting_started/installation.html#local-installation) documentation for self-hosted options.
+
+This project loads environment variables from an `.env` file. You can duplicate the existing `.env.example` file and rename it as `.env`. Update the content of the file to match your credentials.
+
+```bash
+# .env
+
+# Meilisearch configuration
+MEILISEARCH_HOST="use the Database URL here"
+MEILISEARCH_ADMIN_API_KEY="use the Default Admin API Key here"
+MEILISEARCH_SEARCH_API_KEY="use the Default Search API Key here"
+
+# Image optimization configuration
+TWICPICS_DOMAIN=https://meilisearch-ecommerce.twic.pics
+STORYBOOK_TWICPICS_DOMAIN=https://meilisearch-ecommerce.twic.pics
+```
+
+> This application uses [TwicPics](https://twicpics.com/) to deliver optimized images. You don’t need to update the related environment variables. 
+
+### Database
+
+Run the setup script to configure and seed your Meilisearch instance:
+
+```bash
+yarn setup
+```
+
+## 🧑‍💻 Development
+
+> **Note**
+> Make sure to complete instructions from the Setup section before running the server.
 
 Start the development server on http://localhost:3000
 
