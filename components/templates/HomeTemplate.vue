@@ -10,8 +10,8 @@ const sortingOptions = [
 <template>
   <MeiliSearchProvider index-name="products">
     <TheNavbar class="mb-5 shadow-l">
-      <template #search-input>
-        <MeiliSearchInput />
+      <template #search>
+        <MeiliSearchBar />
       </template>
     </TheNavbar>
     <div class="container mb-5">

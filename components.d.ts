@@ -16,6 +16,7 @@ declare module '@vue/runtime-core' {
     BaseTitle: typeof import('./components/atoms/BaseTitle.vue')['default']
     GithubIcon: typeof import('./components/atoms/GithubIcon.vue')['default']
     HalfSolidStarIcon: typeof import('./components/atoms/HalfSolidStarIcon.vue')['default']
+    MeiliSearchBar: typeof import('./components/organisms/MeiliSearchBar.vue')['default']
     MeiliSearchFacetFilter: typeof import('./components/organisms/MeiliSearchFacetFilter.vue')['default']
     MeiliSearchInput: typeof import('./components/organisms/MeiliSearchInput.vue')['default']
     MeiliSearchPagination: typeof import('./components/organisms/MeiliSearchPagination.vue')['default']
