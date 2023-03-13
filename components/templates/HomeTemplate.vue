@@ -16,8 +16,8 @@ const sortingOptions = [
     </TheNavbar>
     <div class="container mb-5">
       <div class="filters">
-        <MeiliSearchListFilter attribute="category" class="mb-5" />
-        <MeiliSearchListFilter attribute="brand" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="category" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="brand" class="mb-5" />
         <MeiliSearchRangeFilter attribute="price" class="mb-5" />
         <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" />
       </div>
