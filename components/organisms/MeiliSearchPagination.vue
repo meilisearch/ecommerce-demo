@@ -3,7 +3,7 @@ import { AisPagination } from 'vue-instantsearch/vue3/es'
 </script>
 
 <template>
-  <ais-pagination>
+  <AisPagination>
     <template
       #default="{
         currentRefinement,
@@ -48,7 +48,7 @@ import { AisPagination } from 'vue-instantsearch/vue3/es'
         </a>
       </BaseTitle>
     </template>
-  </ais-pagination>
+  </AisPagination>
 </template>
 
 <style scoped>
