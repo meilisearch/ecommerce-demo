@@ -1,23 +1,10 @@
 <script lang="ts" setup>
 import { AisSortBy } from 'vue-instantsearch/vue3/es'
+import BaseSelect from '~/components/molecules/BaseSelect.vue'
 
-const props = defineProps<{
-  options: Array<{
-    value: string
-    label: string
-  }>
-}>()
-
-const { options } = toRefs(props)
+// Insert script code here
 </script>
 
 <template>
-  <AisSortBy :items="options">
-    <template #default="{ items, refine }">
-      <BaseSelect
-        :options="items"
-        @change="refine($event.target.value)"
-      />
-    </template>
-  </AisSortBy>
+  <!-- Insert template code here -->
 </template>
