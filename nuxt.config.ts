@@ -11,7 +11,16 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      fathomSiteID: process.env.FATHOM_SITE_ID
+      fathomSiteID: process.env.FATHOM_SITE_ID,
+      meilisearch: {
+        host: process.env.MEILISEARCH_HOST,
+        searchApiKey: process.env.MEILISEARCH_SEARCH_API_KEY,
+        options: {
+          primaryKey: 'id',
+          keepZeroFacets: true,
+          finitePagination: true
+        }
+      }
     }
   },
   build: {
@@ -38,15 +47,7 @@ export default defineNuxtConfig({
     // Optimized images with progressive loading
     '@twicpics/components/nuxt3',
     // Meilisearch
-    ['./modules/meilisearch', {
-      host: process.env.MEILISEARCH_HOST,
-      searchApiKey: process.env.MEILISEARCH_SEARCH_API_KEY,
-      options: {
-        primaryKey: 'id',
-        keepZeroFacets: true,
-        finitePagination: true
-      }
-    }]
+    './modules/meilisearch'
   ],
   twicpics: {
     domain: process.env.TWICPICS_DOMAIN
