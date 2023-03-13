@@ -1,5 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: 'Ecommerce demo - Meilisearch',
+      meta: [
+        // <meta name="description" content="My amazing site">
+        { name: 'description', content: 'Demo ecommerce featuring fast and relevant onsite search powered by Meilisearch.' }
+      ]
+    }
+  },
   runtimeConfig: {
     public: {
       fathomSiteID: process.env.FATHOM_SITE_ID
