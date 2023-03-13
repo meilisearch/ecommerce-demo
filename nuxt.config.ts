@@ -5,7 +5,7 @@ export default defineNuxtConfig({
       title: 'Ecommerce demo - Meilisearch',
       meta: [
         // <meta name="description" content="My amazing site">
-        { name: 'description', content: 'Demo ecommerce featuring fast and relevant onsite search powered by Meilisearch.' }
+        { name: 'description', content: 'Ecommerce demo featuring fast and relevant onsite search powered by Meilisearch.' }
       ]
     }
   },
