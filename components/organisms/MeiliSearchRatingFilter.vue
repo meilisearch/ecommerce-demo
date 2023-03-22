@@ -44,15 +44,4 @@ const { attribute } = toRefs(props)
   </AisRatingMenu>
 </template>
 
-<style scoped>
-.rating-link {
-  display: block;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.rating-label {
-  display: inline-flex;
-  align-items: center;
-}
-</style>
+<style src="~/assets/css/components/rating-filter.css" scoped />
