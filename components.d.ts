@@ -25,6 +25,7 @@ declare module '@vue/runtime-core' {
     MeiliSearchResults: typeof import('./components/organisms/MeiliSearchResults.vue')['default']
     MeiliSearchSorting: typeof import('./components/organisms/MeiliSearchSorting.vue')['default']
     MeiliSearchStats: typeof import('./components/organisms/MeiliSearchStats.vue')['default']
+    PageNumber: typeof import('./components/molecules/PageNumber.vue')['default']
     ProductCard: typeof import('./components/organisms/ProductCard.vue')['default']
     RangeSlider: typeof import('./components/molecules/RangeSlider.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
