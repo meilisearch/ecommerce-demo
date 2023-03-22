@@ -28,6 +28,7 @@ import PageNumber from '~/components/molecules/PageNumber.vue'
       <!-- Last page -->
       <PageNumber
         v-if="!isLastPage && !pages.includes(nbPages-1)"
+        separator="before"
         :has-gap-separator="!pages.includes(nbPages-2)"
         :is-current="currentRefinement === nbPages-1"
         @page-click="refine(nbPages-1)"
