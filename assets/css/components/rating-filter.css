@@ -1,0 +1,10 @@
+.rating-link {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rating-label {
+  display: inline-flex;
+  align-items: center;
+}

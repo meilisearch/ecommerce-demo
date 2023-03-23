@@ -37,7 +37,7 @@ export default defineNuxtModule<ModuleOptions>({
       throw new Error('`[Meilisearch]` Missing `searchApiKey`')
     }
 
-    nuxtApp.options.runtimeConfig.public.meilisearch = defu(nuxtApp.options.runtimeConfig.meilisearch, {
+    nuxtApp.options.runtimeConfig.public.meilisearch = defu(nuxtApp.options.runtimeConfig.public.meilisearch, {
       host: resolvedOptions.host,
       searchApiKey: resolvedOptions.searchApiKey,
       options: resolvedOptions.options
