@@ -6,7 +6,7 @@ const props = defineProps<{
   label?: string
 }>()
 
-const { attribute } = toRefs(props)
+const { attribute, label } = toRefs(props)
 </script>
 
 <template>
