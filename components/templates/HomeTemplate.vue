@@ -10,14 +10,14 @@ const sortingOptions = [
 <template>
   <MeiliSearchProvider index-name="products">
     <TheNavbar class="mb-5 shadow-l">
-      <template #search-input>
-        <MeiliSearchInput />
+      <template #search>
+        <MeiliSearchBar />
       </template>
     </TheNavbar>
     <div class="container mb-5">
       <div class="filters">
-        <MeiliSearchListFilter attribute="category" class="mb-5" />
-        <MeiliSearchListFilter attribute="brand" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="category" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="brand" class="mb-5" />
         <MeiliSearchRangeFilter attribute="price" class="mb-5" />
         <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" />
       </div>
@@ -33,25 +33,4 @@ const sortingOptions = [
   </MeiliSearchProvider>
 </template>
 
-<style scoped>
-.container {
-  margin-left: calc(2 * var(--size-5));
-  margin-right: calc(2 * var(--size-5));
-  display: flex;
-}
-
-.filters {
-  width: min(20%, 280px);
-  margin-right: calc(2 * var(--size-5));
-}
-
-.results {
-  width: 80%;
-}
-
-.results-meta {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-}
-</style>
+<style src="~/assets/css/components/home.css" scoped />
