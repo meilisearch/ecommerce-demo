@@ -33,25 +33,4 @@ const sortingOptions = [
   </MeiliSearchProvider>
 </template>
 
-<style scoped>
-.container {
-  margin-left: calc(2 * var(--size-5));
-  margin-right: calc(2 * var(--size-5));
-  display: flex;
-}
-
-.filters {
-  width: min(20%, 280px);
-  margin-right: calc(2 * var(--size-5));
-}
-
-.results {
-  width: 80%;
-}
-
-.results-meta {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-}
-</style>
+<style src="~/assets/css/components/home.css" scoped />
