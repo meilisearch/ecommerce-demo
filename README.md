@@ -5,7 +5,7 @@
 <h1 align="center">Meilisearch Nuxt 3 ecommerce demo</h1>
 
 <h4 align="center">
-  <a href="https://github.com/meilisearch/MeiliSearch">MeiliSearch</a> |
+  <a href="https://github.com/meilisearch/meilisearch">Meilisearch</a> |
   <a href="https://docs.meilisearch.com">Documentation</a> |
   <a href="https://discord.gg/meilisearch">Discord</a> |
   <a href="https://www.meilisearch.com">Website</a> |
@@ -16,6 +16,10 @@
   <a href="https://github.com/meilisearch/demo-movies/blob/main/LICENCE"><img src="https://img.shields.io/badge/license-MIT-informational" alt="License"></a>
 </p>
 <br/>
+
+## 💪 Looking to build this yourself?
+
+Read our [Step by step guide to adding site search to your Nuxt ecommerce](https://blog.meilisearch.com/a-step-by-step-guide-to-adding-site-search-to-your-nuxt-ecommerce/)!
 
 ## 🧰 Stack
 
