@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
-    "@meilisearch/instant-meilisearch": "0.11.1",
+    "@meilisearch/instant-meilisearch": "0.12.0",
     "@nuxt/kit": "^3.2.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@storybook/addon-actions": "^7.0.0-beta.36",
@@ -44,6 +44,6 @@
   },
   "dependencies": {
     "dotenv": "^16.0.3",
-    "meilisearch": "^0.31.1"
+    "meilisearch": "0.32.2"
   }
 }
