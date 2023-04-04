@@ -44,6 +44,6 @@
   },
   "dependencies": {
     "dotenv": "^16.0.3",
-    "meilisearch": "^0.31.1"
+    "meilisearch": "0.32.2"
   }
 }
