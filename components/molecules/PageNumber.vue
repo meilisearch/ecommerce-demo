@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 const props = withDefaults(defineProps<{
   isCurrent: boolean
-  showSeparator: boolean
-  separator: 'before' | 'after'
-  hasGapSeparator: boolean
+  showSeparator?: boolean
+  separator?: 'before' | 'after'
+  hasGapSeparator?: boolean
 }>(), {
   showSeparator: true,
   separator: 'after',

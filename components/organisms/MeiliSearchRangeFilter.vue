@@ -10,9 +10,6 @@ const props = defineProps<{
   attribute: string
 }>()
 
-const minPrice = 0
-const maxPrice = 1900
-
 const { attribute } = toRefs(props)
 
 const toValue = (currentValue: Range, boundaries: Range): [number, number] => {
@@ -24,11 +21,7 @@ const toValue = (currentValue: Range, boundaries: Range): [number, number] => {
 </script>
 
 <template>
-  <AisRangeInput
-    :attribute="attribute"
-    :min="minPrice"
-    :max="maxPrice"
-  >
+  <AisRangeInput :attribute="attribute">
     <template #default="{ currentRefinement, range, refine }">
       <BaseTitle class="mb-3 text-valhalla-100">
         {{ attribute }}
