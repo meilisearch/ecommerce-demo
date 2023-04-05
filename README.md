@@ -19,7 +19,7 @@
 
 ## 💪 Looking to build this yourself?
 
-Read our [Step by step guide to adding site search to your Nuxt ecommerce](https://blog.meilisearch.com/a-step-by-step-guide-to-adding-site-search-to-your-nuxt-ecommerce/)!
+Read our [Step by step guide to adding site search to your Nuxt ecommerce](https://blog.meilisearch.com/nuxt-ecommerce-search-guide/)!
 
 ## 🧰 Stack
 
