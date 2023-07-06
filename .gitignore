@@ -7,6 +7,9 @@ node_modules
 .env
 dist
 
+# vscode settings
+.vscode/
+
 # storybook build
 storybook-static
 
