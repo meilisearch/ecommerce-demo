@@ -32,6 +32,8 @@ This project requires:
 - [Nuxt 3](https://nuxt.com) — Web application framework based on [Vue 3](https://vuejs.org/)
 - [Meilisearch](https://meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme) — Fast, relevant search engine
 
+This projects uses icons from [Heroicons](https://heroicons.com/) and social medias icons from [icons8](https://icons8.com/icons/collections/EnE9mEHAiX2D).
+
 ## 🛠️ Setup
 
 ### Dependencies
