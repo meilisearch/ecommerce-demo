@@ -49,7 +49,7 @@ yarn install
 
 ### Environment
 
-Environment variables should hold your Meilisearch database credentials. The easiest way to launch a database is to [create a free project](https://cloud.meilisearch.com/) on Meilisearch Cloud. Alternatively, you can read [local installation](https://docs.meilisearch.com/learn/getting_started/installation.html#local-installation?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme) documentation for self-hosted options.
+Environment variables should hold your Meilisearch database credentials. The easiest way to launch a database is to [create a free project](https://cloud.meilisearch.com/utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme) on Meilisearch Cloud. Alternatively, you can read [local installation](https://www.meilisearch.com/docs/learn/getting_started/installation?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme#local-installation) documentation for self-hosted options.
 
 This project loads environment variables from an `.env` file. You can duplicate the existing `.env.example` file and rename it as `.env`. Update the content of the file to match your credentials.
 
