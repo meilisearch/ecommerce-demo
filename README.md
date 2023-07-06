@@ -1,15 +1,17 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/meilisearch/integration-guides/master/assets/logos/logo.svg" alt="Meilisearch" width="200" height="200" />
+  <a href="https://www.meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme" target="_blank">
+    <img src="https://github.com/meilisearch/meilisearch/blob/main/assets/logo.svg" alt="Meilisearch" width="200" height="200" />
+  </a>
 </p>
 
 <h1 align="center">Meilisearch Nuxt 3 ecommerce demo</h1>
 
 <h4 align="center">
-  <a href="https://github.com/meilisearch/meilisearch">Meilisearch</a> |
-  <a href="https://docs.meilisearch.com">Documentation</a> |
-  <a href="https://discord.gg/meilisearch">Discord</a> |
-  <a href="https://www.meilisearch.com">Website</a> |
-  <a href="https://docs.meilisearch.com/faq">FAQ</a>
+  <a href="https://www.meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme">Website</a> |
+  <a href="https://www.meilisearch.com/pricing?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme">Meilisearch Cloud</a> |
+  <a href="https://blog.meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme">Blog</a> |
+  <a href="https://docs.meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme">Documentation</a> |
+  <a href="https://discord.meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme">Discord</a>
 </h4>
 
 <p align="center">
@@ -19,7 +21,7 @@
 
 ## 💪 Looking to build this yourself?
 
-Read our [Step by step guide to adding site search to your Nuxt ecommerce](https://blog.meilisearch.com/nuxt-ecommerce-search-guide/)!
+Read our [Step by step guide to adding site search to your Nuxt ecommerce](https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme)!
 
 ## 🧰 Stack
 
@@ -28,7 +30,7 @@ This project requires:
 - [Node 18](https://nodejs.org/)
 - [Yarn](https://classic.yarnpkg.com/) — Node.js packages manager
 - [Nuxt 3](https://nuxt.com) — Web application framework based on [Vue 3](https://vuejs.org/)
-- [Meilisearch](https://meilisearch.com) — Fast, relevant search engine
+- [Meilisearch](https://meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme) — Fast, relevant search engine
 
 ## 🛠️ Setup
 
@@ -45,7 +47,7 @@ yarn install
 
 ### Environment
 
-Environment variables should hold your Meilisearch database credentials. The easiest way to launch a database is to [create a free project](https://cloud.meilisearch.com/) on Meilisearch Cloud. Alternatively, you can read [local installation](https://docs.meilisearch.com/learn/getting_started/installation.html#local-installation) documentation for self-hosted options.
+Environment variables should hold your Meilisearch database credentials. The easiest way to launch a database is to [create a free project](https://cloud.meilisearch.com/) on Meilisearch Cloud. Alternatively, you can read [local installation](https://docs.meilisearch.com/learn/getting_started/installation.html#local-installation?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme) documentation for self-hosted options.
 
 This project loads environment variables from an `.env` file. You can duplicate the existing `.env.example` file and rename it as `.env`. Update the content of the file to match your credentials.
 

@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     BaseSelect: typeof import('./components/molecules/BaseSelect.vue')['default']
     BaseText: typeof import('./components/atoms/BaseText.vue')['default']
     BaseTitle: typeof import('./components/atoms/BaseTitle.vue')['default']
+    DiscordIcon: typeof import('./components/atoms/DiscordIcon.vue')['default']
     GithubIcon: typeof import('./components/atoms/GithubIcon.vue')['default']
     HalfSolidStarIcon: typeof import('./components/atoms/HalfSolidStarIcon.vue')['default']
     MeiliSearchBar: typeof import('./components/organisms/MeiliSearchBar.vue')['default']
@@ -38,6 +39,7 @@ declare module '@vue/runtime-core' {
     StarRating: typeof import('./components/molecules/StarRating.vue')['default']
     TheNavbar: typeof import('./components/organisms/TheNavbar.vue')['default']
     TwitterIcon: typeof import('./components/atoms/TwitterIcon.vue')['default']
+    WebIcon: typeof import('./components/atoms/WebIcon.vue')['default']
     XIcon: typeof import('./components/atoms/XIcon.vue')['default']
   }
 }
