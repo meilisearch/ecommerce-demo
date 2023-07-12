@@ -8,6 +8,7 @@ import { AisSearchBox } from 'vue-instantsearch/vue3/es'
       <SearchInput
         :value="currentRefinement"
         @input="refine($event.currentTarget.value)"
+        @reset="refine('')"
       />
     </template>
   </AisSearchBox>
