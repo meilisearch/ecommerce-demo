@@ -29,9 +29,14 @@ const refineFacet = (searchFn: any, inputValue: string) => {
     <template
       #default="{ items, refine, searchForItems, isFromSearch, isShowingMore, canToggleShowMore, toggleShowMore }"
     >
-      <BaseTitle class="mb-3 text-valhalla-100">
-        {{ attribute }}
-      </BaseTitle>
+      <div class="flex items-baseline">
+        <BaseTitle class="mb-3 text-valhalla-100">
+          {{ attribute }}
+        </BaseTitle>
+        <BaseText size="s" class="ml-auto text-ashes-900">
+          <slot name="sort-label" />
+        </BaseText>
+      </div>
       <SearchInput
         class="mb-3"
         :value="searchInput"
