@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { AisRefinementList } from 'vue-instantsearch/vue3/es'
+import pluralize from 'pluralize'
 
 type SortingOrder = 'isRefined' | 'count' | 'name'
 
@@ -27,6 +28,8 @@ const sortBy = computed(() => {
     sortingOrder.value
   ]
 })
+
+const attributePlural = computed(() => pluralize(props.attribute))
 </script>
 
 <template>
@@ -58,6 +61,7 @@ const sortBy = computed(() => {
       </div>
       <SearchInput
         class="mb-3"
+        :placeholder="`Search ${attributePlural}`"
         :value="searchInput"
         @input="refineFacet(searchForItems, $event.target.value)"
         @reset="refineFacet(searchForItems, '')"
