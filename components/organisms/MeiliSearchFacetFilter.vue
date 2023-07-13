@@ -5,22 +5,33 @@ type SortingOrder = 'isRefined' | 'count' | 'name'
 
 const props = defineProps<{
   attribute: string
-  sortBy: SortingOrder[]
+  initialSortBy: SortingOrder
 }>()
 
-const { attribute } = toRefs(props)
-
 const searchInput = ref<string>('')
+const sortingOrder = ref<SortingOrder>(props.initialSortBy)
 
 const refineFacet = (searchFn: any, inputValue: string) => {
   searchInput.value = inputValue
   searchFn(inputValue)
 }
+
+const sortingOptions: Array<{value: SortingOrder, label: string}> = [
+  { value: 'count', label: 'By count' },
+  { value: 'name', label: 'By name' }
+]
+
+const sortBy = computed(() => {
+  return [
+    'isRefined',
+    sortingOrder.value
+  ]
+})
 </script>
 
 <template>
   <AisRefinementList
-    :attribute="attribute"
+    :attribute="props.attribute"
     :searchable="true"
     :show-more="true"
     :sort-by="sortBy"
@@ -31,11 +42,19 @@ const refineFacet = (searchFn: any, inputValue: string) => {
     >
       <div class="flex items-baseline">
         <BaseTitle class="mb-3 text-valhalla-100">
-          {{ attribute }}
+          {{ props.attribute }}
         </BaseTitle>
-        <BaseText size="s" class="ml-auto text-ashes-900">
-          <slot name="sort-label" />
-        </BaseText>
+        <select v-model="sortingOrder" class="ml-auto text-ashes-900">
+          <BaseText
+            v-for="option in sortingOptions"
+            :key="option.value"
+            tag="option"
+            :value="option.value"
+            :selected="props.initialSortBy === option.value"
+          >
+            {{ option.label }}
+          </BaseText>
+        </select>
       </div>
       <SearchInput
         class="mb-3"
@@ -80,5 +99,9 @@ const refineFacet = (searchFn: any, inputValue: string) => {
 .link {
   text-decoration: none;
   color: var(--ashes-900);
+}
+
+select {
+  border: 0;
 }
 </style>

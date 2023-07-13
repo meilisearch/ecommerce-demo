@@ -16,16 +16,8 @@ const sortingOptions = [
     </TheNavbar>
     <div class="container mb-5">
       <div class="filters">
-        <MeiliSearchFacetFilter attribute="category" :sort-by="['isRefined', 'name']" class="mb-5">
-          <template #sort-label>
-            Sorted by name
-          </template>
-        </MeiliSearchFacetFilter>
-        <MeiliSearchFacetFilter attribute="brand" :sort-by="['isRefined', 'count']" class="mb-5">
-          <template #sort-label>
-            Sorted by count
-          </template>
-        </MeiliSearchFacetFilter>
+        <MeiliSearchFacetFilter attribute="category" initial-sort-by="name" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="brand" initial-sort-by="count" class="mb-5" />
         <MeiliSearchRangeFilter attribute="price" class="mb-5" />
         <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" />
       </div>
