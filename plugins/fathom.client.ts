@@ -5,7 +5,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   const runtimeConfig = useRuntimeConfig()
 
   if (process.env.NODE_ENV !== 'production') {
-    console.warn(`Not using Fathom (env: ${process.env.NODE_ENV})`)
+    console.log(`Not using Fathom (env: ${process.env.NODE_ENV})`)
     return
   }
 
