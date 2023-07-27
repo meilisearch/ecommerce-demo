@@ -10,18 +10,16 @@ const props = defineProps({
   }
 })
 
-const rating = toRef(props, 'rating')
+const ratingText = computed(() => `${props.rating} out of 5`)
 
-const ratingText = computed(() => `${rating.value} out of 5`)
-
-const solidStars = computed(() => Math.floor(rating.value))
+const solidStars = computed(() => Math.floor(props.rating))
 
 const halfStars = computed(() => {
   // If there are 5 full stars OR if there's no decimal part
-  if (solidStars.value === 5 || rating.value % 1 === 0) {
+  if (solidStars.value === 5 || props.rating % 1 === 0) {
     return 0
   }
-  return (rating.value % 1) >= 0.299 // JS % operator is weird
+  return (props.rating % 1) >= 0.299 // JS % operator is weird
     ? 1
     : 0
 })
