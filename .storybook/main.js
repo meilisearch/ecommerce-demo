@@ -1,7 +1,9 @@
 import path from 'path'
 import { loadConfigFromFile, mergeConfig } from "vite"
+import type { StorybookConfig } from '@storybook/vue3-vite';
+import type { UserConfig } from 'vite';
 
-module.exports = {
+const config: StorybookConfig = {
   stories: [
     '../stories/**/*.ts',
   ],
@@ -11,7 +13,8 @@ module.exports = {
     '@storybook/addon-interactions',
   ],
   core: {
-    disableTelemetry: true
+    disableTelemetry: true,
+    builder: '@storybook/builder-vite', // 👈 The builder enabled here.
   },
   framework: {
     name: '@storybook/vue3-vite',
@@ -21,14 +24,21 @@ module.exports = {
     autodocs: true
   },
   async viteFinal(config, { configType }) {
-    const { config: userConfig } = await loadConfigFromFile(
-      path.resolve(__dirname, "../vite.config.ts")
-    )
+    const userConfig = await loadUserConfig()
 
     return mergeConfig(config, {
       ...userConfig,
       // manually specify plugins to avoid conflict
       // plugins: [],
     })
-  }
+  },
 }
+
+const loadUserConfig = async () => {
+  const { config: userConfig } = await loadConfigFromFile(
+    path.resolve(__dirname, "../vite.config.ts")
+  )
+  return userConfig
+}
+
+export default config

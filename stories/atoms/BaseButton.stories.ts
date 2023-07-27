@@ -7,7 +7,7 @@ const meta = {
     components: { BaseButton },
     setup: () => ({ args }),
     template: `
-      <BaseButton>Button</BaseButton>
+      <BaseButton v-bind="args">Button</BaseButton>
     `
   }),
   argTypes: {

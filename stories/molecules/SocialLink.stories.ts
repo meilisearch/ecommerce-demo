@@ -7,7 +7,7 @@ const meta = {
     components: { SocialLink },
     setup: () => ({ args }),
     template: `
-      <SocialLink/>
+      <SocialLink v-bind="args"/>
     `
   }),
   args: {

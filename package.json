@@ -14,6 +14,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-typescript": "^7.22.5",
     "@meilisearch/instant-meilisearch": "0.13.3-prototype-search-for-facet-values.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@storybook/addon-actions": "^7.1.1",
