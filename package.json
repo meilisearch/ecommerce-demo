@@ -44,7 +44,7 @@
     "vue-slider-component": "^4.1.0-beta.7"
   },
   "dependencies": {
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.3.1",
     "meilisearch": "0.33.0"
   }
 }
