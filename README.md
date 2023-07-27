@@ -41,7 +41,7 @@ This projects uses icons from [Heroicons](https://heroicons.com/) and social med
 > **Warning**
 > Ensure that you are using a Node version compatible with the one in `.nvmrc`.
 
-Install the dependencies with Yarn:
+Install the dependencies with Yarn 3:
 
 ```bash
 yarn install
