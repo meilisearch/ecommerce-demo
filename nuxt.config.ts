@@ -27,11 +27,6 @@ export default defineNuxtConfig({
       }
     }
   },
-  build: {
-    transpile: [
-      'vue-instantsearch'
-    ]
-  },
   components: {
     dirs: [
       '~/components/atoms',

@@ -40,7 +40,7 @@
     "unplugin-auto-import": "^0.13.0",
     "unplugin-vue-components": "^0.23.0",
     "vite-plugin-vue-type-imports": "^0.2.4",
-    "vue-instantsearch": "^4.8.3",
+    "vue-instantsearch": "^4.10.8",
     "vue-loader": "^16.8.3",
     "vue-slider-component": "^4.1.0-beta.7"
   },
