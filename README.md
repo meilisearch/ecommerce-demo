@@ -114,4 +114,3 @@ yarn storybook
 ```
 
 > Output files `auto-imports.d.ts` and `components.d.ts` are auto-generated and *should not* be updated manually. You can commit them into source control.
-
