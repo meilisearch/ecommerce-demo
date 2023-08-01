@@ -8,7 +8,7 @@
 
 <h4 align="center">
   <a href="https://www.meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme">Website</a> |
-  <a href="https://www.meilisearch.com/pricing?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme">Meilisearch Cloud</a> |
+  <a href="https://www.meilisearch.com/cloud?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme">Meilisearch Cloud</a> |
   <a href="https://blog.meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme">Blog</a> |
   <a href="https://www.meilisearch.com/docs/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme">Documentation</a> |
   <a href="https://discord.meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme">Discord</a>
