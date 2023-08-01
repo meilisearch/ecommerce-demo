@@ -25,7 +25,7 @@
     "@storybook/testing-library": "^0.2.0",
     "@storybook/vue3": "^7.2.0",
     "@storybook/vue3-vite": "^7.2.0",
-    "@twicpics/components": "^0.21.0",
+    "@twicpics/components": "^0.21.1",
     "@types/pluralize": "^0.0.30",
     "@ubclaunchpad/vue-fathom": "^2.0.0",
     "babel-loader": "^9.1.3",

@@ -3947,10 +3947,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@twicpics/components@npm:^0.21.0":
-  version: 0.21.0
-  resolution: "@twicpics/components@npm:0.21.0"
-  checksum: a1d34ec8474daa6c534384b21f08927dfb24f387ef7e45d9625b0bebdfe4b0f776106221cfdbede2963657fd0ce39376719966b46366f1d531472f914c9815dd
+"@twicpics/components@npm:^0.21.1":
+  version: 0.21.1
+  resolution: "@twicpics/components@npm:0.21.1"
+  checksum: 8d239866b70f35cf417abb03ba6a4167db4445ebef7be93654bc1c057c6947059d533a821eeb9ebbb5074e980848632b694a2104d21bf577cf2d8a661f49e699
   languageName: node
   linkType: hard
 
@@ -12598,7 +12598,7 @@ __metadata:
     "@storybook/testing-library": ^0.2.0
     "@storybook/vue3": ^7.2.0
     "@storybook/vue3-vite": ^7.2.0
-    "@twicpics/components": ^0.21.0
+    "@twicpics/components": ^0.21.1
     "@types/pluralize": ^0.0.30
     "@ubclaunchpad/vue-fathom": ^2.0.0
     babel-loader: ^9.1.3
