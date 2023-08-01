@@ -19,6 +19,8 @@
 </p>
 <br/>
 
+> Meilisearch is an open-source search engine that offers fast, relevant search out of the box. 
+
 ## 💪 Looking to build this yourself?
 
 Read our [Step by step guide to adding site search to your Nuxt ecommerce](https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme)!
