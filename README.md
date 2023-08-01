@@ -23,12 +23,20 @@
 
 Read our [Step by step guide to adding site search to your Nuxt ecommerce](https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme)!
 
+## ✨ Features
+
+This ecommerce demo uses:
+
+- [Faceted search](https://www.meilisearch.com/docs/learn/fine_tuning_results/faceted_search?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme)
+- [Filtering](https://www.meilisearch.com/docs/learn/fine_tuning_results/filtering?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme)
+- [Sorting](https://www.meilisearch.com/docs/learn/fine_tuning_results/sorting?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme)
+
 ## 🧰 Stack
 
 This project requires:
 
 - [Node 18](https://nodejs.org/)
-- [Yarn](https://classic.yarnpkg.com/) — Node.js packages manager
+- [Yarn 3](https://yarnpkg.com/getting-started/install) — Node.js package manager
 - [Nuxt 3](https://nuxt.com) — Web application framework based on [Vue 3](https://vuejs.org/)
 - [Meilisearch](https://meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme) — Fast, relevant search engine
 
@@ -49,9 +57,9 @@ yarn install
 
 ### Environment
 
-Environment variables should hold your Meilisearch database credentials. The easiest way to launch a database is to [create a free project](https://cloud.meilisearch.com/utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme) on Meilisearch Cloud. Alternatively, you can read [local installation](https://www.meilisearch.com/docs/learn/getting_started/installation?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme#local-installation) documentation for self-hosted options.
+Environment variables should hold your Meilisearch database credentials. The easiest way to launch a database is to create a project on [Meilisearch Cloud](https://meilisearch.com/cloud?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme). Alternatively, you can read [local installation](https://www.meilisearch.com/docs/learn/getting_started/installation?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme#local-installation) documentation for self-hosted options.
 
-This project loads environment variables from an `.env` file. You can duplicate the existing `.env.example` file and rename it as `.env`. Update the content of the file to match your credentials.
+This project loads environment variables from an `.env` file. Copy `.env.example` file  as `.env` and update the file's content to match your credentials.
 
 ```bash
 # .env
