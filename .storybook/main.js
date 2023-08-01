@@ -1,9 +1,7 @@
 import path from 'path'
 import { loadConfigFromFile, mergeConfig } from "vite"
-import type { StorybookConfig } from '@storybook/vue3-vite';
-import type { UserConfig } from 'vite';
 
-const config: StorybookConfig = {
+const config = {
   stories: [
     '../stories/**/*.ts',
   ],
