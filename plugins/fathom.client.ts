@@ -5,7 +5,8 @@ export default defineNuxtPlugin((nuxtApp) => {
   const runtimeConfig = useRuntimeConfig()
 
   if (process.env.NODE_ENV !== 'production') {
-    console.log(`Not using Fathom (env: ${process.env.NODE_ENV})`)
+    // eslint-disable-next-line no-console
+    console.log(`Fathom analytics disabled (env: ${process.env.NODE_ENV})`)
     return
   }
 
@@ -17,6 +18,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       }
     })
   } else {
+    // eslint-disable-next-line no-console
     console.log('Fathom analytics disabled: missing `FATHOM_SITE_ID`')
   }
 })

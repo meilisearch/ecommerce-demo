@@ -24,6 +24,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   setup (resolvedOptions, nuxtApp) {
     if (!resolvedOptions.enabled || parseBoolean(process.env.MEILISEARCH_ENABLED as string) === false) {
+      // eslint-disable-next-line no-console
       console.log('`[Meilisearch]` Module is disabled')
       return
     }
