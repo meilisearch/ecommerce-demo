@@ -13,6 +13,8 @@ const credentials = {
 
 const INDEX_NAME = 'products'
 
+/* eslint-disable no-console */
+
 const setup = async () => {
   console.log('🚀 Seeding your Meilisearch instance')
 

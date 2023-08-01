@@ -9481,21 +9481,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"meilisearch@npm:0.33.0":
-  version: 0.33.0
-  resolution: "meilisearch@npm:0.33.0"
-  dependencies:
-    cross-fetch: ^3.1.6
-  checksum: e3c01a1530e92f136c4af343586b951b34a7eafe87bcf9dbfcad75ab4c6a74bc1db5e6c308aed6a7417a37a880716a44325ddc9a1e875f336ce25af2781048b6
-  languageName: node
-  linkType: hard
-
 "meilisearch@npm:0.33.0-prototype-search-for-facet-values.1":
   version: 0.33.0-prototype-search-for-facet-values.1
   resolution: "meilisearch@npm:0.33.0-prototype-search-for-facet-values.1"
   dependencies:
     cross-fetch: ^3.1.6
   checksum: f884ca7fdee2b67d4fbb038b34479481b3e3c2b50271f77d43a40fd5e5ff7408b01c4003a0e80a4b6b03a65161a0541530483f38df9c7ad3582786e6ee43fd23
+  languageName: node
+  linkType: hard
+
+"meilisearch@npm:0.34.0":
+  version: 0.34.0
+  resolution: "meilisearch@npm:0.34.0"
+  dependencies:
+    cross-fetch: ^3.1.6
+  checksum: f54c966d706af37a39b9aab67212508d3c51f6334ddaf667da24dc3e266caf416f4aa4fbeaecc719e115549d1e3cd0218ed5cf3ac9f229b8ebacacfa10a0392c
   languageName: node
   linkType: hard
 
@@ -12035,7 +12035,7 @@ __metadata:
     dotenv: ^16.3.1
     eslint: ^8.33.0
     instantsearch.css: ^8.0.0
-    meilisearch: 0.33.0
+    meilisearch: 0.34.0
     nuxt: ^3.6.5
     pluralize: ^8.0.0
     react: ^18.2.0
