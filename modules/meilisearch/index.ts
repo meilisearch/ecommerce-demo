@@ -1,6 +1,6 @@
 import { resolve } from 'path'
 import { fileURLToPath } from 'url'
-import { defineNuxtModule, addPlugin, addServerHandler } from '@nuxt/kit'
+import { defineNuxtModule, addPlugin, addServerHandler } from 'nuxt/kit'
 import { defu } from 'defu'
 import { ModuleOptions } from './types'
 

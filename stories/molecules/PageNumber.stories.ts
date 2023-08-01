@@ -7,7 +7,7 @@ const meta = {
     components: { PageNumber },
     setup: () => ({ args }),
     template: `
-      <PageNumber>Page X</PageNumber>
+      <PageNumber v-bind="args">Page X</PageNumber>
     `
   }),
   argTypes: {

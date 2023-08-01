@@ -4,7 +4,7 @@ node_modules
 .nitro
 .cache
 .output
-.env
+.env*
 dist
 
 # vscode settings
@@ -15,3 +15,12 @@ storybook-static
 
 # Local Meilisearch data
 meili_data/
+
+# Yarn 3
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

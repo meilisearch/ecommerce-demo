@@ -11,7 +11,7 @@ const meta: Meta<typeof ProductCard> = {
     components: { ProductCard },
     setup: () => ({ args }),
     template: `
-      <ProductCard/>
+      <ProductCard v-bind="args" />
     `
   }),
   argTypes: {

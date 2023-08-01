@@ -7,13 +7,13 @@ const meta = {
     components: { BaseButton },
     setup: () => ({ args }),
     template: `
-      <BaseButton>Button</BaseButton>
+      <BaseButton v-bind="args">Button</BaseButton>
     `
   }),
   argTypes: {
     secondary: { type: 'boolean' },
-    color: { options: ['dodger-blue', 'hot-pink'] },
-    size: { options: ['default', 'large', 'small'] }
+    color: { type: 'string', options: ['dodger-blue', 'hot-pink'] },
+    size: { type: 'string', options: ['default', 'large', 'small'] }
   },
   args: {
     secondary: false

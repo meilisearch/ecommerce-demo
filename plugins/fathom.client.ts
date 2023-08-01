@@ -4,6 +4,11 @@ import VueFathomPlugin from '@ubclaunchpad/vue-fathom'
 export default defineNuxtPlugin((nuxtApp) => {
   const runtimeConfig = useRuntimeConfig()
 
+  if (process.env.NODE_ENV !== 'production') {
+    console.log(`Not using Fathom (env: ${process.env.NODE_ENV})`)
+    return
+  }
+
   if (runtimeConfig.public.fathomSiteID) {
     nuxtApp.vueApp.use(VueFathomPlugin, {
       siteID: runtimeConfig.public.fathomSiteID,

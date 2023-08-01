@@ -41,7 +41,7 @@ This projects uses icons from [Heroicons](https://heroicons.com/) and social med
 > **Warning**
 > Ensure that you are using a Node version compatible with the one in `.nvmrc`.
 
-Install the dependencies with Yarn:
+Install the dependencies with Yarn 3:
 
 ```bash
 yarn install
@@ -115,3 +115,4 @@ yarn storybook
 
 > Output files `auto-imports.d.ts` and `components.d.ts` are auto-generated and *should not* be updated manually. You can commit them into source control.
 
+Learn more about [configuring Storybook for Nuxt](https://laurentcazanove.com/articles/storybook-nuxt-guide/).

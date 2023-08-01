@@ -13,6 +13,8 @@ const credentials = {
 
 const INDEX_NAME = 'products'
 
+/* eslint-disable no-console */
+
 const setup = async () => {
   console.log('🚀 Seeding your Meilisearch instance')
 
@@ -26,6 +28,7 @@ const setup = async () => {
   }
 
   const client = new MeiliSearch(credentials)
+  console.log(`Using Meilisearch host: ${credentials.host}\nSearch API key: ${credentials.apiKey}`)
 
   console.log(`Adding filterable attributes to \`${INDEX_NAME}\``)
   await client.index(INDEX_NAME).updateFilterableAttributes([

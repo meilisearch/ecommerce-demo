@@ -7,9 +7,12 @@ const meta: Meta<typeof SearchInput> = {
     components: { SearchInput },
     setup: () => ({ args }),
     template: `
-      <SearchInput/>
+      <SearchInput v-bind="args" />
     `
-  })
+  }),
+  args: {
+    value: ''
+  }
 }
 
 export default meta

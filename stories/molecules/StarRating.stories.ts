@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import StarRating from '~/components/molecules/StarRating.vue'
 
 export const ratingArgType = {
-  control: { min: 0, max: 5, step: 0.1 }
+  control: { type: 'number', min: 0, max: 5, step: 0.1 }
 }
 
 const meta: Meta<typeof StarRating> = {
@@ -11,11 +11,14 @@ const meta: Meta<typeof StarRating> = {
     components: { StarRating },
     setup: () => ({ args }),
     template: `
-      <StarRating/>
+      <StarRating v-bind="args" />
     `
   }),
   argTypes: {
     rating: ratingArgType
+  },
+  args: {
+    rating: 3.5
   }
 }
 

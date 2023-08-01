@@ -7,7 +7,7 @@ const meta: Meta<typeof BaseSelect> = {
     components: { BaseSelect },
     setup: () => ({ args }),
     template: `
-      <BaseSelect></BaseSelect>
+      <BaseSelect v-bind="args"></BaseSelect>
     `
   }),
   argTypes: {

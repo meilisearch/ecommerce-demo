@@ -7,7 +7,7 @@ const meta = {
     components: { BaseCheckbox },
     setup: () => ({ args }),
     template: `
-      <BaseCheckbox />
+      <BaseCheckbox v-bind="args" />
     `
   })
 } satisfies Meta<typeof BaseCheckbox>

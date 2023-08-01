@@ -9,7 +9,7 @@ const props = withDefaults(defineProps<Props>(), {
   value: ''
 })
 
-defineEmits(['input'])
+defineEmits(['input', 'reset'])
 
 const placeholder = toRef(props, 'placeholder')
 </script>
@@ -23,7 +23,7 @@ const placeholder = toRef(props, 'placeholder')
       class="input search-input"
       @input="$emit('input', $event)"
     >
-    <button type="reset" class="search-input-reset">
+    <button type="reset" class="search-input-reset" @click="$emit('reset')">
       <XIcon class="x-icon" />
     </button>
   </form>
