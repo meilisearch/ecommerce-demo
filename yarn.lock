@@ -2115,12 +2115,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@meilisearch/instant-meilisearch@npm:0.13.3-prototype-search-for-facet-values.0":
-  version: 0.13.3-prototype-search-for-facet-values.0
-  resolution: "@meilisearch/instant-meilisearch@npm:0.13.3-prototype-search-for-facet-values.0"
+"@meilisearch/instant-meilisearch@npm:^0.13.4":
+  version: 0.13.4
+  resolution: "@meilisearch/instant-meilisearch@npm:0.13.4"
   dependencies:
-    meilisearch: 0.33.0-prototype-search-for-facet-values.1
-  checksum: 1a613e6fdb560362db99b13e2b6c6f40d445813fc62e80a5a036e66038cd2ea45bad1749c7117ec39ac40a632225fae3753dffe773b7f639088a00b4e9f945d6
+    meilisearch: ^0.34.0
+  checksum: 52860e56ac52dd4af50aa3eab1a86d685d22ceed757519c6bf0efc95196ccc919e7e9b6d246a3c7148fe0de24cc8c0bad9e9ea0d291a883e65d3ba96977daf6d
   languageName: node
   linkType: hard
 
@@ -9481,16 +9481,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"meilisearch@npm:0.33.0-prototype-search-for-facet-values.1":
-  version: 0.33.0-prototype-search-for-facet-values.1
-  resolution: "meilisearch@npm:0.33.0-prototype-search-for-facet-values.1"
-  dependencies:
-    cross-fetch: ^3.1.6
-  checksum: f884ca7fdee2b67d4fbb038b34479481b3e3c2b50271f77d43a40fd5e5ff7408b01c4003a0e80a4b6b03a65161a0541530483f38df9c7ad3582786e6ee43fd23
-  languageName: node
-  linkType: hard
-
-"meilisearch@npm:0.34.0":
+"meilisearch@npm:0.34.0, meilisearch@npm:^0.34.0":
   version: 0.34.0
   resolution: "meilisearch@npm:0.34.0"
   dependencies:
@@ -12018,7 +12009,7 @@ __metadata:
     "@babel/core": ^7.22.9
     "@babel/preset-env": ^7.22.9
     "@babel/preset-typescript": ^7.22.5
-    "@meilisearch/instant-meilisearch": 0.13.3-prototype-search-for-facet-values.0
+    "@meilisearch/instant-meilisearch": ^0.13.4
     "@nuxtjs/eslint-config-typescript": ^12.0.0
     "@storybook/addon-actions": ^7.1.1
     "@storybook/addon-essentials": ^7.1.1
