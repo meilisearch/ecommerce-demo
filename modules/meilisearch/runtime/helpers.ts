@@ -7,6 +7,7 @@ export const createInstantMeilisearch = (
   options: InstantMeiliSearchOptions | undefined
 ) => {
   if (process.env.NODE_ENV !== 'production') {
+    // eslint-disable-next-line no-console
     console.log(`Using Meilisearch host: ${host}\nSearch API key: ${searchApiKey}`)
   }
   return instantMeiliSearch(

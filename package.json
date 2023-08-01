@@ -30,7 +30,7 @@
     "@ubclaunchpad/vue-fathom": "^2.0.0",
     "babel-loader": "^9.1.3",
     "defu": "^6.1.2",
-    "eslint": "^8.33.0",
+    "eslint": "^8.46.0",
     "instantsearch.css": "^8.0.0",
     "nuxt": "^3.6.5",
     "pluralize": "^8.0.0",
