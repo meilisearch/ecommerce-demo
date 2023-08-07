@@ -1,14 +1,18 @@
 <script lang="ts" setup>
+const appConfig = useAppConfig()
+
+const indexName = appConfig.ecommerce.indexName
+
 const sortingOptions = [
-  { value: 'products', label: 'Featured' },
-  { value: 'products:price:asc', label: 'Price: Low to High' },
-  { value: 'products:price:desc', label: 'Price: High to Low' },
-  { value: 'products:rating:desc', label: 'Rating: High to Low' }
+  { value: `${indexName}`, label: 'Featured' },
+  { value: `${indexName}:price:asc`, label: 'Price: Low to High' },
+  { value: `${indexName}:price:desc`, label: 'Price: High to Low' },
+  { value: `${indexName}:rating:desc`, label: 'Rating: High to Low' }
 ]
 </script>
 
 <template>
-  <MeiliSearchProvider index-name="products">
+  <MeiliSearchProvider :index-name="indexName">
     <TheNavbar class="mb-5 shadow-l">
       <template #search>
         <MeiliSearchBar />

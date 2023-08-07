@@ -8,11 +8,11 @@ import { AisHits } from 'vue-instantsearch/vue3/es'
       <div class="items">
         <ProductCard
           v-for="product in items"
-          :key="product.id"
-          :name="product.title"
+          :key="product.uniq_id"
+          :name="product.name"
           :brand="product.brand"
           :price="product.price"
-          :image-url="product.images[0]"
+          :image-url="product.image_url.split('|')[0]"
           :rating="product.rating"
           :reviews-count="product.reviews_count"
         />
