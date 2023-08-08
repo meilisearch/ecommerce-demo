@@ -4,7 +4,8 @@ export default defineNuxtConfig({
     head: {
       title: 'Ecommerce demo - Meilisearch',
       meta: [
-        { name: 'description', content: 'Ecommerce demo featuring fast and relevant onsite search powered by Meilisearch.' }
+        { name: 'description', content: 'Ecommerce demo featuring fast and relevant onsite search powered by Meilisearch.' },
+        { name: 'google-site-verification', content: process.env.GOOGLE_SITE_VERIFICATION_ID }
       ],
       link: [
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
