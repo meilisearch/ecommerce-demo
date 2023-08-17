@@ -23,7 +23,7 @@ export default defineNuxtConfig({
         options: {
           primaryKey: 'id',
           keepZeroFacets: true,
-          finitePagination: true
+          finitePagination: false
         }
       }
     }
