@@ -304,6 +304,10 @@
   margin-bottom: var(--size-5);
 }
 
+.mb-10 {
+  margin-bottom: calc(2 * var(--size-5));
+}
+
 .mx-0 {
   margin-left: var(--size-0);
   margin-right: var(--size-0);

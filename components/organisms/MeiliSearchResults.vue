@@ -1,11 +1,17 @@
 <script lang="ts" setup>
-import { AisHits } from 'vue-instantsearch/vue3/es'
+import { AisInfiniteHits } from 'vue-instantsearch/vue3/es'
 </script>
 
 <template>
-  <AisHits>
-    <template #default="{ items }">
-      <div class="items">
+  <AisInfiniteHits>
+    <template
+      #default="{
+        items,
+        refineNext,
+        isLastPage,
+      }"
+    >
+      <div class="items mb-10">
         <ProductCard
           v-for="product in items"
           :key="product.uniq_id"
@@ -17,8 +23,23 @@ import { AisHits } from 'vue-instantsearch/vue3/es'
           :reviews-count="product.reviews_count"
         />
       </div>
+      <div v-if="!isLastPage" class="text-center">
+        <BaseButton size="large" color="dodger-blue" class="inline" @click="refineNext">
+          Show more results
+        </BaseButton>
+      </div>
     </template>
-  </AisHits>
+  </AisInfiniteHits>
 </template>
 
 <style src="~/assets/css/components/results-grid.css" scoped />
+
+<style scoped>
+.text-center {
+  text-align: center;
+}
+
+.inline {
+  display: inline-block;
+}
+</style>

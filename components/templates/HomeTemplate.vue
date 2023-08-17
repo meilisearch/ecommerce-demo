@@ -31,7 +31,6 @@ const sortingOptions = [
           <MeiliSearchSorting :options="sortingOptions" />
         </div>
         <MeiliSearchResults class="mb-5" />
-        <MeiliSearchPagination />
       </div>
     </div>
   </MeiliSearchProvider>
