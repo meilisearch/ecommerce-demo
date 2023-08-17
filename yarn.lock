@@ -2166,12 +2166,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@meilisearch/instant-meilisearch@npm:^0.13.4":
-  version: 0.13.4
-  resolution: "@meilisearch/instant-meilisearch@npm:0.13.4"
+"@meilisearch/instant-meilisearch@npm:0.13.5":
+  version: 0.13.5
+  resolution: "@meilisearch/instant-meilisearch@npm:0.13.5"
   dependencies:
     meilisearch: ^0.34.0
-  checksum: 52860e56ac52dd4af50aa3eab1a86d685d22ceed757519c6bf0efc95196ccc919e7e9b6d246a3c7148fe0de24cc8c0bad9e9ea0d291a883e65d3ba96977daf6d
+  checksum: da5cd4b4aa69d2d24556d1dc8240f139c7bb0fcd52b666e204d629d802609b6623ca863e954001fbf90cd41771ec105fa5ac8c48d3fd0acfecd4ef8de414640e
   languageName: node
   linkType: hard
 
@@ -12606,7 +12606,7 @@ __metadata:
     "@babel/core": ^7.22.9
     "@babel/preset-env": ^7.22.9
     "@babel/preset-typescript": ^7.22.5
-    "@meilisearch/instant-meilisearch": ^0.13.4
+    "@meilisearch/instant-meilisearch": 0.13.5
     "@nuxtjs/eslint-config-typescript": ^12.0.0
     "@storybook/addon-actions": ^7.2.0
     "@storybook/addon-essentials": ^7.2.0
