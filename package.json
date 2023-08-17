@@ -16,7 +16,7 @@
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-typescript": "^7.22.5",
-    "@meilisearch/instant-meilisearch": "^0.13.4",
+    "@meilisearch/instant-meilisearch": "0.13.5",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@storybook/addon-actions": "^7.2.0",
     "@storybook/addon-essentials": "^7.2.0",
