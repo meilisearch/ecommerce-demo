@@ -30,7 +30,12 @@ const sortingOptions = [
           <MeiliSearchStats />
           <MeiliSearchSorting :options="sortingOptions" />
         </div>
-        <MeiliSearchResults class="mb-5" />
+        <MeiliSearchLoadingProvider v-slot="{ isSearchStalled }" class="mb-5">
+          <div v-show="isSearchStalled" style="height: 80vh; display: flex; flex-direction: column;">
+            <LoadingIndicator class="m-auto" />
+          </div>
+          <MeiliSearchResults v-show="!isSearchStalled" />
+        </MeiliSearchLoadingProvider>
       </div>
     </div>
   </MeiliSearchProvider>

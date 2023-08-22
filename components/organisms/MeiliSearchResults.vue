@@ -23,8 +23,8 @@ import { AisInfiniteHits } from 'vue-instantsearch/vue3/es'
           :reviews-count="product.reviews_count"
         />
       </div>
-      <div v-if="!isLastPage" class="text-center">
-        <BaseButton size="large" color="dodger-blue" class="inline" @click="refineNext">
+      <div v-if="!isLastPage">
+        <BaseButton size="large" color="dodger-blue" class="m-auto" @click="refineNext">
           Show more results
         </BaseButton>
       </div>
@@ -33,13 +33,3 @@ import { AisInfiniteHits } from 'vue-instantsearch/vue3/es'
 </template>
 
 <style src="~/assets/css/components/results-grid.css" scoped />
-
-<style scoped>
-.text-center {
-  text-align: center;
-}
-
-.inline {
-  display: inline-block;
-}
-</style>
