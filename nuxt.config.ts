@@ -22,7 +22,7 @@ export default defineNuxtConfig({
         searchApiKey: process.env.MEILISEARCH_SEARCH_API_KEY,
         options: {
           primaryKey: 'id',
-          keepZeroFacets: true,
+          keepZeroFacets: false,
           finitePagination: false
         }
       }

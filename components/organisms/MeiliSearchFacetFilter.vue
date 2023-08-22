@@ -30,6 +30,10 @@ const sortBy = computed(() => {
 })
 
 const attributePlural = computed(() => pluralize(props.attribute))
+
+const filterOutEmptyFacets = (items: any) => {
+  return items.filter((item: any) => item.count > 0)
+}
 </script>
 
 <template>
@@ -37,6 +41,7 @@ const attributePlural = computed(() => pluralize(props.attribute))
     :attribute="props.attribute"
     :searchable="true"
     :show-more="true"
+    :show-more-limit="50"
     :sort-by="sortBy"
     operator="or"
   >
@@ -71,7 +76,7 @@ const attributePlural = computed(() => pluralize(props.attribute))
           No results.
         </BaseText>
         <BaseCheckbox
-          v-for="item in items"
+          v-for="item in filterOutEmptyFacets(items)"
           :key="item.value"
           :value="item.isRefined"
           :label="item.label"
@@ -80,7 +85,7 @@ const attributePlural = computed(() => pluralize(props.attribute))
           @change="refine(item.value)"
         >
           <BaseText tag="span" size="m" :class="[ item.count ? 'text-valhalla-500' : 'text-ashes-900']">
-            {{ item.label }} <BaseText tag="span" size="s" class="text-ashes-900">
+            <span v-html="item.label" /> <BaseText tag="span" size="s" class="text-ashes-900">
               ({{ item.count.toLocaleString() }})
             </BaseText>
           </BaseText>
