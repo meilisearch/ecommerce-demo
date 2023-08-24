@@ -80,11 +80,18 @@ STORYBOOK_TWICPICS_DOMAIN=https://meilisearch-ecommerce.twic.pics
 
 ### Database
 
+This projects comes with a setup script: `database/setup.js`. This script seeds a `products` index using the dataset in `database/data.json`.
+
+This sample dataset is used the [tutorial](https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme), which pertains to the code on branches `1-setup-database`, `2-search-as-you-type`, `3-advanced-search-patterns`, and `4-final`.
+
 Run the setup script to configure and seed your Meilisearch instance:
 
 ```bash
 yarn setup
 ```
+
+> **Note**
+> The [live demo](https://ecommerce.meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme) uses a different dataset and Meilisearch instance. The `main` branch is the reference for this site.
 
 ## 🧑‍💻 Development
 
