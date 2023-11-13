@@ -1,4 +1,3 @@
-
 <template>
   <nav class="p-5 navbar">
     <div class="mobile-nav">
@@ -7,9 +6,9 @@
           <BaseLogo />
         </NuxtLink>
         <SocialLink url="https://github.com/meilisearch/ecommerce-demo" icon="github" class="ml-auto" />
-        <SocialLink url="https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme" icon="web" class="ml-2" />
+        <SocialLink url="https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=demo" icon="web" class="ml-2" />
       </div>
-      <div class="mobile-search-bar mr-5">
+      <div class="mr-5 mobile-search-bar">
         <slot name="search" />
       </div>
     </div>
