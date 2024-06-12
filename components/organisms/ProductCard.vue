@@ -1,20 +1,33 @@
 <script lang="ts" setup>
-// import { TwicImg } from '@twicpics/components/vue3'
-
 const props = defineProps<{
   name: string
   brand: string
   price: number | null // some prices are null in our dataset
-  rating: number
-  reviewsCount: number
-  imageUrl: string
+  rating: number | null
+  reviewsCount?: number
+  imageUrl?: string
 }>()
 
-const { name, brand, price, rating, reviewsCount, imageUrl } = toRefs(props)
-
+const { name, brand, price, rating, reviewsCount } = toRefs(props)
 const formattedPrice = computed(() => Number.isNaN(price) ? '-' : price)
 
-const optimizedImageUrl = computed(() => imageUrl.value.replace('https://images-na.ssl-images-amazon.com/images/', '/product-images/'))
+const appConfig = useAppConfig()
+const optimizedImageUrl = computed(() => {
+  if (!props.imageUrl) {
+    return null
+  }
+
+  return appConfig.images.twicpicsPaths.reduce((finalPath, { base, path }) => {
+    return finalPath.replace(base, path)
+  }, props.imageUrl)
+})
+
+const imageError = ref(false)
+const onImageStateChange = ({ state }: { state: 'new' | 'loading' | 'error' | 'done'}) => {
+  if (state === 'error') {
+    imageError.value = true
+  }
+}
 </script>
 
 <template>
@@ -23,6 +36,7 @@ const optimizedImageUrl = computed(() => imageUrl.value.replace('https://images-
       :alt="name"
       :src="optimizedImageUrl"
       class="mb-5"
+      @state-change="onImageStateChange"
     />
     <div class="px-5 pb-5">
       <BaseTitle size="xs" class="mb-1 text-hot-pink-500 -900">
@@ -39,12 +53,18 @@ const optimizedImageUrl = computed(() => imageUrl.value.replace('https://images-
         <span class="text-ashes-900">$</span> <span class="text-valhalla-100">{{ formattedPrice }}</span>
       </BaseText>
       <div class="product-rating">
-        <BaseText size="s" class="mr-1 text-valhalla-100">
-          {{ rating }}
-        </BaseText>
-        <StarRating :rating="rating" class="my-auto mr-2 text-valhalla-100" />
-        <BaseText size="xs" class="text-ashes-900">
-          {{ reviewsCount }} reviews
+        <template v-if="rating">
+          <BaseText size="s" class="mr-1 text-valhalla-100">
+            {{ rating }}
+          </BaseText>
+
+          <StarRating :rating="rating" class="my-auto mr-2 text-valhalla-100" />
+          <BaseText v-if="reviewsCount" size="xs" class="text-ashes-900">
+            <span>{{ reviewsCount }} reviews</span>
+          </BaseText>
+        </template>
+        <BaseText v-else size="xs" class="text-ashes-900">
+          No reviews yet
         </BaseText>
       </div>
     </div>

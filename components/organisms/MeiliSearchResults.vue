@@ -17,8 +17,8 @@ import { AisInfiniteHits } from 'vue-instantsearch/vue3/es'
           :key="product.uniq_id"
           :name="product.name"
           :brand="product.brand"
-          :price="product.price"
-          :image-url="product.image_url.split('|')[0]"
+          :price="product.retail_price"
+          :image-url="product.image"
           :rating="product.rating"
           :reviews-count="product.reviews_count"
         />

@@ -11,7 +11,7 @@ const credentials = {
   apiKey: process.env.MEILISEARCH_ADMIN_API_KEY
 }
 
-const INDEX_NAME = 'products'
+const INDEX_NAME = 'flipkart-products'
 
 /* eslint-disable no-console */
 
@@ -37,7 +37,7 @@ const setup = async () => {
     'tag',
     'rating_rounded',
     'reviews_count',
-    'price'
+    'retail_price'
   ])
 
   console.log(`Adding ranking rules to \`${INDEX_NAME}\``)
@@ -53,11 +53,11 @@ const setup = async () => {
   console.log(`Adding sortable attributes to \`${INDEX_NAME}\``)
   await client.index(INDEX_NAME).updateSortableAttributes([
     'rating',
-    'price'
+    'retail_price'
   ])
 
-  console.log(`Adding documents to \`${INDEX_NAME}\``)
-  await client.index(INDEX_NAME).addDocuments(data)
+  // console.log(`Adding documents to \`${INDEX_NAME}\``)
+  // await client.index(INDEX_NAME).addDocuments(data)
 
   await watchTasks(client, INDEX_NAME)
 }

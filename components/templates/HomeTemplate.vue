@@ -5,8 +5,8 @@ const indexName = appConfig.ecommerce.indexName
 
 const sortingOptions = [
   { value: `${indexName}`, label: 'Featured' },
-  { value: `${indexName}:price:asc`, label: 'Price: Low to High' },
-  { value: `${indexName}:price:desc`, label: 'Price: High to Low' },
+  { value: `${indexName}:retail_price:asc`, label: 'Price: Low to High' },
+  { value: `${indexName}:retail_price:desc`, label: 'Price: High to Low' },
   { value: `${indexName}:rating:desc`, label: 'Rating: High to Low' }
 ]
 </script>
@@ -22,7 +22,7 @@ const sortingOptions = [
       <div class="filters">
         <MeiliSearchFacetFilter attribute="category" initial-sort-by="name" class="mb-5" />
         <MeiliSearchFacetFilter attribute="brand" initial-sort-by="count" class="mb-5" />
-        <MeiliSearchRangeFilter attribute="price" class="mb-5" />
+        <MeiliSearchRangeFilter attribute="retail_price" class="mb-5" />
         <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" />
       </div>
       <div class="results">
