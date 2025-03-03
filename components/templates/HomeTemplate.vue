@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-const appConfig = useAppConfig()
-
-const indexName = appConfig.ecommerce.indexName
+const config = useRuntimeConfig()
+const indexName = config.public.meilisearch.indexName
 
 const sortingOptions = [
   { value: `${indexName}`, label: 'Featured' },

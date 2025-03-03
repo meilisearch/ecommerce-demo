@@ -19,8 +19,9 @@ export default defineNuxtConfig({
     public: {
       fathomSiteID: process.env.FATHOM_SITE_ID,
       meilisearch: {
-        host: process.env.MEILISEARCH_HOST,
-        searchApiKey: process.env.MEILISEARCH_SEARCH_API_KEY,
+        host: process.env.NUXT_PUBLIC_MEILISEARCH_HOST,
+        searchApiKey: process.env.NUXT_PUBLIC_MEILISEARCH_SEARCH_API_KEY,
+        indexName: process.env.NUXT_PUBLIC_MEILISEARCH_INDEX_NAME,
         options: {
           primaryKey: 'id',
           keepZeroFacets: false,
@@ -54,7 +55,7 @@ export default defineNuxtConfig({
   ],
 
   twicpics: {
-    domain: process.env.TWICPICS_DOMAIN
+    domain: process.env.NUXT_PUBLIC_TWICPICS_DOMAIN
   },
 
   compatibilityDate: '2025-02-17'
