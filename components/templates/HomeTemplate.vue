@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { AisToggleRefinement } from 'vue-instantsearch/vue3/es'
 const config = useRuntimeConfig()
 const indexName = config.public.meilisearch.indexName
 
@@ -16,6 +17,25 @@ const sortingOptions = [
         <MeiliSearchBar />
       </template>
     </TheNavbar>
+    <div class="bg-red-500">
+      <div class="flex flex-row">
+          <AisToggleRefinement
+            attribute="gender"
+            :on="['Men', 'Unisex']"
+            label="Men"
+          />
+          <AisToggleRefinement
+          attribute="gender"
+          :on="['Women', 'Unisex']"
+          label="Women"
+        />
+          <AisToggleRefinement
+          attribute="gender"
+          :on="['Boys', 'Girls']"
+          label="Kids"
+        />
+      </div>
+    </div>
     <div class="container mb-5">
       <div class="filters">
         <MeiliSearchFacetFilter attribute="gender" initial-sort-by="name" class="mb-5" />
