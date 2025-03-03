@@ -45,7 +45,7 @@ const attributes = computed(() => {
 </script>
 
 <template>
-  <component :is="instantSearchComponent" v-bind="attributes">
+  <component :is="instantSearchComponent" v-bind="attributes" :future="{ preserveSharedStateOnUnmount: true }">
     <slot name="default" />
   </component>
 </template>

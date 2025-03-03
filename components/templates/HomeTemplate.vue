@@ -21,6 +21,8 @@ const sortingOptions = [
         <MeiliSearchFacetFilter attribute="gender" initial-sort-by="name" class="mb-5" />
         <MeiliSearchFacetFilter attribute="masterCategory" initial-sort-by="count" class="mb-5" />
         <MeiliSearchFacetFilter attribute="subCategory" initial-sort-by="count" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="baseColour" initial-sort-by="count" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="usage" initial-sort-by="count" class="mb-5" />
         <!-- <MeiliSearchRangeFilter attribute="price" class="mb-5" />
         <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" /> -->
       </div>
