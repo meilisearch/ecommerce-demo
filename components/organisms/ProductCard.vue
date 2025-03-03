@@ -14,18 +14,11 @@ const { name, brand, price, rating, reviewsCount, imageUrl } = toRefs(props)
 
 const formattedPrice = computed(() => Number.isNaN(price) ? '-' : price)
 
-const optimizedImageUrl = computed(() => imageUrl.value.replace('http://assets.myntassets.com/v1/images/style/properties/', '/fashion-images/'))
+const optimizedImageUrl = computed(() => imageUrl.value.replace('http://assets.myntassets.com/', '/kaggle-fashion-products/'))
 </script>
 
 <template>
   <BaseCard class="product-card">
-    <!-- <img
-      :src="imageUrl"
-      :alt="name"
-      height="333"
-      width="250"
-      class="mb-5 object-cover"
-    /> -->
     <TwicImg
       :alt="name"
       :src="optimizedImageUrl"
@@ -45,9 +38,9 @@ const optimizedImageUrl = computed(() => imageUrl.value.replace('http://assets.m
         {{ name }}
       </BaseText>
       <BaseText size="l" class="mb-2">
-        <span class="text-ashes-900">$</span> <span class="text-valhalla-100">{{ formattedPrice }}</span>
+        <span class="text-ashes-900">₹</span> <span class="text-valhalla-100">{{ formattedPrice }}</span>
       </BaseText>
-      <div class="product-rating">
+      <!-- <div class="product-rating">
         <BaseText size="s" class="mr-1 text-valhalla-100">
           {{ rating }}
         </BaseText>
@@ -55,7 +48,7 @@ const optimizedImageUrl = computed(() => imageUrl.value.replace('http://assets.m
         <BaseText size="xs" class="text-ashes-900">
           {{ reviewsCount }} reviews
         </BaseText>
-      </div>
+      </div> -->
     </div>
   </BaseCard>
 </template>

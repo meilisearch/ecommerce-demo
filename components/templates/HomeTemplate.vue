@@ -6,7 +6,6 @@ const sortingOptions = [
   { value: `${indexName}`, label: 'Featured' },
   { value: `${indexName}:price:asc`, label: 'Price: Low to High' },
   { value: `${indexName}:price:desc`, label: 'Price: High to Low' },
-  { value: `${indexName}:rating:desc`, label: 'Rating: High to Low' }
 ]
 </script>
 
@@ -28,7 +27,7 @@ const sortingOptions = [
       <div class="results">
         <div class="mb-5 results-meta">
           <MeiliSearchStats />
-          <!-- <MeiliSearchSorting :options="sortingOptions" /> -->
+          <MeiliSearchSorting :options="sortingOptions" />
         </div>
         <MeiliSearchLoadingProvider v-slot="{ isSearchStalled }" class="mb-5">
           <div v-show="isSearchStalled" style="height: 80vh; display: flex; flex-direction: column;">

@@ -16,9 +16,9 @@ import { AisInfiniteHits } from 'vue-instantsearch/vue3/es'
           v-for="product in items"
           :key="product.id"
           :name="product.productDisplayName"
-          brand="product.brand"
-          :price="0"
-          :image-url="product.imageUrl"
+          :brand="product.brandName"
+          :price="product.price"
+          :image-url="product.imageUrls.search ?? product.imageUrls.default"
           :rating="5"
           :reviews-count="0"
         />
