@@ -19,7 +19,7 @@
 </p>
 <br/>
 
-> Meilisearch is an open-source search engine that offers fast, relevant search out of the box. 
+> Meilisearch is an open-source search engine that offers fast, relevant search out of the box.
 
 ## 💪 Looking to build this yourself?
 
@@ -61,22 +61,24 @@ yarn install
 
 Environment variables should hold your Meilisearch database credentials. The easiest way to launch a database is to create a project on [Meilisearch Cloud](https://meilisearch.com/cloud?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme). Alternatively, you can read [local installation](https://www.meilisearch.com/docs/learn/getting_started/installation?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme#local-installation) documentation for self-hosted options.
 
-This project loads environment variables from an `.env` file. Copy `.env.example` file  as `.env` and update the file's content to match your credentials.
+This project loads environment variables from an `.env` file. Create an `.env` file and update it with your credentials.
 
 ```bash
 # .env
 
-# Meilisearch configuration
-MEILISEARCH_HOST="use the Database URL here"
+# Meilisearch credentials for search
+NUXT_PUBLIC_MEILISEARCH_HOST="use the Database URL here"
+NUXT_PUBLIC_MEILISEARCH_SEARCH_API_KEY="use the Default Search API Key here"
+
+# Meilisearch credentials for setup
 MEILISEARCH_ADMIN_API_KEY="use the Default Admin API Key here"
-MEILISEARCH_SEARCH_API_KEY="use the Default Search API Key here"
 
 # Image optimization configuration
-TWICPICS_DOMAIN=https://meilisearch-ecommerce.twic.pics
+NUXT_PUBLIC_TWICPICS_DOMAIN=https://meilisearch-ecommerce.twic.pics
 STORYBOOK_TWICPICS_DOMAIN=https://meilisearch-ecommerce.twic.pics
 ```
 
-> This application uses [TwicPics](https://twicpics.com/) to deliver optimized images. You don’t need to update the related environment variables. 
+> This application uses [TwicPics](https://twicpics.com/) to deliver optimized images. You don’t need to update the related environment variables.
 
 ### Database
 
