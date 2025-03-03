@@ -30,6 +30,7 @@
     "@types/pluralize": "^0.0.30",
     "@ubclaunchpad/vue-fathom": "^2.0.0",
     "babel-loader": "^9.2.1",
+    "csv-parser": "^3.2.0",
     "defu": "^6.1.4",
     "epic-spinners": "^2.0.0",
     "eslint": "^8.57.1",

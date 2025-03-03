@@ -19,15 +19,16 @@ const sortingOptions = [
     </TheNavbar>
     <div class="container mb-5">
       <div class="filters">
-        <MeiliSearchFacetFilter attribute="category" initial-sort-by="name" class="mb-5" />
-        <MeiliSearchFacetFilter attribute="brand" initial-sort-by="count" class="mb-5" />
-        <MeiliSearchRangeFilter attribute="price" class="mb-5" />
-        <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" />
+        <MeiliSearchFacetFilter attribute="gender" initial-sort-by="name" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="masterCategory" initial-sort-by="count" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="subCategory" initial-sort-by="count" class="mb-5" />
+        <!-- <MeiliSearchRangeFilter attribute="price" class="mb-5" />
+        <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" /> -->
       </div>
       <div class="results">
         <div class="mb-5 results-meta">
           <MeiliSearchStats />
-          <MeiliSearchSorting :options="sortingOptions" />
+          <!-- <MeiliSearchSorting :options="sortingOptions" /> -->
         </div>
         <MeiliSearchLoadingProvider v-slot="{ isSearchStalled }" class="mb-5">
           <div v-show="isSearchStalled" style="height: 80vh; display: flex; flex-direction: column;">

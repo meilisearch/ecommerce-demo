@@ -14,14 +14,23 @@ const { name, brand, price, rating, reviewsCount, imageUrl } = toRefs(props)
 
 const formattedPrice = computed(() => Number.isNaN(price) ? '-' : price)
 
-const optimizedImageUrl = computed(() => imageUrl.value.replace('https://images-na.ssl-images-amazon.com/images/', '/product-images/'))
+const optimizedImageUrl = computed(() => imageUrl.value.replace('http://assets.myntassets.com/v1/images/style/properties/', '/fashion-images/'))
 </script>
 
 <template>
   <BaseCard class="product-card">
+    <!-- <img
+      :src="imageUrl"
+      :alt="name"
+      height="333"
+      width="250"
+      class="mb-5 object-cover"
+    /> -->
     <TwicImg
       :alt="name"
       :src="optimizedImageUrl"
+      :width="250"
+      :height="333"
       class="mb-5"
     />
     <div class="px-5 pb-5">
