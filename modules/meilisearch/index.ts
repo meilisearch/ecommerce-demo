@@ -19,10 +19,10 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     enabled: parseBoolean(process.env.MEILISEARCH_ENABLED as string) || true,
-    host: process.env.MEILISEARCH_HOST || '',
-    searchApiKey: process.env.MEILISEARCH_SEARCH_API_KEY || ''
+    host: process.env.NUXT_PUBLIC_MEILISEARCH_HOST || '',
+    searchApiKey: process.env.NUXT_PUBLIC_MEILISEARCH_SEARCH_API_KEY || ''
   },
-  setup (resolvedOptions, nuxtApp) {
+  setup(resolvedOptions, nuxtApp) {
     if (!resolvedOptions.enabled || parseBoolean(process.env.MEILISEARCH_ENABLED as string) === false) {
       // eslint-disable-next-line no-console
       console.log('`[Meilisearch]` Module is disabled')

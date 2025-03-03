@@ -7,7 +7,7 @@ import data from './data.json' assert { type: 'json' }
 dotenv.config()
 
 const credentials = {
-  host: process.env.MEILISEARCH_HOST,
+  host: process.env.NUXT_PUBLIC_MEILISEARCH_HOST,
   apiKey: process.env.MEILISEARCH_ADMIN_API_KEY
 }
 
@@ -19,7 +19,7 @@ const setup = async () => {
   console.log('🚀 Seeding your Meilisearch instance')
 
   if (!credentials.host) {
-    console.error('Missing `MEILISEARCH_HOST` environment variable')
+    console.error('Missing `NUXT_PUBLIC_MEILISEARCH_HOST` environment variable')
     process.exit(1)
   }
   if (!credentials.apiKey) {
