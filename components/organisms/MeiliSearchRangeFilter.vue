@@ -28,10 +28,10 @@ const toValue = (currentValue: Range, boundaries: Range): [number, number] => {
       </BaseTitle>
       <div class="slider-labels text-valhalla-500 mb-2">
         <BaseText size="m">
-          <span class="text-ashes-900">$ </span>{{ currentRefinement.min ?? range.min }}
+          <span class="text-ashes-900">$ </span>{{ formatToUSD(currentRefinement.min ?? range.min) }}
         </BaseText>
         <BaseText size="m">
-          <span class="text-ashes-900">$ </span>{{ currentRefinement.max ?? range.max }}
+          <span class="text-ashes-900">$ </span>{{ formatToUSD(currentRefinement.max ?? range.max) }}
         </BaseText>
       </div>
       <RangeSlider
