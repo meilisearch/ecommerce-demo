@@ -12,7 +12,12 @@ const props = defineProps<{
 
 const { name, brand, price, rating, reviewsCount, imageUrl } = toRefs(props)
 
-const formattedPrice = computed(() => Number.isNaN(price) ? '-' : price)
+const formattedPrice = computed(() => {
+  if (props.price === null) {
+    return '-';
+  }
+  return (props.price * 0.0115).toFixed(2);
+})
 
 const optimizedImageUrl = computed(() => imageUrl.value.replace('http://assets.myntassets.com/', '/kaggle-fashion-products/'))
 </script>
@@ -38,7 +43,7 @@ const optimizedImageUrl = computed(() => imageUrl.value.replace('http://assets.m
         {{ name }}
       </BaseText>
       <BaseText size="l" class="mb-2">
-        <span class="text-ashes-900">₹</span> <span class="text-valhalla-100">{{ formattedPrice }}</span>
+        <span class="text-ashes-900">$</span> <span class="text-valhalla-100">{{ formattedPrice }}</span>
       </BaseText>
       <!-- <div class="product-rating">
         <BaseText size="s" class="mr-1 text-valhalla-100">
