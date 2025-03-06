@@ -7,6 +7,7 @@ import WebIcon from '~/components/atoms/WebIcon.vue'
 const props = defineProps<{
   url: string
   icon: 'discord' | 'github' | 'twitter' | 'web'
+  title: string
 }>()
 
 const iconComponent = computed(() => {
@@ -25,8 +26,8 @@ const iconComponent = computed(() => {
 </script>
 
 <template>
-  <a :href="url" target="_blank" class="social-link">
-    <component :is="iconComponent" class="social-icon" height="36" width="36" />
+  <a :href="url" target="_blank" class="social-link" :title="title">
+    <component :is="iconComponent" class="social-icon" height="32" width="32" />
   </a>
 </template>
 

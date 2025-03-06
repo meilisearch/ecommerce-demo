@@ -12,9 +12,14 @@ const props = defineProps<{
 
 const { name, brand, price, rating, reviewsCount, imageUrl } = toRefs(props)
 
-const formattedPrice = computed(() => Number.isNaN(price) ? '-' : price)
+const formattedPrice = computed(() => {
+  if (props.price === null) {
+    return '-';
+  }
+  return (props.price * 0.0115).toFixed(2);
+})
 
-const optimizedImageUrl = computed(() => imageUrl.value.replace('https://images-na.ssl-images-amazon.com/images/', '/product-images/'))
+const optimizedImageUrl = computed(() => imageUrl.value.replace('http://assets.myntassets.com/', '/kaggle-fashion-products/'))
 </script>
 
 <template>
@@ -22,6 +27,8 @@ const optimizedImageUrl = computed(() => imageUrl.value.replace('https://images-
     <TwicImg
       :alt="name"
       :src="optimizedImageUrl"
+      :width="250"
+      :height="333"
       class="mb-5"
     />
     <div class="px-5 pb-5">
@@ -38,7 +45,7 @@ const optimizedImageUrl = computed(() => imageUrl.value.replace('https://images-
       <BaseText size="l" class="mb-2">
         <span class="text-ashes-900">$</span> <span class="text-valhalla-100">{{ formattedPrice }}</span>
       </BaseText>
-      <div class="product-rating">
+      <!-- <div class="product-rating">
         <BaseText size="s" class="mr-1 text-valhalla-100">
           {{ rating }}
         </BaseText>
@@ -46,7 +53,7 @@ const optimizedImageUrl = computed(() => imageUrl.value.replace('https://images-
         <BaseText size="xs" class="text-ashes-900">
           {{ reviewsCount }} reviews
         </BaseText>
-      </div>
+      </div> -->
     </div>
   </BaseCard>
 </template>

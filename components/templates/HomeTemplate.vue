@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { AisToggleRefinement } from 'vue-instantsearch/vue3/es'
 const config = useRuntimeConfig()
 const indexName = config.public.meilisearch.indexName
 
@@ -6,7 +7,6 @@ const sortingOptions = [
   { value: `${indexName}`, label: 'Featured' },
   { value: `${indexName}:price:asc`, label: 'Price: Low to High' },
   { value: `${indexName}:price:desc`, label: 'Price: High to Low' },
-  { value: `${indexName}:rating:desc`, label: 'Rating: High to Low' }
 ]
 </script>
 
@@ -19,10 +19,13 @@ const sortingOptions = [
     </TheNavbar>
     <div class="container mb-5">
       <div class="filters">
-        <MeiliSearchFacetFilter attribute="category" initial-sort-by="name" class="mb-5" />
-        <MeiliSearchFacetFilter attribute="brand" initial-sort-by="count" class="mb-5" />
-        <MeiliSearchRangeFilter attribute="price" class="mb-5" />
-        <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" />
+        <MeiliSearchFacetFilter attribute="gender" initial-sort-by="name" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="masterCategory" initial-sort-by="count" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="subCategory" initial-sort-by="count" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="baseColour" initial-sort-by="count" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="usage" initial-sort-by="count" class="mb-5" />
+        <!-- <MeiliSearchRangeFilter attribute="price" class="mb-5" />
+        <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" /> -->
       </div>
       <div class="results">
         <div class="mb-5 results-meta">

@@ -1,15 +1,12 @@
 import * as dotenv from 'dotenv'
 import { MeiliSearch } from 'meilisearch'
-import { watchTasks } from './utils.js'
+import { watchTasks, loadCredentials } from './utils.js'
 import data from './data.json' assert { type: 'json' }
 
 // Load environment
 dotenv.config()
 
-const credentials = {
-  host: process.env.NUXT_PUBLIC_MEILISEARCH_HOST,
-  apiKey: process.env.MEILISEARCH_ADMIN_API_KEY
-}
+const credentials = loadCredentials()
 
 const INDEX_NAME = 'products'
 
@@ -17,15 +14,6 @@ const INDEX_NAME = 'products'
 
 const setup = async () => {
   console.log('🚀 Seeding your Meilisearch instance')
-
-  if (!credentials.host) {
-    console.error('Missing `NUXT_PUBLIC_MEILISEARCH_HOST` environment variable')
-    process.exit(1)
-  }
-  if (!credentials.apiKey) {
-    console.error('Missing `MEILISEARCH_ADMIN_API_KEY` environment variable')
-    process.exit(1)
-  }
 
   const client = new MeiliSearch(credentials)
   console.log(`Using Meilisearch host: ${credentials.host}\nSearch API key: ${credentials.apiKey}`)
@@ -56,8 +44,8 @@ const setup = async () => {
     'price'
   ])
 
-  console.log(`Adding documents to \`${INDEX_NAME}\``)
-  await client.index(INDEX_NAME).addDocuments(data)
+  // console.log(`Adding documents to \`${INDEX_NAME}\``)
+  // await client.index(INDEX_NAME).addDocuments(data)
 
   await watchTasks(client, INDEX_NAME)
 }
