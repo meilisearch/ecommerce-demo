@@ -16,7 +16,7 @@ const formattedPrice = computed(() => {
   if (props.price === null) {
     return '-';
   }
-  return (props.price * 0.0115).toFixed(2);
+  return formatToUSD(props.price);
 })
 
 const optimizedImageUrl = computed(() => imageUrl.value.replace('http://assets.myntassets.com/', '/kaggle-fashion-products/'))
