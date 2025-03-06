@@ -5,8 +5,8 @@
         <NuxtLink to="/">
           <BaseLogo />
         </NuxtLink>
-        <SocialLink url="https://github.com/meilisearch/ecommerce-demo" icon="github" class="ml-auto" />
-        <SocialLink url="https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=demo" icon="web" class="ml-2" />
+        <SocialLink url="https://github.com/meilisearch/ecommerce-demo" icon="github" title="View the code" class="ml-auto" />
+        <SocialLink url="https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=demo" icon="web" title="Read the guide" class="ml-2" />
       </div>
       <div class="mr-5 mobile-search-bar">
         <slot name="search" />
@@ -17,10 +17,8 @@
       <div class="tablet-search-bar">
         <slot name="search" />
       </div>
-      <SocialLink url="https://discord.meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=preview&utm_medium=navbar" icon="discord" class="mr-5" />
-      <SocialLink url="https://twitter.com/meilisearch" icon="twitter" class="mr-5" />
-      <SocialLink url="https://github.com/meilisearch/ecommerce-demo" icon="github" class="mr-5" />
-      <SocialLink url="https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme" icon="web" />
+      <SocialLink url="https://github.com/meilisearch/ecommerce-demo" icon="github" title="View the code" class="mr-3" />
+      <SocialLink url="https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme" icon="web" title="Read the guide" />
     </div>
   </nav>
 </template>

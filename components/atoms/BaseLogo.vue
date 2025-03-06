@@ -13,7 +13,7 @@
 
 @media screen and (min-width: 1024px) {
   .logo {
-    height: 2.25rem;
+    height: 2rem;
   }
 }
 </style>
