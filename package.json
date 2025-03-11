@@ -53,6 +53,6 @@
     "@ai-sdk/openai": "^1.2.1",
     "ai": "^4.1.54",
     "dotenv": "^16.4.7",
-    "meilisearch": "0.34.0"
+    "meilisearch": "0.41.0"
   }
 }

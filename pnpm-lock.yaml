@@ -18,8 +18,8 @@ importers:
         specifier: ^16.4.7
         version: 16.4.7
       meilisearch:
-        specifier: 0.34.0
-        version: 0.34.0
+        specifier: 0.41.0
+        version: 0.41.0
     devDependencies:
       '@babel/core':
         specifier: ^7.26.9
@@ -4816,6 +4816,9 @@ packages:
 
   meilisearch@0.34.0:
     resolution: {integrity: sha512-qJV75gT2R38C+9x/o10AjfYmT33uLGOKdcQawrV1v1liI3RUs2ZvBP87bPhhQ06Bws0BA82yVXNLpS6l5wi4uA==}
+
+  meilisearch@0.41.0:
+    resolution: {integrity: sha512-5KcGLxEXD7E+uNO7R68rCbGSHgCqeM3Q3RFFLSsN7ZrIgr8HPDXVAIlP4LHggAZfk0FkSzo8VSXifHCwa2k80g==}
 
   memoizerific@1.11.3:
     resolution: {integrity: sha512-/EuHYwAPdLtXwAwSZkh/Gutery6pD2KYd44oQLhAvQp/50mpyduZh8Q7PYHXTCJ+wuXxt7oij2LXyIJOOYFPog==}
@@ -12683,6 +12686,12 @@ snapshots:
   media-typer@0.3.0: {}
 
   meilisearch@0.34.0:
+    dependencies:
+      cross-fetch: 3.2.0
+    transitivePeerDependencies:
+      - encoding
+
+  meilisearch@0.41.0:
     dependencies:
       cross-fetch: 3.2.0
     transitivePeerDependencies:
