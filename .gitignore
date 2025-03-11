@@ -24,3 +24,6 @@ meili_data/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Image descriptions cache files
+.cache/image-descriptions.json
