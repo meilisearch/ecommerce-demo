@@ -10,7 +10,8 @@
     "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build",
     "lint": "eslint .",
-    "setup": "node database/setup.js"
+    "setup": "node database/setup.js",
+    "db:gen-descriptions": "node database/descriptions"
   },
   "devDependencies": {
     "@babel/core": "^7.26.9",
@@ -49,6 +50,8 @@
     "vue-slider-component": "4.1.0-beta.7"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^1.2.1",
+    "ai": "^4.1.54",
     "dotenv": "^16.4.7",
     "meilisearch": "0.34.0"
   }
