@@ -1,13 +1,24 @@
 <script lang="ts" setup>
+import { MeiliSearch } from 'meilisearch'
+
+const config = useRuntimeConfig()
+
+const client = new MeiliSearch({
+  host: config.public.meilisearch.host,
+  apiKey: config.public.meilisearch.searchApiKey,
+})
+
 // import { TwicImg } from '@twicpics/components/vue3'
 
 const props = defineProps<{
+  id: number
   name: string
   brand: string
   price: number | null // some prices are null in our dataset
   rating: number
   reviewsCount: number
   imageUrl: string
+  baseColour: string
 }>()
 
 const { name, brand, price, rating, reviewsCount, imageUrl } = toRefs(props)
@@ -19,7 +30,25 @@ const formattedPrice = computed(() => {
   return formatToUSD(props.price);
 })
 
-const optimizedImageUrl = computed(() => imageUrl.value.replace('http://assets.myntassets.com/', '/kaggle-fashion-products/'))
+const similarProducts = ref<any[]>([])
+
+onMounted(async () => {
+  const similarDocuments = await  await client
+      .index(config.public.meilisearch.indexName)
+      .searchSimilarDocuments({
+        id: props.id,
+        limit: 3,
+        embedder: 'image_desc_small',
+        // filter: [`baseColour=${props.baseColour}`]
+      });
+  similarProducts.value = similarDocuments.hits.map((hit: any) => hit)
+})
+
+const getOptimizedImageUrl = (url: string) => {
+  return url.replace('http://assets.myntassets.com/', '/kaggle-fashion-products/')
+}
+
+const optimizedImageUrl = computed(() => getOptimizedImageUrl(imageUrl.value))
 </script>
 
 <template>
@@ -45,6 +74,18 @@ const optimizedImageUrl = computed(() => imageUrl.value.replace('http://assets.m
       <BaseText size="l" class="mb-2">
         <span class="text-ashes-900">$</span> <span class="text-valhalla-100">{{ formattedPrice }}</span>
       </BaseText>
+      <div class="grid">
+        <div v-for="product in similarProducts" :key="product.id">
+          <TwicImg
+            :key="product.id"
+            :alt="product.name"
+            :src="getOptimizedImageUrl(product.imageUrls.default)"
+            :width="50"
+            :height="66"
+            class="mb-5"
+          />
+        </div>
+      </div>
       <!-- <div class="product-rating">
         <BaseText size="s" class="mr-1 text-valhalla-100">
           {{ rating }}
@@ -80,5 +121,11 @@ const optimizedImageUrl = computed(() => imageUrl.value.replace('http://assets.m
 .product-rating {
   display: flex;
   align-items: baseline;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 </style>
