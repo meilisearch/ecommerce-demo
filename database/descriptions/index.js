@@ -9,9 +9,10 @@ import { processBatch } from './processBatch.js'
 dotenv.config()
 
 // Constants
-const BATCH_SIZE = 50
-const MAX_BATCHES = 20
+const BATCH_SIZE = 100
+const MAX_BATCHES = 500
 const INDEX_NAME = process.env.NUXT_PUBLIC_MEILISEARCH_INDEX_NAME
+const DATASET_FILE = './database/girls-dataset.jsonl'
 
 // Initialize Meilisearch client
 const credentials = loadCredentials()
@@ -21,11 +22,11 @@ const client = new MeiliSearch(credentials)
  * Main function to process the dataset
  */
 async function main() {
-  console.log('Starting to generate descriptions for products...')
+  console.log(`Starting to generate descriptions for products...`)
   console.log('------------------------------------------')
 
   // Create a readable stream for the dataset file
-  const fileStream = fs.createReadStream('./database/dataset.jsonl')
+  const fileStream = fs.createReadStream(DATASET_FILE)
   const rl = readline.createInterface({
     input: fileStream,
     crlfDelay: Infinity
@@ -42,11 +43,6 @@ async function main() {
     try {
       const document = JSON.parse(line)
 
-      // Add temporary filter HERE
-      if (document.gender !== 'Girls') {
-        continue // Skip documents that don't have gender = Girls
-      }
-
       batch.push(document)
       lineCount++
 
@@ -56,7 +52,7 @@ async function main() {
 
         // Update documents in Meilisearch
         const task = await client.index(INDEX_NAME).updateDocuments(processedBatch)
-        console.log(`Batch ${batchCount + 1} update task: ${task.taskUid}`)
+        console.log(`Enqueued task ${task.taskUid} for batch ${batchCount + 1}`)
         await client.waitForTask(task.taskUid)
         console.log('------------------------------------------')
 
@@ -78,8 +74,8 @@ async function main() {
   if (batch.length > 0 && batchCount < MAX_BATCHES) {
     const processedBatch = await processBatch(batch)
     const task = await client.index(INDEX_NAME).updateDocuments(processedBatch)
-    console.log(`Final batch update task: ${task.taskUid}`)
-    await client.waitForTask(task.taskUid)
+    console.log(`Enqueued task ${task.taskUid} for final batch`)
+    // await client.waitForTask(task.taskUid)
   }
 
   console.log(`Processed ${lineCount} documents in ${batchCount + (batch.length > 0 ? 1 : 0)} batches.`)

@@ -1,14 +1,13 @@
 import * as dotenv from 'dotenv'
 import { MeiliSearch } from 'meilisearch'
 import { watchTasks, loadCredentials } from './utils.js'
-import data from './data.json' assert { type: 'json' }
 
 // Load environment
 dotenv.config()
 
 const credentials = loadCredentials()
 
-const INDEX_NAME = 'products'
+const INDEX_NAME = process.env.NUXT_PUBLIC_MEILISEARCH_INDEX_NAME
 
 /* eslint-disable no-console */
 
