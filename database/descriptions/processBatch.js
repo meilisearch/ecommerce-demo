@@ -34,21 +34,21 @@ export async function processBatch(batch) {
         return document
       }
 
-      console.debug(`Processing document ID: ${document.id}`)
+      // console.debug(`Processing document ID: ${document.id}`)
 
       // Check if the description is already in the cache
       let description
       if (descriptionsCache[imageUrl]) {
-        console.debug(`Cache hit for image: ${imageUrl}`)
+        // console.debug(`Cache hit for image: ${imageUrl}`)
         description = descriptionsCache[imageUrl]
       } else {
-        console.debug(`Cache miss for image: ${imageUrl}, generating description...`)
+        // console.debug(`Cache miss for image: ${imageUrl}, generating description...`)
         description = await generateDescription(imageUrl)
         // Store in cache as soon as we get the result
         descriptionsCache[imageUrl] = description
       }
 
-      console.debug(`Document ID ${document.id} description: ${description}`)
+      // console.debug(`Document ID ${document.id} description: ${description}`)
 
       // Add description to document
       document.imageDescription = description

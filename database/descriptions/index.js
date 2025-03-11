@@ -9,8 +9,8 @@ import { processBatch } from './processBatch.js'
 dotenv.config()
 
 // Constants
-const BATCH_SIZE = 1
-const MAX_BATCHES = 1
+const BATCH_SIZE = 50
+const MAX_BATCHES = 20
 const INDEX_NAME = process.env.NUXT_PUBLIC_MEILISEARCH_INDEX_NAME
 
 // Initialize Meilisearch client
@@ -22,6 +22,7 @@ const client = new MeiliSearch(credentials)
  */
 async function main() {
   console.log('Starting to generate descriptions for products...')
+  console.log('------------------------------------------')
 
   // Create a readable stream for the dataset file
   const fileStream = fs.createReadStream('./database/dataset.jsonl')
@@ -40,6 +41,12 @@ async function main() {
 
     try {
       const document = JSON.parse(line)
+
+      // Add temporary filter HERE
+      if (document.gender !== 'Girls') {
+        continue // Skip documents that don't have gender = Girls
+      }
+
       batch.push(document)
       lineCount++
 
@@ -51,6 +58,7 @@ async function main() {
         const task = await client.index(INDEX_NAME).updateDocuments(processedBatch)
         console.log(`Batch ${batchCount + 1} update task: ${task.taskUid}`)
         await client.waitForTask(task.taskUid)
+        console.log('------------------------------------------')
 
         batch = []
         batchCount++
