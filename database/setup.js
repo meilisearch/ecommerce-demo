@@ -13,19 +13,21 @@ const INDEX_NAME = 'products'
 /* eslint-disable no-console */
 
 const setup = async () => {
-  console.log('🚀 Seeding your Meilisearch instance')
+  console.log('🛠️ Updating your Meilisearch settings')
 
   const client = new MeiliSearch(credentials)
   console.log(`Using Meilisearch host: ${credentials.host}\nSearch API key: ${credentials.apiKey}`)
 
   console.log(`Adding filterable attributes to \`${INDEX_NAME}\``)
   await client.index(INDEX_NAME).updateFilterableAttributes([
-    'brand',
-    'category',
-    'tag',
-    'rating_rounded',
-    'reviews_count',
-    'price'
+    'baseColour',
+    'gender',
+    'imageUrls',
+    'masterCategory',
+    'price',
+    'season',
+    'subCategory',
+    'usage'
   ])
 
   console.log(`Adding ranking rules to \`${INDEX_NAME}\``)
@@ -40,12 +42,8 @@ const setup = async () => {
 
   console.log(`Adding sortable attributes to \`${INDEX_NAME}\``)
   await client.index(INDEX_NAME).updateSortableAttributes([
-    'rating',
     'price'
   ])
-
-  // console.log(`Adding documents to \`${INDEX_NAME}\``)
-  // await client.index(INDEX_NAME).addDocuments(data)
 
   await watchTasks(client, INDEX_NAME)
 }
