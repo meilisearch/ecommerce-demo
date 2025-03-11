@@ -38,9 +38,9 @@ This ecommerce demo uses:
 This project requires:
 
 - [Node 18](https://nodejs.org/)
-- [Yarn 3](https://yarnpkg.com/getting-started/install) — Node.js package manager
+- [PNPM](https://pnpm.io/) — Node.js package manager
 - [Nuxt 3](https://nuxt.com) — Web application framework based on [Vue 3](https://vuejs.org/)
-- [Meilisearch](https://meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme) — Fast, relevant search engine
+- [Meilisearch](https://meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme) — Fast, relevant AI-powered search engine
 
 This projects uses icons from [Heroicons](https://heroicons.com/) and social medias icons from [icons8](https://icons8.com/icons/collections/EnE9mEHAiX2D).
 
@@ -51,15 +51,15 @@ This projects uses icons from [Heroicons](https://heroicons.com/) and social med
 > **Warning**
 > Ensure that you are using a Node version compatible with the one in `.nvmrc`.
 
-Install the dependencies with Yarn 3:
+Install the dependencies with PNPM:
 
 ```bash
-yarn install
+pnpm install
 ```
 
 ### Environment
 
-Environment variables should hold your Meilisearch database credentials. The easiest way to launch a database is to create a project on [Meilisearch Cloud](https://meilisearch.com/cloud?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme). Alternatively, you can read [local installation](https://www.meilisearch.com/docs/learn/getting_started/installation?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme#local-installation) documentation for self-hosted options.
+Environment variables hold your Meilisearch database credentials. The easiest way to launch a database is to create a project on [Meilisearch Cloud](https://meilisearch.com/cloud?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme). Alternatively, you can read [self-host Meilisearch](https://www.meilisearch.com/docs/learn/getting_started/installation?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme#local-installation).
 
 This project loads environment variables from an `.env` file. Create an `.env` file and update it with your credentials.
 
@@ -82,28 +82,33 @@ STORYBOOK_TWICPICS_DOMAIN=https://meilisearch-ecommerce.twic.pics
 
 ### Database
 
-This projects comes with a setup script: `database/setup.js`. This script seeds a `products` index using the dataset in `database/data.json`.
+Seed your database using [`meilisearch-importer`](https://github.com/meilisearch/meilisearch-importer/):
 
-This sample dataset is used the [tutorial](https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme), which pertains to the code on branches `1-setup-database`, `2-search-as-you-type`, `3-advanced-search-patterns`, and `4-final`.
+```bash
+meilisearch-importer \
+  --url MEILISEARCH_HOST \
+  --index YOUR_INDEX \
+  --primary-key id \
+  --api-key YOUR_ADMIN_KEY \
+  --files database/dataset.jsonl
+```
 
 Run the setup script to configure and seed your Meilisearch instance:
 
 ```bash
-yarn setup
+pnpm setup
 ```
 
-> **Note**
-> The [live demo](https://ecommerce.meilisearch.com/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme) uses a different dataset and Meilisearch instance. The `main` branch is the reference for this site.
+> The [tutorial](https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme), which pertains to the code on branches `1-setup-database`, `2-search-as-you-type`, `3-advanced-search-patterns`, and `4-final`, uses a different dataset and setup script.
 
 ## 🧑‍💻 Development
-
 > **Note**
 > Make sure to complete instructions from the Setup section before running the server.
 
 Start the development server on http://localhost:3000
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 ## 🚀 Deployment
@@ -111,13 +116,13 @@ yarn dev
 Build the application for production:
 
 ```bash
-yarn build
+pnpm build
 ```
 
 Locally preview production build:
 
 ```bash
-yarn preview
+pnpm preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
@@ -129,9 +134,11 @@ This project uses [Storybook v7](https://storybook.js.org/) to document componen
 Open Storybook by running:
 
 ```bash
-yarn storybook
+pnpm storybook
 ```
 
 > Output files `auto-imports.d.ts` and `components.d.ts` are auto-generated and *should not* be updated manually. You can commit them into source control.
 
 Learn more about [configuring Storybook for Nuxt](https://laurentcazanove.com/articles/storybook-nuxt-guide/).
+
+
