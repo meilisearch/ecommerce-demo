@@ -19,10 +19,27 @@ const formattedPrice = computed(() => {
 })
 
 const optimizedImageUrl = computed(() => product.value.imageUrls.default.replace('http://assets.myntassets.com/', '/kaggle-fashion-products/'))
+
+const addProductToCart = () => {
+  alert('Added to cart 🎉')
+}
+
+const close = () => {
+  emit('close')
+}
 </script>
 
 <template>
-  <div class="px-10 bg-white rounded-lg">
+  <BaseCard class="px-10 py-8 border-hot-pink-300">
+    <div class="flex items-start justify-between">
+      <div class="mb-4 text-valhalla-500 text-xl font-medium leading-none ">
+        {{ product.productDisplayName }}
+      </div>
+      <button class="text-dodger-blue-500 text-xl font-medium leading-none" @click="close">&times;</button>
+    </div>
+    <BaseTitle size="xs" class="mb-2 text-hot-pink-500">
+      {{ product.brandName }}
+    </BaseTitle>
     <TwicImg
       :alt="product.productDisplayName"
       :src="optimizedImageUrl"
@@ -30,15 +47,12 @@ const optimizedImageUrl = computed(() => product.value.imageUrls.default.replace
       :height="533"
       class="mb-8"
     />
-    <BaseTitle size="xs" class="mb-2 text-hot-pink-500">
-      {{ product.brandName }}
-    </BaseTitle>
-    <BaseTitle size="s" class="mb-4 text-valhalla-500">
-      {{ product.productDisplayName }}
-    </BaseTitle>
-    <BaseText size="l" class="mb-6">
+    <BaseText size="l" class="mb-4">
       <span class="text-ashes-900">$</span>
       <span class="text-valhalla-100">{{ formattedPrice }}</span>
     </BaseText>
-  </div>
+    <BaseButton size="large" class="w-full" color="hot-pink" @click="addProductToCart">
+      <span class="text-white">Add to Cart</span>
+    </BaseButton>
+  </BaseCard>
 </template>

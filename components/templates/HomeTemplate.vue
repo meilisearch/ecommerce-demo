@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { AisToggleRefinement } from 'vue-instantsearch/vue3/es'
+import { AisToggleRefinement, AisInfiniteHits } from 'vue-instantsearch/vue3/es'
 
 interface Product {
   id: string
@@ -60,33 +60,53 @@ const sortingOptions = [
           <MeiliSearchStats />
           <MeiliSearchSorting :options="sortingOptions" />
         </div>
-        <MeiliSearchLoadingProvider v-slot="{ isSearchStalled }" class="mb-5 relative">
-          <div class="flex gap-6">
+        <MeiliSearchLoadingProvider v-slot="{ isSearchStalled }" class="mb-5 w-full">
+          <div class="flex">
             <div v-show="isSearchStalled">
               <LoadingIndicator class="m-auto" />
             </div>
-            <div v-show="!isSearchStalled">
-              <MeiliSearchResults
-                :is-product-selected="!!selectedProduct"
-                @product-select="handleProductSelect"
+            <div v-show="!isSearchStalled" class="w-full">
+              <AisInfiniteHits>
+                <template
+                  #default="{
+                    items,
+                    refineNext,
+                    isLastPage,
+                  }"
+                >
+                  <div
+                    class="grid gap-5 mb-10 transition-all duration-300 "
+                    :class="{ 'grid-cols-4': !selectedProduct, 'grid-cols-3': !!selectedProduct }"
+                  >
+                    <ProductCard
+                      v-for="product in items"
+                      :key="product.id"
+                      :name="product.productDisplayName"
+                      :brand="product.brandName"
+                      :price="product.price"
+                      :image-url="product.imageUrls.search ?? product.imageUrls.default"
+                      :rating="5"
+                      :reviews-count="0"
+                      class="cursor-pointer"
+                      @click="handleProductSelect(product)"
+                      :class="{ 'border border-dodger-blue-500': selectedProduct?.id === product.id }"
+                    />
+                  </div>
+                  <div v-if="!isLastPage">
+                    <BaseButton size="large" color="dodger-blue" class="m-auto" @click="refineNext">
+                      Show more results
+                    </BaseButton>
+                  </div>
+                </template>
+              </AisInfiniteHits>
+            </div>
+            <div v-if="selectedProduct" class="w-[400px] ml-5">
+              <ProductOverview
+                :product="selectedProduct"
+                @close="handleProductOverviewClose"
+                class="sticky top-6"
               />
             </div>
-            <Transition
-              enter-active-class="transition ease-out duration-300"
-              enter-from-class="opacity-0"
-              enter-to-class="opacity-100"
-              leave-active-class="transition ease-in duration-300"
-              leave-from-class="opacity-100"
-              leave-to-class="opacity-0"
-            >
-              <div v-if="selectedProduct" class="w-[400px]">
-                <ProductOverview
-                  :product="selectedProduct"
-                  @close="handleProductOverviewClose"
-                  class="sticky top-6 border"
-                />
-              </div>
-            </Transition>
           </div>
         </MeiliSearchLoadingProvider>
       </div>
