@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { MeiliSearch } from 'meilisearch'
+import type { Product } from '~/types'
 
 const config = useRuntimeConfig()
 
@@ -11,23 +12,16 @@ const client = new MeiliSearch({
 // import { TwicImg } from '@twicpics/components/vue3'
 
 const props = defineProps<{
-  id: number
-  name: string
-  brand: string
-  price: number | null // some prices are null in our dataset
-  rating: number
-  reviewsCount: number
-  imageUrl: string
-  baseColour: string
+  product: Product
 }>()
 
-const { name, brand, price, rating, reviewsCount, imageUrl } = toRefs(props)
+const { product } = toRefs(props)
 
 const formattedPrice = computed(() => {
-  if (props.price === null) {
+  if (product.value.price === null) {
     return '-';
   }
-  return formatToUSD(props.price);
+  return formatToUSD(product.value.price);
 })
 
 const similarProducts = ref<any[]>([])
@@ -36,7 +30,7 @@ onMounted(async () => {
   const similarDocuments = await  await client
       .index(config.public.meilisearch.indexName)
       .searchSimilarDocuments({
-        id: props.id,
+        id: product.value.id,
         limit: 3,
         embedder: 'image_desc_small',
         // filter: [`baseColour=${props.baseColour}`]
@@ -48,13 +42,13 @@ const getOptimizedImageUrl = (url: string) => {
   return url.replace('http://assets.myntassets.com/', '/kaggle-fashion-products/')
 }
 
-const optimizedImageUrl = computed(() => getOptimizedImageUrl(imageUrl.value))
+const optimizedImageUrl = computed(() => getOptimizedImageUrl(product.value.imageUrls.default))
 </script>
 
 <template>
   <BaseCard class="product-card">
     <TwicImg
-      :alt="name"
+      :alt="product.productDisplayName"
       :src="optimizedImageUrl"
       :width="250"
       :height="333"
@@ -62,14 +56,14 @@ const optimizedImageUrl = computed(() => getOptimizedImageUrl(imageUrl.value))
     />
     <div class="px-5 pb-5">
       <BaseTitle size="xs" class="mb-1 text-hot-pink-500 -900">
-        {{ brand }}
+        {{ product.brandName }}
       </BaseTitle>
       <BaseText
         size="m"
         class="mb-2 text-valhalla-500 product-name"
-        :title="name"
+        :title="product.productDisplayName"
       >
-        {{ name }}
+        {{ product.productDisplayName }}
       </BaseText>
       <BaseText size="l" class="mb-2">
         <span class="text-ashes-900">$</span> <span class="text-valhalla-100">{{ formattedPrice }}</span>
@@ -78,7 +72,7 @@ const optimizedImageUrl = computed(() => getOptimizedImageUrl(imageUrl.value))
         <div v-for="product in similarProducts" :key="product.id">
           <TwicImg
             :key="product.id"
-            :alt="product.name"
+            :alt="product.productDisplayName"
             :src="getOptimizedImageUrl(product.imageUrls.default)"
             :width="50"
             :height="66"

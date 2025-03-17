@@ -81,12 +81,7 @@ const sortingOptions = [
                     <ProductCard
                       v-for="product in items"
                       :key="product.id"
-                      :name="product.productDisplayName"
-                      :brand="product.brandName"
-                      :price="product.price"
-                      :image-url="product.imageUrls.search ?? product.imageUrls.default"
-                      :rating="5"
-                      :reviews-count="0"
+                      :product="product"
                       class="cursor-pointer"
                       @click="handleProductSelect(product)"
                       :class="{ 'border border-dodger-blue-500': selectedProduct?.id === product.id }"
