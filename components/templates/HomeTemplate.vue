@@ -21,7 +21,6 @@ const config = useRuntimeConfig()
 const indexName = config.public.meilisearch.indexName
 
 const selectedProduct = ref<Product | null>(null)
-const isProductOverviewOpen = ref(false)
 
 const handleProductSelect = (product: Product) => {
   selectedProduct.value = product
@@ -100,6 +99,7 @@ const sortingOptions = [
                 :product="selectedProduct"
                 @close="handleProductOverviewClose"
                 class="sticky top-6"
+                @product-selected="handleProductSelect"
               />
             </div>
           </div>

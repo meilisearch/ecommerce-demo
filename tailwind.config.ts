@@ -4,6 +4,9 @@ export default {
   content: [],
   theme: {
     extend: {
+      fontFamily: {
+        title: ['Poppins', 'sans-serif'],
+      },
       colors: {
         ashes: {
           100: '#fafbfe',
