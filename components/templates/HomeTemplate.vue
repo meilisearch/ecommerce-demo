@@ -60,8 +60,8 @@ const sortingOptions = [
           <MeiliSearchSorting :options="sortingOptions" />
         </div>
         <MeiliSearchLoadingProvider v-slot="{ isSearchStalled }" class="mb-5 w-full">
-          <div class="flex">
-            <div v-show="isSearchStalled">
+          <div class="flex justify-end">
+            <div v-show="isSearchStalled" class="w-full">
               <LoadingIndicator class="m-auto" />
             </div>
             <div v-show="!isSearchStalled" class="w-full">
