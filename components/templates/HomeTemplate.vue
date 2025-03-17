@@ -47,9 +47,9 @@ const sortingOptions = [
     <div class="flex mb-5 mx-10 gap-10">
       <div class="w-1/5 min-[280px]">
         <MeiliSearchFacetFilter attribute="gender" initial-sort-by="name" class="mb-5" />
-        <MeiliSearchFacetFilter attribute="masterCategory" initial-sort-by="count" class="mb-5" />
-        <MeiliSearchFacetFilter attribute="subCategory" initial-sort-by="count" class="mb-5" />
-        <MeiliSearchFacetFilter attribute="baseColour" initial-sort-by="count" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="masterCategory" label="Category" initial-sort-by="count" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="subCategory" label="Subcategory" initial-sort-by="count" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="baseColour" label="Color" initial-sort-by="count" class="mb-5" />
         <MeiliSearchFacetFilter attribute="usage" initial-sort-by="count" class="mb-5" />
         <MeiliSearchRangeFilter attribute="price" class="mb-5" />
         <!-- <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" /> -->
