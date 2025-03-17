@@ -1,5 +1,25 @@
 <script lang="ts" setup>
 import { AisInfiniteHits } from 'vue-instantsearch/vue3/es'
+
+interface Product {
+  id: string
+  productDisplayName: string
+  brandName: string
+  price: number | null
+  imageUrls: {
+    search?: string
+    default: string
+  }
+  masterCategory: string
+  subCategory: string
+  gender: string
+  baseColour: string
+  usage: string
+}
+
+const emit = defineEmits<{
+  (e: 'product-select', product: Product): void
+}>()
 </script>
 
 <template>
@@ -21,6 +41,8 @@ import { AisInfiniteHits } from 'vue-instantsearch/vue3/es'
           :image-url="product.imageUrls.search ?? product.imageUrls.default"
           :rating="5"
           :reviews-count="0"
+          class="cursor-pointer"
+          @click="emit('product-select', product)"
         />
       </div>
       <div v-if="!isLastPage">

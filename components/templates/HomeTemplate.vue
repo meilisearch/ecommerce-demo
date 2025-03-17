@@ -1,7 +1,37 @@
 <script lang="ts" setup>
 import { AisToggleRefinement } from 'vue-instantsearch/vue3/es'
+
+interface Product {
+  id: string
+  productDisplayName: string
+  brandName: string
+  price: number | null
+  imageUrls: {
+    search?: string
+    default: string
+  }
+  masterCategory: string
+  subCategory: string
+  gender: string
+  baseColour: string
+  usage: string
+}
+
 const config = useRuntimeConfig()
 const indexName = config.public.meilisearch.indexName
+
+const selectedProduct = ref<Product | null>(null)
+const isProductOverviewOpen = ref(false)
+
+const handleProductSelect = (product: Product) => {
+  selectedProduct.value = product
+  isProductOverviewOpen.value = true
+}
+
+const handleProductOverviewClose = () => {
+  isProductOverviewOpen.value = false
+  selectedProduct.value = null
+}
 
 const sortingOptions = [
   { value: `${indexName}`, label: 'Featured' },
@@ -32,13 +62,28 @@ const sortingOptions = [
           <MeiliSearchStats />
           <MeiliSearchSorting :options="sortingOptions" />
         </div>
-        <MeiliSearchLoadingProvider v-slot="{ isSearchStalled }" class="mb-5">
+        <MeiliSearchLoadingProvider v-slot="{ isSearchStalled }" class="mb-5 relative">
           <div v-show="isSearchStalled" style="height: 80vh; display: flex; flex-direction: column;">
             <LoadingIndicator class="m-auto" />
           </div>
-          <MeiliSearchResults v-show="!isSearchStalled" />
+          <MeiliSearchResults v-show="!isSearchStalled" @product-select="handleProductSelect" />
+          <Transition
+            enter-active-class="transition ease-out duration-300"
+            enter-from-class="transform translate-x-full"
+            enter-to-class="transform translate-x-0"
+            leave-active-class="transition ease-in duration-300"
+            leave-from-class="transform translate-x-0"
+            leave-to-class="transform translate-x-full"
+          >
+            <ProductOverview
+              v-if="isProductOverviewOpen"
+              :product="selectedProduct"
+              @close="handleProductOverviewClose"
+            />
+          </Transition>
         </MeiliSearchLoadingProvider>
       </div>
     </div>
   </MeiliSearchProvider>
 </template>
+
