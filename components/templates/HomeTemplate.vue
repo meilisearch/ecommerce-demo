@@ -17,8 +17,8 @@ const sortingOptions = [
         <MeiliSearchBar />
       </template>
     </TheNavbar>
-    <div class="container mb-5">
-      <div class="filters">
+    <div class="flex mb-5 mx-10 gap-10">
+      <div class="w-1/5 min-[280px]">
         <MeiliSearchFacetFilter attribute="gender" initial-sort-by="name" class="mb-5" />
         <MeiliSearchFacetFilter attribute="masterCategory" initial-sort-by="count" class="mb-5" />
         <MeiliSearchFacetFilter attribute="subCategory" initial-sort-by="count" class="mb-5" />
@@ -27,8 +27,8 @@ const sortingOptions = [
         <MeiliSearchRangeFilter attribute="price" class="mb-5" />
         <!-- <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" /> -->
       </div>
-      <div class="results">
-        <div class="mb-5 results-meta">
+      <div class="w-4/5">
+        <div class="mb-5 flex items-baseline justify-between">
           <MeiliSearchStats />
           <MeiliSearchSorting :options="sortingOptions" />
         </div>
@@ -42,5 +42,3 @@ const sortingOptions = [
     </div>
   </MeiliSearchProvider>
 </template>
-
-<style src="~/assets/css/components/home.css" scoped />

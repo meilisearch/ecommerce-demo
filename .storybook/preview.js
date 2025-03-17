@@ -5,6 +5,7 @@ import TwicPics from '@twicpics/components/vue3'
 // Import global CSS here
 import '@twicpics/components/style.css'
 import '~/assets/css/typography.css'
+// todo: replace with tailwind
 import '~/assets/css/spacing.css'
 import '~/assets/css/shadow.css'
 

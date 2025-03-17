@@ -41,9 +41,7 @@ export default defineNuxtConfig({
 
   css: [
     '~/assets/css/typography.css',
-    '~/assets/css/spacing.css',
     '~/assets/css/shadow.css',
-    '~/assets/css/utilities.css'
   ],
 
   modules: [
