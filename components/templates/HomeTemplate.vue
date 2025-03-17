@@ -25,11 +25,9 @@ const isProductOverviewOpen = ref(false)
 
 const handleProductSelect = (product: Product) => {
   selectedProduct.value = product
-  isProductOverviewOpen.value = true
 }
 
 const handleProductOverviewClose = () => {
-  isProductOverviewOpen.value = false
   selectedProduct.value = null
 }
 
@@ -64,12 +62,12 @@ const sortingOptions = [
         </div>
         <MeiliSearchLoadingProvider v-slot="{ isSearchStalled }" class="mb-5 relative">
           <div class="flex gap-6">
-            <div v-show="isSearchStalled" class="h-[80vh] flex flex-col flex-1">
+            <div v-show="isSearchStalled">
               <LoadingIndicator class="m-auto" />
             </div>
-            <div v-show="!isSearchStalled" class="flex-1">
+            <div v-show="!isSearchStalled">
               <MeiliSearchResults
-                :is-product-selected="isProductOverviewOpen"
+                :is-product-selected="!!selectedProduct"
                 @product-select="handleProductSelect"
               />
             </div>
@@ -81,10 +79,11 @@ const sortingOptions = [
               leave-from-class="opacity-100"
               leave-to-class="opacity-0"
             >
-              <div v-if="isProductOverviewOpen" class="w-[400px] border-l">
+              <div v-if="selectedProduct" class="w-[400px]">
                 <ProductOverview
                   :product="selectedProduct"
                   @close="handleProductOverviewClose"
+                  class="sticky top-6 border"
                 />
               </div>
             </Transition>

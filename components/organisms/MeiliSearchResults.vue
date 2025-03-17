@@ -22,7 +22,7 @@ const emit = defineEmits<{
     >
       <div
         class="grid gap-4 mb-10 transition-all duration-300"
-        :class="{ 'grid-cols-4': !isProductSelected, 'grid-cols-2': isProductSelected }"
+        :class="{ 'grid-cols-4': !isProductSelected, 'grid-cols-3': isProductSelected }"
       >
         <ProductCard
           v-for="product in items"
