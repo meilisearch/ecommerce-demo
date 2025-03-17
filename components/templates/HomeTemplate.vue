@@ -12,7 +12,7 @@ const sortingOptions = [
 
 <template>
   <MeiliSearchProvider :index-name="indexName">
-    <TheNavbar class="mb-5 shadow-l">
+    <TheNavbar class="mb-5 shadow-md">
       <template #search>
         <MeiliSearchBar />
       </template>
