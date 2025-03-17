@@ -1,21 +1,5 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
-
-interface Product {
-  id: string
-  productDisplayName: string
-  brandName: string
-  price: number | null
-  imageUrls: {
-    search?: string
-    default: string
-  }
-  masterCategory: string
-  subCategory: string
-  gender: string
-  baseColour: string
-  usage: string
-}
+import type { Product } from '~/types'
 
 const props = defineProps<{
   product: Product | null
@@ -43,9 +27,9 @@ const optimizedImageUrl = computed(() => {
 <template>
   <div
     v-if="product"
-    class="absolute top-0 right-0 w-1/2 min-w-[500px] h-[80vh] bg-white shadow-lg z-50 overflow-y-auto"
+    class="h-[80vh] bg-white overflow-y-auto"
   >
-    <div class="sticky top-0 p-6 bg-white border-b flex justify-end z-[51]">
+    <div class="sticky top-0 p-6 bg-white border-b flex justify-end">
       <BaseButton
         color="dodger-blue"
         class="text-2xl p-2 leading-none"

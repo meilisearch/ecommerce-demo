@@ -63,24 +63,32 @@ const sortingOptions = [
           <MeiliSearchSorting :options="sortingOptions" />
         </div>
         <MeiliSearchLoadingProvider v-slot="{ isSearchStalled }" class="mb-5 relative">
-          <div v-show="isSearchStalled" style="height: 80vh; display: flex; flex-direction: column;">
-            <LoadingIndicator class="m-auto" />
+          <div class="flex gap-6">
+            <div v-show="isSearchStalled" class="h-[80vh] flex flex-col flex-1">
+              <LoadingIndicator class="m-auto" />
+            </div>
+            <div v-show="!isSearchStalled" class="flex-1">
+              <MeiliSearchResults
+                :is-product-selected="isProductOverviewOpen"
+                @product-select="handleProductSelect"
+              />
+            </div>
+            <Transition
+              enter-active-class="transition ease-out duration-300"
+              enter-from-class="opacity-0"
+              enter-to-class="opacity-100"
+              leave-active-class="transition ease-in duration-300"
+              leave-from-class="opacity-100"
+              leave-to-class="opacity-0"
+            >
+              <div v-if="isProductOverviewOpen" class="w-[400px] border-l">
+                <ProductOverview
+                  :product="selectedProduct"
+                  @close="handleProductOverviewClose"
+                />
+              </div>
+            </Transition>
           </div>
-          <MeiliSearchResults v-show="!isSearchStalled" @product-select="handleProductSelect" />
-          <Transition
-            enter-active-class="transition ease-out duration-300"
-            enter-from-class="transform translate-x-full"
-            enter-to-class="transform translate-x-0"
-            leave-active-class="transition ease-in duration-300"
-            leave-from-class="transform translate-x-0"
-            leave-to-class="transform translate-x-full"
-          >
-            <ProductOverview
-              v-if="isProductOverviewOpen"
-              :product="selectedProduct"
-              @close="handleProductOverviewClose"
-            />
-          </Transition>
         </MeiliSearchLoadingProvider>
       </div>
     </div>

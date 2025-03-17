@@ -1,21 +1,10 @@
 <script lang="ts" setup>
 import { AisInfiniteHits } from 'vue-instantsearch/vue3/es'
+import type { Product } from '~/types'
 
-interface Product {
-  id: string
-  productDisplayName: string
-  brandName: string
-  price: number | null
-  imageUrls: {
-    search?: string
-    default: string
-  }
-  masterCategory: string
-  subCategory: string
-  gender: string
-  baseColour: string
-  usage: string
-}
+const props = defineProps<{
+  isProductSelected?: boolean
+}>()
 
 const emit = defineEmits<{
   (e: 'product-select', product: Product): void
@@ -31,7 +20,10 @@ const emit = defineEmits<{
         isLastPage,
       }"
     >
-      <div class="items mb-10">
+      <div
+        class="grid gap-4 mb-10 transition-all duration-300"
+        :class="{ 'grid-cols-4': !isProductSelected, 'grid-cols-2': isProductSelected }"
+      >
         <ProductCard
           v-for="product in items"
           :key="product.id"
@@ -53,5 +45,3 @@ const emit = defineEmits<{
     </template>
   </AisInfiniteHits>
 </template>
-
-<style src="~/assets/css/components/results-grid.css" scoped />
