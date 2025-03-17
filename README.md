@@ -102,6 +102,7 @@ pnpm setup
 > The [tutorial](https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme), which pertains to the code on branches `1-setup-database`, `2-search-as-you-type`, `3-advanced-search-patterns`, and `4-final`, uses a different dataset and setup script.
 
 ## 🧑‍💻 Development
+
 > **Note**
 > Make sure to complete instructions from the Setup section before running the server.
 
@@ -110,6 +111,8 @@ Start the development server on http://localhost:3000
 ```bash
 pnpm dev
 ```
+
+Please note this project is transitioning from using custom CSS to [TailwindCSS](https://tailwindcss.nuxtjs.org/). Some code might still be using custom CSS instead of Tailwind classes.
 
 ## 🚀 Deployment
 

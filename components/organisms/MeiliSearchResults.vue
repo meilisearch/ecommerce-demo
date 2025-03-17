@@ -35,3 +35,4 @@ import { AisInfiniteHits } from 'vue-instantsearch/vue3/es'
 </template>
 
 <style src="~/assets/css/components/results-grid.css" scoped />
+
