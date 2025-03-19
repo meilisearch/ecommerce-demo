@@ -43,6 +43,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "storybook": "^7.6.20",
+    "supabase": "^2.19.7",
     "typescript": "^5.7.3",
     "unplugin-auto-import": "^0.16.7",
     "unplugin-vue-components": "^0.25.2",
@@ -53,10 +54,12 @@
   },
   "dependencies": {
     "@ai-sdk/openai": "^1.2.1",
+    "@supabase/supabase-js": "^2.49.1",
     "@trigger.dev/sdk": "^3.3.17",
     "@vercel/blob": "^0.27.3",
     "ai": "^4.1.54",
     "dotenv": "^16.4.7",
-    "meilisearch": "0.41.0"
+    "meilisearch": "0.41.0",
+    "zod": "^3.24.2"
   }
 }

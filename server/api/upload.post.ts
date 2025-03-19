@@ -1,35 +1,54 @@
-// server/api/upload.ts
 import { put } from '@vercel/blob';
-import { generateDescription } from '~/helpers/ai';
+import { createSupabaseClient } from '~/helpers/database';
+import { processImageTask } from '~/trigger/process-image';
+import { ImageProcessingStatus } from '~/types';
 
 export default defineEventHandler(async (event) => {
   try {
-    console.log('Received upload request');
-
-    // Get the form data
     const formData = await readFormData(event);
-    console.log('Form data:', formData);
-
     const file = formData.get('file') as File;
     if (!file) {
-      throw new Error('No file uploaded');
+      throw createError({
+        statusCode: 422,
+        statusMessage: 'No file uploaded',
+      });
     }
 
+    console.log('Uploading file...')
     const blob = await put(file.name, file, { access: 'public' });
+    console.log('Upload completed successfully', blob.url);
 
-    console.log('Upload completed successfully');
-    console.log('Blob URL:', blob.url);
+    const supabase = createSupabaseClient()
+    const { data, error } = await supabase
+      .from('images')
+      .insert({
+        image_url: blob.url,
+        status: ImageProcessingStatus.PENDING,
+      })
+      .select()
 
-    console.log('Generating description...')
-    const description = await generateDescription(blob.url)
-    console.log('Description:', description)
+    if (error) {
+      throw createError({
+        statusCode: 500,
+        message: error.message,
+      });
+    }
+
+    console.log('Launching background task...')
+    const task = await processImageTask.trigger({
+      imageUrl: blob.url,
+      imageId: data[0].id,
+    })
+    console.log('Task launched', task.id)
 
     return {
-      url: blob.url,
-      description
+      image: data[0],
+      task: {
+        id: task.id,
+        publicAccessToken: task.publicAccessToken,
+      }
     };
   } catch (error) {
-    console.error('Upload handler error:', error);
     throw createError({
       statusCode: 500,
       message: error instanceof Error ? error.message : 'Upload failed',
