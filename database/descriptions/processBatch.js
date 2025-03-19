@@ -1,12 +1,11 @@
 import path from 'path'
-import { openai } from '@ai-sdk/openai'
-import { generateText } from 'ai'
 import {
   loadCache,
   saveCache,
   startPeriodicCacheSaving,
   stopPeriodicCacheSaving
 } from './cache.js'
+import { generateDescription } from '~/helpers/ai'
 
 const CACHE_SAVE_INTERVAL_MS = 60000 // 1 minute
 const CACHE_FILE_PATH = path.join(process.cwd(), '.cache/image-descriptions.json')
@@ -72,20 +71,4 @@ export async function processBatch(batch) {
   return processedBatch
 }
 
-// Generate description using GPT-4o
-async function generateDescription(imageUrl) {
-  const { text: description } = await generateText({
-    model: openai('gpt-4o-mini'),
-    messages: [
-      {
-        role: 'user',
-        content: [
-          { type: 'text', text: 'Describe the product in this image. Only output the description.' },
-          { type: 'image', image: imageUrl }
-        ],
-      },
-    ],
-  })
 
-  return description
-}

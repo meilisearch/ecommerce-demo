@@ -1,5 +1,6 @@
 // server/api/upload.ts
 import { put } from '@vercel/blob';
+import { generateDescription } from '~/helpers/ai';
 
 export default defineEventHandler(async (event) => {
   try {
@@ -19,7 +20,14 @@ export default defineEventHandler(async (event) => {
     console.log('Upload completed successfully');
     console.log('Blob URL:', blob.url);
 
-    return blob;
+    console.log('Generating description...')
+    const description = await generateDescription(blob.url)
+    console.log('Description:', description)
+
+    return {
+      url: blob.url,
+      description
+    };
   } catch (error) {
     console.error('Upload handler error:', error);
     throw createError({
