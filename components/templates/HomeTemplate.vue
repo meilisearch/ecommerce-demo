@@ -65,10 +65,11 @@ const sortingOptions = [
               <LoadingIndicator class="m-auto" />
             </div>
             <div v-show="!isSearchStalled" class="w-full">
-              <AisInfiniteHits>
+              <SearchResultsProvider>
                 <template
                   #default="{
                     items,
+                    imageSearchItems,
                     refineNext,
                     isLastPage,
                   }"
@@ -78,7 +79,7 @@ const sortingOptions = [
                     :class="{ 'grid-cols-4': !selectedProduct, 'grid-cols-3': !!selectedProduct }"
                   >
                     <ProductCard
-                      v-for="product in items"
+                      v-for="product in imageSearchItems.length > 0 ? imageSearchItems : items"
                       :key="product.id"
                       :product="product"
                       class="cursor-pointer"
@@ -92,7 +93,7 @@ const sortingOptions = [
                     </BaseButton>
                   </div>
                 </template>
-              </AisInfiniteHits>
+              </SearchResultsProvider>
             </div>
             <div v-if="selectedProduct" class="w-[400px] ml-5">
               <ProductOverview

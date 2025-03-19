@@ -28,6 +28,10 @@ export default defineNuxtConfig({
           keepZeroFacets: false,
           finitePagination: false
         }
+      },
+      supabase: {
+        url: process.env.NUXT_PUBLIC_SUPABASE_URL,
+        key: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY
       }
     }
   },
@@ -51,7 +55,8 @@ export default defineNuxtConfig({
     'vite-plugin-vue-type-imports/nuxt',
     // Optimized images with progressive loading
     '@twicpics/components/nuxt3',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@pinia/nuxt'
   ],
 
   twicpics: {
