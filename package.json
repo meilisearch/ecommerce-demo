@@ -28,6 +28,7 @@
     "@storybook/testing-library": "^0.2.2",
     "@storybook/vue3": "^7.6.20",
     "@storybook/vue3-vite": "^7.6.20",
+    "@trigger.dev/build": "^3.3.17",
     "@twicpics/components": "^0.21.1",
     "@types/pluralize": "^0.0.30",
     "@ubclaunchpad/vue-fathom": "^2.0.0",
@@ -52,6 +53,7 @@
   },
   "dependencies": {
     "@ai-sdk/openai": "^1.2.1",
+    "@trigger.dev/sdk": "^3.3.17",
     "@vercel/blob": "^0.27.3",
     "ai": "^4.1.54",
     "dotenv": "^16.4.7",
