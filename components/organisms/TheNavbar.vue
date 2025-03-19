@@ -55,6 +55,10 @@
 <script setup lang="ts">
 const fileInput = ref<HTMLInputElement | null>(null);
 
+const instantMeilisearch = useMeilisearch()
+
+console.log(instantMeilisearch)
+
 const handleFileUpload = async (event: Event) => {
   try {
     if (!fileInput.value?.files?.length) {
@@ -97,6 +101,8 @@ const handleFileUpload = async (event: Event) => {
     if (fileInput.value) {
       fileInput.value.value = '';
     }
+
+    // console.linstantMeilisearch
   } catch (error) {
     console.error('Upload error:', error);
   }

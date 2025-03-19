@@ -12,34 +12,35 @@ const props = withDefaults(defineProps<{
 
 const { ssr, indexName, initialQuery } = toRefs(props)
 
-if (ssr) {
-  const { instantsearch } = useServerRootMixin(indexName.value)
+// if (ssr) {
+//   const { instantsearch } = useServerRootMixin(indexName.value)
 
-  const { data: searchResults } = await useFetch('/api/search', {
-    method: 'POST',
-    body: { query: initialQuery.value }
-  })
+//   const { data: searchResults } = await useFetch('/api/search', {
+//     method: 'POST',
+//     body: { query: initialQuery.value }
+//   })
 
-  // TODO: fix caveat with children components rendering using `instantsearch.findResultsState()`
+//   // TODO: fix caveat with children components rendering using `instantsearch.findResultsState()`
 
-  instantsearch.hydrate({
-    [indexName.value]: searchResults.value
-  })
-}
+//   instantsearch.hydrate({
+//     [indexName.value]: searchResults.value
+//   })
+// }
 
 const instantSearchComponent = computed(() => ssr.value ? AisInstantSearchSsr : AisInstantSearch)
+const instantMeilisearch = useMeilisearch()
 
 const attributes = computed(() => {
-  if (ssr.value) {
-    return {
-      [indexName.value]: {
-        query: initialQuery.value
-      }
-    }
-  }
+  // if (ssr.value) {
+  //   return {
+  //     [indexName.value]: {
+  //       query: initialQuery.value
+  //     }
+  //   }
+  // }
   return {
     indexName: indexName.value,
-    searchClient: useMeilisearch()
+    searchClient: instantMeilisearch.searchClient
   }
 })
 </script>

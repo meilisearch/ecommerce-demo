@@ -1,7 +1,7 @@
-import type { InstantMeiliSearchInstance } from '@meilisearch/instant-meilisearch'
+import type { InstantMeiliSearchObject } from '@meilisearch/instant-meilisearch'
 
-export default function useMeilisearch () {
+export default function useMeilisearch() {
   const nuxtApp = useNuxtApp()
-  const meilisearch: InstantMeiliSearchInstance = nuxtApp.$meilisearch
-  return meilisearch
+  const meilisearch = nuxtApp.$meilisearch
+  return meilisearch as InstantMeiliSearchObject
 }

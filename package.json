@@ -17,7 +17,6 @@
     "@babel/core": "^7.26.9",
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-typescript": "^7.26.0",
-    "@meilisearch/instant-meilisearch": "0.13.5",
     "@nuxt/devtools": "^1.7.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/tailwindcss": "6.13.2",
@@ -54,6 +53,7 @@
   },
   "dependencies": {
     "@ai-sdk/openai": "^1.2.1",
+    "@meilisearch/instant-meilisearch": "0.25",
     "@supabase/supabase-js": "^2.49.1",
     "@trigger.dev/sdk": "^3.3.17",
     "@vercel/blob": "^0.27.3",
