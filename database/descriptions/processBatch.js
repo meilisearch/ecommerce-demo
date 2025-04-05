@@ -5,7 +5,7 @@ import {
   startPeriodicCacheSaving,
   stopPeriodicCacheSaving
 } from './cache.js'
-import { generateDescription } from '~/helpers/ai'
+import { generateDescription } from '../../helpers/ai.js'
 
 const CACHE_SAVE_INTERVAL_MS = 60000 // 1 minute
 const CACHE_FILE_PATH = path.join(process.cwd(), '.cache/image-descriptions.json')

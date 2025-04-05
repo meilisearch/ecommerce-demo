@@ -12,7 +12,7 @@ dotenv.config()
 const BATCH_SIZE = 100
 const MAX_BATCHES = 500
 const INDEX_NAME = process.env.NUXT_PUBLIC_MEILISEARCH_INDEX_NAME
-const DATASET_FILE = './database/girls-dataset.jsonl'
+const DATASET_FILE = './database/dataset.jsonl'
 
 // Initialize Meilisearch client
 const credentials = loadCredentials()

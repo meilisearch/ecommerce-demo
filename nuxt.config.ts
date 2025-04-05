@@ -29,10 +29,6 @@ export default defineNuxtConfig({
           finitePagination: false
         }
       },
-      supabase: {
-        url: process.env.NUXT_PUBLIC_SUPABASE_URL,
-        key: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY
-      }
     }
   },
 

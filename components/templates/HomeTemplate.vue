@@ -69,7 +69,6 @@ const sortingOptions = [
                 <template
                   #default="{
                     items,
-                    imageSearchItems,
                     refineNext,
                     isLastPage,
                   }"
@@ -79,7 +78,7 @@ const sortingOptions = [
                     :class="{ 'grid-cols-4': !selectedProduct, 'grid-cols-3': !!selectedProduct }"
                   >
                     <ProductCard
-                      v-for="product in imageSearchItems.length > 0 ? imageSearchItems : items"
+                      v-for="product in items"
                       :key="product.id"
                       :product="product"
                       class="cursor-pointer"

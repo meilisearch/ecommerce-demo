@@ -50,7 +50,7 @@ watch(newProduct, async () => {
         // filter: [`baseColour=${props.baseColour}`]
       });
   similarProducts.value = similarDocuments.hits.map((hit: any) => hit)
-})
+}, { immediate: true })
 
 const handleProductClick = (product: Product) => {
   emit('product-selected', product)
