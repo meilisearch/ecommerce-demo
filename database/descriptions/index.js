@@ -9,8 +9,8 @@ import { processBatch } from './processBatch.js'
 dotenv.config()
 
 // Constants
-const BATCH_SIZE = 100
-const MAX_BATCHES = 500
+const BATCH_SIZE = 2000
+const MAX_BATCHES = 50
 const INDEX_NAME = process.env.NUXT_PUBLIC_MEILISEARCH_INDEX_NAME
 const DATASET_FILE = './database/dataset.jsonl'
 

@@ -34,9 +34,9 @@ const handleFileUpload = async (event: Event) => {
     console.log('Generating embedding...');
     const { embedding } = await generateEmbedding(description);
     console.log('Performing vector search...');
-    const results = await vectorSearch(embedding);
-    console.log('Updating results...');
-    setResults(results.hits);
+    await vectorSearch(embedding);
+    // console.log('Updating results...');
+    // setResults(results.hits);
 
     // Reset the input
     // if (fileInput.value) {

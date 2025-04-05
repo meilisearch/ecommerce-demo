@@ -33,8 +33,11 @@ export function useImageSearch() {
     return response;
   }
 
+  const meilisearch = useMeilisearch()
   const vectorSearch = async (embedding: number[]) => {
-    const result = await meili.index(config.public.meilisearch.indexName).search<Product>('', {
+    // TODO: We need to refresh the search state after updating the params
+    console.log('Updating meilisearch params...')
+    meilisearch.setMeiliSearchParams({
       vector: embedding,
       hybrid: {
         embedder: 'image_desc_small',
@@ -43,7 +46,16 @@ export function useImageSearch() {
       rankingScoreThreshold: 0.8,
       showRankingScore: true
     })
-    return result
+    // const result = await meili.index(config.public.meilisearch.indexName).search<Product>('', {
+    //   vector: embedding,
+    //   hybrid: {
+    //     embedder: 'image_desc_small',
+    //     semanticRatio: 1
+    //   },
+    //   rankingScoreThreshold: 0.8,
+    //   showRankingScore: true
+    // })
+    // return result
   }
 
   return {
