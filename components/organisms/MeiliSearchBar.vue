@@ -9,7 +9,13 @@ import { AisSearchBox } from 'vue-instantsearch/vue3/es'
         :value="currentRefinement"
         @input="refine($event.currentTarget.value)"
         @reset="refine('')"
-      />
+      >
+        <template #right>
+          <button type="button" class="search-input-image">
+            <ImageIcon class="image-icon" />
+          </button>
+        </template>
+      </SearchInput>
     </template>
   </AisSearchBox>
 </template>

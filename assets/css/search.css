@@ -48,6 +48,11 @@
   cursor: pointer;
 }
 
+/* Position when right slot is present */
+.search-input-reset.has-right-slot {
+  right: 3.5rem;
+}
+
 .search-input::-webkit-search-cancel-button {
   appearance: none;
 }
@@ -72,5 +77,36 @@ button.search-input-reset:focus-visible {
 
 button.search-input-reset:focus-visible svg,
 button.search-input-reset:hover svg {
+  fill: var(--valhalla-100);
+}
+
+/* Image button styles */
+.search-input-image {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.search-input-image svg path {
+  fill: var(--ashes-900);
+  transition: 0.3s;
+}
+
+.search-input-image:focus-visible {
+  outline: none;
+}
+
+.search-input-image:focus-visible svg,
+.search-input-image:hover svg {
   fill: var(--valhalla-100);
 }
