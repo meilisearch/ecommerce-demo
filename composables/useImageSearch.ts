@@ -1,9 +1,11 @@
 import { MeiliSearch } from "meilisearch"
 import type { Product } from "~/types"
+import { useSearchParams } from "~/composables/useSearchParams"
 
 export function useImageSearch() {
   const config = useRuntimeConfig()
 
+  // We need the Meilisearch client for direct parameter setting
   const meili = new MeiliSearch({
     host: config.public.meilisearch.host,
     apiKey: config.public.meilisearch.searchApiKey,
@@ -34,9 +36,17 @@ export function useImageSearch() {
   }
 
   const meilisearch = useMeilisearch()
+
+  // Use the shared search params state
+  const searchParams = useSearchParams()
+
+  // Get access to Nuxt app for the refresh function
+  const nuxtApp = useNuxtApp()
+
   const vectorSearch = async (embedding: number[]) => {
-    // TODO: We need to refresh the search state after updating the params
     console.log('Updating meilisearch params...')
+
+    // Update the search parameters in Meilisearch client - this is essential
     meilisearch.setMeiliSearchParams({
       vector: embedding,
       hybrid: {
@@ -46,16 +56,26 @@ export function useImageSearch() {
       rankingScoreThreshold: 0.8,
       showRankingScore: true
     })
-    // const result = await meili.index(config.public.meilisearch.indexName).search<Product>('', {
-    //   vector: embedding,
-    //   hybrid: {
-    //     embedder: 'image_desc_small',
-    //     semanticRatio: 1
-    //   },
-    //   rankingScoreThreshold: 0.8,
-    //   showRankingScore: true
-    // })
-    // return result
+
+    // Update the shared searchParams state for UI consistency
+    searchParams.value = {
+      vector: embedding,
+      hybrid: {
+        embedder: 'image_desc_small',
+        semanticRatio: 1
+      },
+      rankingScoreThreshold: 0.8,
+      showRankingScore: true
+    }
+
+    // Trigger a refresh of the search results
+    setTimeout(() => {
+      // Use type assertion to handle the refresh function
+      const refreshFn = nuxtApp.$meiliSearchRefresh as Function | undefined
+      if (refreshFn) {
+        refreshFn()
+      }
+    }, 0)
   }
 
   return {

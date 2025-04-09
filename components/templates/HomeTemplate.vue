@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { AisToggleRefinement, AisInfiniteHits } from 'vue-instantsearch/vue3/es'
+import { useSearchParams } from '~/composables/useSearchParams'
 
 interface Product {
   id: string
@@ -20,6 +21,9 @@ interface Product {
 const config = useRuntimeConfig()
 const indexName = config.public.meilisearch.indexName
 
+// Access the shared search parameters state
+const searchParams = useSearchParams()
+
 const selectedProduct = ref<Product | null>(null)
 
 const handleProductSelect = (product: Product) => {
@@ -38,7 +42,9 @@ const sortingOptions = [
 </script>
 
 <template>
-  <MeiliSearchProvider :index-name="indexName">
+  <MeiliSearchProvider :index-name="indexName" :search-params="searchParams">
+    <!-- MeiliSearchConfigure is no longer needed -->
+
     <TheNavbar class="mb-5 shadow-md">
       <template #search>
         <MeiliSearchBar />

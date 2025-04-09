@@ -1,16 +1,44 @@
 <script lang="ts" setup>
-import { AisInstantSearch, AisInstantSearchSsr } from 'vue-instantsearch/vue3/es'
+import { AisInstantSearch, AisInstantSearchSsr, AisConfigure, AisStateResults } from 'vue-instantsearch/vue3/es'
+import type { SearchParams } from '~/composables/useSearchParams'
+
+// Define a type for the InstantSearch instance
+interface InstantSearchHelper {
+  helper: {
+    search: () => void;
+  };
+  [key: string]: any;
+}
 
 const props = withDefaults(defineProps<{
   ssr?: boolean
   indexName: string
   initialQuery?: string
+  searchParams?: SearchParams
 }>(), {
   ssr: false,
-  initialQuery: ''
+  initialQuery: '',
+  searchParams: () => ({})
 })
 
-const { ssr, indexName, initialQuery } = toRefs(props)
+const { ssr, indexName, initialQuery, searchParams } = toRefs(props)
+
+// Store a reference to the InstantSearch instance with the proper type
+const instantSearchInstance = ref<InstantSearchHelper | null>(null)
+
+// Method to manually trigger a search refresh
+const refresh = () => {
+  if (instantSearchInstance.value && instantSearchInstance.value.helper) {
+    instantSearchInstance.value.helper.search()
+  }
+}
+
+// Expose the refresh method to parent components
+defineExpose({ refresh })
+
+// Register the component globally for use across the app
+const nuxtApp = useNuxtApp()
+nuxtApp.provide('meiliSearchRefresh', refresh)
 
 // if (ssr) {
 //   const { instantsearch } = useServerRootMixin(indexName.value)
@@ -47,6 +75,16 @@ const attributes = computed(() => {
 
 <template>
   <component :is="instantSearchComponent" v-bind="attributes">
-    <slot name="default" />
+    <!-- Add configure component inline -->
+    <AisConfigure v-bind="searchParams" />
+
+    <!-- Capture the instantSearchInstance -->
+    <AisStateResults>
+      <template #default="{ instantSearchInstance: instance }">
+        <div v-if="instantSearchInstance = instance" style="display: none;"></div>
+        <!-- Pass the remaining content -->
+        <slot name="default" />
+      </template>
+    </AisStateResults>
   </component>
 </template>
