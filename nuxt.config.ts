@@ -41,6 +41,7 @@ export default defineNuxtConfig({
   },
 
   css: [
+    'vue-final-modal/style.css',
     '~/assets/css/typography.css',
     '~/assets/css/shadow.css',
   ],

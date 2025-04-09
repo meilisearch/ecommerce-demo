@@ -1,10 +1,18 @@
 <script lang="ts" setup>
 import { AisSearchBox } from 'vue-instantsearch/vue3/es'
+import { VueFinalModal } from 'vue-final-modal'
 
 const fileInput = ref<HTMLInputElement | null>(null);
+const showModal = ref(false);
+const statusMessage = ref('');
 
 const { setResults } = useSearchStore()
 const { uploadFile, generateDescription, generateEmbedding, vectorSearch } = useImageSearch();
+
+const updateStatus = (message: string) => {
+  statusMessage.value = message;
+  if (!showModal.value) showModal.value = true;
+};
 
 const handleFileChange = async (event: Event) => {
   try {
@@ -29,14 +37,24 @@ const handleFileChange = async (event: Event) => {
     const formData = new FormData();
     formData.append('file', file);
 
+    updateStatus('Uploading file...');
     console.log('Uploading file...');
     const { blob } = await uploadFile(formData);
+
+    updateStatus('Generating description...');
     console.log('Generating description...');
     const { description } = await generateDescription(blob.url);
+
+    updateStatus('Generating embedding...');
     console.log('Generating embedding...');
     const { embedding } = await generateEmbedding(description);
+
+    updateStatus('Performing vector search...');
     console.log('Performing vector search...');
     await vectorSearch(embedding);
+
+    // Close modal after search is completed
+    showModal.value = false;
 
     // Reset the input
     if (fileInput.value) {
@@ -45,6 +63,10 @@ const handleFileChange = async (event: Event) => {
 
   } catch (error) {
     console.error('Upload error:', error);
+    updateStatus(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    setTimeout(() => {
+      showModal.value = false;
+    }, 3000);
   }
 };
 
@@ -77,4 +99,15 @@ const triggerFileInput = () => {
       </SearchInput>
     </template>
   </AisSearchBox>
+
+  <VueFinalModal
+    v-model="showModal"
+    class="flex justify-center items-center"
+    content-class="max-w-md p-4 bg-white dark:bg-gray-900 border dark:border-gray-700 rounded-lg"
+  >
+    <div class="text-center">
+      <h3 class="text-lg font-medium mb-2">Image Search Status</h3>
+      <p>{{ statusMessage }}</p>
+    </div>
+  </VueFinalModal>
 </template>
