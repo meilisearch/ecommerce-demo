@@ -16,7 +16,7 @@ defineEmits(['input', 'reset'])
 const placeholder = toRef(props, 'placeholder')
 const slots = useSlots()
 const hasRightSlot = computed(() => !!slots.right)
-const hasLeftSlot = computed(() => !!slots.left)
+const hasLeftSlot = computed(() => !!slots.left && props.hasImage)
 const shouldShowReset = computed(() => !!props.value || props.hasImage)
 </script>
 
