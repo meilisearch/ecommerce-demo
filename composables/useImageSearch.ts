@@ -78,7 +78,6 @@ export function useImageSearch() {
       showRankingScore: true
     }
 
-    // Trigger a refresh of the search results
     setTimeout(() => {
       // Use type assertion to handle the refresh function
       const refreshFn = nuxtApp.$meiliSearchRefresh as Function | undefined
@@ -89,19 +88,29 @@ export function useImageSearch() {
   }
 
   const resetImageSearch = () => {
-    // Reset the uploaded image URL
     uploadedImageUrl.value = null;
 
-    // Reset search parameters if needed
-    searchParams.value = {}
+    meilisearch.setMeiliSearchParams({
+      vector: undefined,
+      hybrid: undefined,
+      rankingScoreThreshold: undefined,
+      showRankingScore: undefined
+    })
 
-    // Reset the Meilisearch client parameters
-    meilisearch.setMeiliSearchParams({})
+    searchParams.value = {
+      ...searchParams.value,
+      vector: undefined,
+      hybrid: undefined,
+      rankingScoreThreshold: undefined,
+      showRankingScore: undefined
+    }
 
-    // Trigger a refresh
+    console.log('Reset vector search, updating params to:', searchParams.value)
+
     setTimeout(() => {
       const refreshFn = nuxtApp.$meiliSearchRefresh as Function | undefined
       if (refreshFn) {
+        console.log('Calling refresh function')
         refreshFn()
       }
     }, 0)
