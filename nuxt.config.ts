@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
+
   app: {
     head: {
       title: 'Ecommerce demo - Meilisearch',
@@ -14,6 +15,10 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }
       ]
     }
+  },
+
+  nitro: {
+    preset: 'vercel'
   },
 
   runtimeConfig: {
