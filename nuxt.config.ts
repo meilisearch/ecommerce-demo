@@ -17,10 +17,6 @@ export default defineNuxtConfig({
     }
   },
 
-  nitro: {
-    preset: 'vercel'
-  },
-
   runtimeConfig: {
     public: {
       fathomSiteID: process.env.FATHOM_SITE_ID,
