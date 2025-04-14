@@ -6,11 +6,11 @@ const fileInput = ref<HTMLInputElement | null>(null);
 const showModal = ref(false);
 const statusMessage = ref('');
 
-const { setResults } = useSearchStore()
 const { uploadFile, generateDescription, generateEmbedding, vectorSearch, uploadedImageUrl, resetImageSearch } = useImageSearch();
 
+const statusMessages = ref<string[]>([]);
 const updateStatus = (message: string) => {
-  statusMessage.value = message;
+  statusMessages.value.push(message);
   if (!showModal.value) showModal.value = true;
 };
 
@@ -40,7 +40,6 @@ const handleFileChange = async (event: Event) => {
     updateStatus('Uploading file...');
     console.log('Uploading file...');
     const { blob } = await uploadFile(formData);
-
     console.log('Uploaded image URL:', uploadedImageUrl.value);
 
     updateStatus('Generating description...');
@@ -51,18 +50,17 @@ const handleFileChange = async (event: Event) => {
     console.log('Generating embedding...');
     const { embedding } = await generateEmbedding(description);
 
-    updateStatus('Performing vector search...');
+    setTimeout(() => {
+      showModal.value = false;
+      statusMessages.value = [];
+    }, 250);
+
     console.log('Performing vector search...');
     await vectorSearch(embedding);
 
-    // Close modal after search is completed
-    showModal.value = false;
-
-    // Reset the input
     if (fileInput.value) {
       fileInput.value.value = '';
     }
-
   } catch (error) {
     console.error('Upload error:', error);
     updateStatus(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
@@ -126,11 +124,31 @@ const handleReset = (refine: (value: string) => void) => {
   <VueFinalModal
     v-model="showModal"
     class="flex justify-center items-center"
-    content-class="max-w-md p-4 bg-white dark:bg-gray-900 border dark:border-gray-700 rounded-lg"
+    content-class="w-full min-h-40 max-w-md p-4 bg-white dark:bg-gray-900 border dark:border-gray-700 rounded-lg"
+    transition="fade-scale"
+    :classes="{
+      'fade-scale-enter-active': 'transition duration-300 ease-in-out',
+      'fade-scale-leave-active': 'transition duration-200 ease-in-out',
+      'fade-scale-enter-from': 'opacity-0 scale-95',
+      'fade-scale-leave-to': 'opacity-0 scale-95',
+      'fade-scale-enter-to': 'opacity-100 scale-100',
+      'fade-scale-leave-from': 'opacity-100 scale-100'
+    }"
   >
-    <div class="text-center">
-      <h3 class="text-lg font-medium mb-2">Image Search Status</h3>
-      <p>{{ statusMessage }}</p>
+    <div>
+      <h3 class="text-lg text-center font-medium mb-2">Image Search Status</h3>
+      <div class="space-y-2">
+        <TransitionGroup
+          enter-active-class="transition-all duration-300 ease-in-out"
+          enter-from-class="opacity-0 transform translate-y-2"
+          enter-to-class="opacity-100 transform translate-y-0"
+          leave-active-class="transition-all duration-300 ease-in-out"
+          leave-from-class="opacity-100 transform translate-y-0"
+          leave-to-class="opacity-0 transform -translate-y-2"
+        >
+          <p class="text-ashes-900" v-for="message in statusMessages" :key="message">{{ message }}</p>
+        </TransitionGroup>
+      </div>
     </div>
   </VueFinalModal>
 </template>
