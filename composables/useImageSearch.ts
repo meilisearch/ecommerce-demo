@@ -4,6 +4,7 @@ import { useSearchParams } from "~/composables/useSearchParams"
 
 export function useImageSearch() {
   const config = useRuntimeConfig()
+  const uploadedImageUrl = ref<string | null>(null)
 
   // We need the Meilisearch client for direct parameter setting
   const meili = new MeiliSearch({
@@ -16,6 +17,15 @@ export function useImageSearch() {
       method: 'POST',
       body: formData,
     });
+
+    // Save the uploaded image URL
+    if (response.blob?.url) {
+      uploadedImageUrl.value = response.blob.url;
+      console.log('Set uploaded image URL:', uploadedImageUrl.value);
+    } else {
+      console.log('No image URL found in response:', response);
+    }
+
     return response;
   }
 
@@ -78,11 +88,32 @@ export function useImageSearch() {
     }, 0)
   }
 
+  const resetImageSearch = () => {
+    // Reset the uploaded image URL
+    uploadedImageUrl.value = null;
+
+    // Reset search parameters if needed
+    searchParams.value = {}
+
+    // Reset the Meilisearch client parameters
+    meilisearch.setMeiliSearchParams({})
+
+    // Trigger a refresh
+    setTimeout(() => {
+      const refreshFn = nuxtApp.$meiliSearchRefresh as Function | undefined
+      if (refreshFn) {
+        refreshFn()
+      }
+    }, 0)
+  }
+
   return {
     uploadFile,
     generateDescription,
     generateEmbedding,
-    vectorSearch
+    vectorSearch,
+    uploadedImageUrl,
+    resetImageSearch
   }
 }
 

@@ -7,7 +7,7 @@ const showModal = ref(false);
 const statusMessage = ref('');
 
 const { setResults } = useSearchStore()
-const { uploadFile, generateDescription, generateEmbedding, vectorSearch } = useImageSearch();
+const { uploadFile, generateDescription, generateEmbedding, vectorSearch, uploadedImageUrl, resetImageSearch } = useImageSearch();
 
 const updateStatus = (message: string) => {
   statusMessage.value = message;
@@ -41,6 +41,8 @@ const handleFileChange = async (event: Event) => {
     console.log('Uploading file...');
     const { blob } = await uploadFile(formData);
 
+    console.log('Uploaded image URL:', uploadedImageUrl.value);
+
     updateStatus('Generating description...');
     console.log('Generating description...');
     const { description } = await generateDescription(blob.url);
@@ -73,6 +75,12 @@ const handleFileChange = async (event: Event) => {
 const triggerFileInput = () => {
   fileInput.value?.click();
 };
+
+const handleReset = (refine: (value: string) => void) => {
+  refine('');
+  resetImageSearch();
+  console.log('Reset search, image URL is now:', uploadedImageUrl.value);
+};
 </script>
 
 <template>
@@ -80,9 +88,24 @@ const triggerFileInput = () => {
     <template #default="{ currentRefinement, refine }">
       <SearchInput
         :value="currentRefinement"
+        :hasImage="!!uploadedImageUrl"
         @input="refine($event.currentTarget.value)"
-        @reset="refine('')"
+        @reset="handleReset(refine)"
       >
+        <template #left>
+          <div
+            v-if="uploadedImageUrl"
+            class="w-7 h-7 rounded-md overflow-hidden flex-shrink-0 mr-1"
+            style="--left-slot-width: 28px;"
+          >
+            <img
+              :src="uploadedImageUrl"
+              alt="Uploaded image"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </template>
+
         <template #right>
           <input
             ref="fileInput"
