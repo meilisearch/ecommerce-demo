@@ -110,6 +110,20 @@ pnpm setup
 > [!TIP]
 > The [tutorial](https://www.meilisearch.com/blog/nuxt-ecommerce-search-guide?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme), which pertains to the code on branches `1-setup-database`, `2-search-as-you-type`, `3-advanced-search-patterns`, and `4-final`, uses a different dataset and setup script.
 
+### Image description embeddings
+
+To power image similarity search, this project generates image descriptions using `gpt-4o`. Meilisearch is [configured](./blob/main/database/setup.js) to generate embeddings for these descriptions using `text-embedding-3-small`.
+
+> [!WARNING]
+> Generating descriptions and embeddings for the entire dataset is costly (more than $100 USD.)
+
+You can generate these image descriptions by running `pnpm db:gen-descriptions`.
+
+For more accurate image similarity, consider if you can use a multi-modal embedding API instead to directly generate the embeddings from the image instead.
+
+> [!TIP]
+> This demo will soon be migrated to use a multi-modal embedding API.
+
 ## 🧑‍💻 Development
 
 > [!NOTE]
