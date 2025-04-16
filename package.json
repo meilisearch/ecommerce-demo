@@ -52,13 +52,10 @@
   "dependencies": {
     "@ai-sdk/openai": "^1.2.1",
     "@meilisearch/instant-meilisearch": "0.25",
-    "@pinia/nuxt": "^0.10.1",
     "@vercel/blob": "^0.27.3",
     "ai": "^4.1.54",
     "dotenv": "^16.4.7",
     "meilisearch": "0.41.0",
-    "pinia": "^3.0.1",
-    "vue-final-modal": "^4.5.5",
-    "zod": "^3.24.2"
+    "vue-final-modal": "^4.5.5"
   }
 }

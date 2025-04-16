@@ -1,9 +1,6 @@
 <script lang="ts" setup>
 // @ts-ignore-next-line
 import { AisInfiniteHits } from 'vue-instantsearch/vue3/es'
-import type { Product } from '~/types'
-
-const { results } = storeToRefs(useSearchStore())
 </script>
 
 <template>
@@ -16,7 +13,7 @@ const { results } = storeToRefs(useSearchStore())
       }"
     >
       <slot
-        :items="results.length > 0 ? results : items"
+        :items="items"
         :refineNext="refineNext"
         :isLastPage="isLastPage"
       />

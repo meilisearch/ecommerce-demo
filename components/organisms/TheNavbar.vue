@@ -1,6 +1,3 @@
-<script setup lang="ts">
-</script>
-
 <template>
   <nav class="p-5 navbar">
     <div class="mobile-nav">

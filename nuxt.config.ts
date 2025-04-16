@@ -57,7 +57,6 @@ export default defineNuxtConfig({
     // Optimized images with progressive loading
     '@twicpics/components/nuxt3',
     '@nuxtjs/tailwindcss',
-    '@pinia/nuxt'
   ],
 
   twicpics: {

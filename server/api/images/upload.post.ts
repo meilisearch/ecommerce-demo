@@ -15,15 +15,6 @@ export default defineEventHandler(async (event) => {
     const blob = await put(file.name, file, { access: 'public' });
     console.log('Upload completed');
 
-    // console.log('Generating description...');
-    // const description = await generateDescription(blob.url)
-    // console.log('Description generated', description);
-
-    // console.log('Generating embeddings...');
-    // const embedding = await generateEmbedding(description)
-    // console.log('Embeddings generated', embedding);
-
-    // console.log('Returning response ✅');
     return {
       blob
     };
