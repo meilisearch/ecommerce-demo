@@ -71,7 +71,7 @@ const sortingOptions = [
               <LoadingIndicator class="m-auto" />
             </div>
             <div v-show="!isSearchStalled" class="w-full">
-              <SearchResultsProvider>
+              <AisInfiniteHits>
                 <template
                   #default="{
                     items,
@@ -98,7 +98,7 @@ const sortingOptions = [
                     </BaseButton>
                   </div>
                 </template>
-              </SearchResultsProvider>
+              </AisInfiniteHits>
             </div>
             <div v-if="selectedProduct" class="w-[400px] ml-5">
               <ProductOverview
