@@ -27,5 +27,3 @@ meili_data/
 
 # Image descriptions cache files
 .cache/image-descriptions.json
-
-.trigger

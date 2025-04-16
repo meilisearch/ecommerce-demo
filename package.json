@@ -4,7 +4,6 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "queue:dev": "pnpm dlx trigger.dev@latest dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
