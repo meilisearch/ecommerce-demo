@@ -1,5 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+
+  nitro: {
+    preset: 'vercel'
+  },
+
   app: {
     head: {
       title: 'Ecommerce demo - Meilisearch',
@@ -27,7 +32,7 @@ export default defineNuxtConfig({
           keepZeroFacets: false,
           finitePagination: false
         }
-      }
+      },
     }
   },
 
@@ -40,6 +45,7 @@ export default defineNuxtConfig({
   },
 
   css: [
+    'vue-final-modal/style.css',
     '~/assets/css/typography.css',
     '~/assets/css/shadow.css',
   ],
@@ -50,7 +56,7 @@ export default defineNuxtConfig({
     'vite-plugin-vue-type-imports/nuxt',
     // Optimized images with progressive loading
     '@twicpics/components/nuxt3',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
   ],
 
   twicpics: {

@@ -5,6 +5,7 @@ import pluralize from 'pluralize'
 type SortingOrder = 'isRefined' | 'count' | 'name'
 
 const props = defineProps<{
+  label?: string
   attribute: string
   initialSortBy: SortingOrder
 }>()
@@ -50,7 +51,7 @@ const filterOutEmptyFacets = (items: any) => {
     >
       <div class="flex items-baseline">
         <BaseTitle class="mb-3 text-valhalla-100">
-          {{ props.attribute }}
+          {{ props.label || props.attribute }}
         </BaseTitle>
         <select v-model="sortingOrder" class="ml-auto text-ashes-900">
           <BaseText

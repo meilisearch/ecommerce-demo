@@ -10,9 +10,10 @@ export const createInstantMeilisearch = (
     // eslint-disable-next-line no-console
     console.log(`Using Meilisearch host: ${host}\nSearch API key: ${searchApiKey}`)
   }
-  return instantMeiliSearch(
+  const instantMeilisearch = instantMeiliSearch(
     host,
     searchApiKey,
     options
   )
+  return instantMeilisearch
 }

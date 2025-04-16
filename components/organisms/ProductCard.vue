@@ -1,59 +1,45 @@
 <script lang="ts" setup>
+import type { Product } from '~/types'
+
 // import { TwicImg } from '@twicpics/components/vue3'
 
 const props = defineProps<{
-  name: string
-  brand: string
-  price: number | null // some prices are null in our dataset
-  rating: number
-  reviewsCount: number
-  imageUrl: string
+  product: Product
 }>()
 
-const { name, brand, price, rating, reviewsCount, imageUrl } = toRefs(props)
+const { product } = toRefs(props)
 
 const formattedPrice = computed(() => {
-  if (props.price === null) {
+  if (product.value.price === null) {
     return '-';
   }
-  return formatToUSD(props.price);
+  return formatToUSD(product.value.price);
 })
-
-const optimizedImageUrl = computed(() => imageUrl.value.replace('http://assets.myntassets.com/', '/kaggle-fashion-products/'))
 </script>
 
 <template>
   <BaseCard class="product-card">
     <TwicImg
-      :alt="name"
-      :src="optimizedImageUrl"
+      :alt="product.productDisplayName"
+      :src="getOptimizedImageUrl(product.imageUrls.default)"
       :width="250"
       :height="333"
       class="mb-5"
     />
     <div class="px-5 pb-5">
       <BaseTitle size="xs" class="mb-1 text-hot-pink-500 -900">
-        {{ brand }}
+        {{ product.brandName }}
       </BaseTitle>
       <BaseText
         size="m"
         class="mb-2 text-valhalla-500 product-name"
-        :title="name"
+        :title="product.productDisplayName"
       >
-        {{ name }}
+        {{ product.productDisplayName }}
       </BaseText>
       <BaseText size="l" class="mb-2">
         <span class="text-ashes-900">$</span> <span class="text-valhalla-100">{{ formattedPrice }}</span>
       </BaseText>
-      <!-- <div class="product-rating">
-        <BaseText size="s" class="mr-1 text-valhalla-100">
-          {{ rating }}
-        </BaseText>
-        <StarRating :rating="rating" class="my-auto mr-2 text-valhalla-100" />
-        <BaseText size="xs" class="text-ashes-900">
-          {{ reviewsCount }} reviews
-        </BaseText>
-      </div> -->
     </div>
   </BaseCard>
 </template>

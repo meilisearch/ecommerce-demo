@@ -23,12 +23,13 @@
 
 ## 💪 Looking to build this yourself?
 
-Read our [Step by step guide to adding site search to your Nuxt ecommerce](https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme)!
+Read our [Step by step guide to adding site search to your Nuxt ecommerce](https://www.meilisearch.com/blog/nuxt-ecommerce-search-guide?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme)!
 
 ## ✨ Features
 
 This ecommerce demo uses:
 
+- [AI-powered search](https://www.meilisearch.com/docs/learn/ai_powered_search/getting_started_with_ai_search?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme) for image search
 - [Faceted search](https://www.meilisearch.com/docs/learn/fine_tuning_results/faceted_search?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme)
 - [Filtering](https://www.meilisearch.com/docs/learn/fine_tuning_results/filtering?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme)
 - [Sorting](https://www.meilisearch.com/docs/learn/fine_tuning_results/sorting?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme)
@@ -69,9 +70,16 @@ This project loads environment variables from an `.env` file. Create an `.env` f
 # Meilisearch credentials for search
 NUXT_PUBLIC_MEILISEARCH_HOST="use the Database URL here"
 NUXT_PUBLIC_MEILISEARCH_SEARCH_API_KEY="use the Default Search API Key here"
+NUXT_PUBLIC_MEILISEARCH_INDEX_NAME="use your index name here"
 
 # Meilisearch credentials for setup
 MEILISEARCH_ADMIN_API_KEY="use the Default Admin API Key here"
+
+# OpenAI credentials for generating image description and embeddings
+OPENAI_API_KEY="use your OpenAI API Key here"
+
+# Vercel token to store images
+BLOB_READ_WRITE_TOKEN="use your Vercel Blob token here"
 
 # Image optimization configuration
 NUXT_PUBLIC_TWICPICS_DOMAIN=https://meilisearch-ecommerce.twic.pics
@@ -86,10 +94,10 @@ Seed your database using [`meilisearch-importer`](https://github.com/meilisearch
 
 ```bash
 meilisearch-importer \
-  --url MEILISEARCH_HOST \
-  --index YOUR_INDEX \
+  --url MEILISEARCH_HOST \ # Use your Meilisearch host
+  --index INDEX_NAME \ # Choose an index name
   --primary-key id \
-  --api-key YOUR_ADMIN_KEY \
+  --api-key YOUR_ADMIN_KEY \ # Use your Admin key
   --files database/dataset.jsonl
 ```
 
@@ -99,11 +107,26 @@ Run the setup script to configure and seed your Meilisearch instance:
 pnpm setup
 ```
 
-> The [tutorial](https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme), which pertains to the code on branches `1-setup-database`, `2-search-as-you-type`, `3-advanced-search-patterns`, and `4-final`, uses a different dataset and setup script.
+> [!TIP]
+> The [tutorial](https://www.meilisearch.com/blog/nuxt-ecommerce-search-guide?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme), which pertains to the code on branches `1-setup-database`, `2-search-as-you-type`, `3-advanced-search-patterns`, and `4-final`, uses a different dataset and setup script.
+
+### Image description embeddings
+
+To power image similarity search, this project generates image descriptions using `gpt-4o`. Meilisearch is [configured](./blob/main/database/setup.js) to generate embeddings for these descriptions using `text-embedding-3-small`.
+
+> [!WARNING]
+> Generating descriptions and embeddings for the entire dataset is costly (more than $100 USD.)
+
+You can generate these image descriptions by running `pnpm db:gen-descriptions`.
+
+For more accurate image similarity, consider if you can use a multi-modal embedding API instead to directly generate the embeddings from the image instead.
+
+> [!TIP]
+> This demo will soon be migrated to use a multi-modal embedding API.
 
 ## 🧑‍💻 Development
 
-> **Note**
+> [!NOTE]
 > Make sure to complete instructions from the Setup section before running the server.
 
 Start the development server on http://localhost:3000

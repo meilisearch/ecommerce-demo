@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { AisToggleRefinement, AisInfiniteHits } from 'vue-instantsearch/vue3/es'
+import { useSearchParams } from '~/composables/useSearchParams'
 
 interface Product {
   id: string
@@ -20,8 +21,10 @@ interface Product {
 const config = useRuntimeConfig()
 const indexName = config.public.meilisearch.indexName
 
+// Access the shared search parameters state
+const searchParams = useSearchParams()
+
 const selectedProduct = ref<Product | null>(null)
-const isProductOverviewOpen = ref(false)
 
 const handleProductSelect = (product: Product) => {
   selectedProduct.value = product
@@ -39,7 +42,9 @@ const sortingOptions = [
 </script>
 
 <template>
-  <MeiliSearchProvider :index-name="indexName">
+  <MeiliSearchProvider :index-name="indexName" :search-params="searchParams">
+    <!-- MeiliSearchConfigure is no longer needed -->
+
     <TheNavbar class="mb-5 shadow-md">
       <template #search>
         <MeiliSearchBar />
@@ -48,9 +53,9 @@ const sortingOptions = [
     <div class="flex mb-5 mx-10 gap-10">
       <div class="w-1/5 min-[280px]">
         <MeiliSearchFacetFilter attribute="gender" initial-sort-by="name" class="mb-5" />
-        <MeiliSearchFacetFilter attribute="masterCategory" initial-sort-by="count" class="mb-5" />
-        <MeiliSearchFacetFilter attribute="subCategory" initial-sort-by="count" class="mb-5" />
-        <MeiliSearchFacetFilter attribute="baseColour" initial-sort-by="count" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="masterCategory" label="Category" initial-sort-by="count" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="subCategory" label="Subcategory" initial-sort-by="count" class="mb-5" />
+        <MeiliSearchFacetFilter attribute="baseColour" label="Color" initial-sort-by="count" class="mb-5" />
         <MeiliSearchFacetFilter attribute="usage" initial-sort-by="count" class="mb-5" />
         <MeiliSearchRangeFilter attribute="price" class="mb-5" />
         <!-- <MeiliSearchRatingFilter attribute="rating_rounded" label="Rating" /> -->
@@ -61,8 +66,8 @@ const sortingOptions = [
           <MeiliSearchSorting :options="sortingOptions" />
         </div>
         <MeiliSearchLoadingProvider v-slot="{ isSearchStalled }" class="mb-5 w-full">
-          <div class="flex">
-            <div v-show="isSearchStalled">
+          <div class="flex justify-end">
+            <div v-show="isSearchStalled" class="w-full">
               <LoadingIndicator class="m-auto" />
             </div>
             <div v-show="!isSearchStalled" class="w-full">
@@ -81,12 +86,7 @@ const sortingOptions = [
                     <ProductCard
                       v-for="product in items"
                       :key="product.id"
-                      :name="product.productDisplayName"
-                      :brand="product.brandName"
-                      :price="product.price"
-                      :image-url="product.imageUrls.search ?? product.imageUrls.default"
-                      :rating="5"
-                      :reviews-count="0"
+                      :product="product"
                       class="cursor-pointer"
                       @click="handleProductSelect(product)"
                       :class="{ 'border border-dodger-blue-500': selectedProduct?.id === product.id }"
@@ -105,6 +105,7 @@ const sortingOptions = [
                 :product="selectedProduct"
                 @close="handleProductOverviewClose"
                 class="sticky top-6"
+                @product-selected="handleProductSelect"
               />
             </div>
           </div>
