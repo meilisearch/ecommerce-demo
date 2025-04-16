@@ -13,14 +13,3 @@ export interface Product {
   baseColour: string
   usage: string
 }
-
-export const ImageProcessingStatus = {
-  PENDING: 'pending',
-  STARTED: 'started',
-  GENERATING_DESCRIPTION: 'generating_description',
-  GENERATING_EMBEDDINGS: 'generating_embeddings',
-  COMPLETED: 'completed',
-  FAILED: 'failed',
-} as const
-
-export type ImageProcessingStatus = (typeof ImageProcessingStatus)[keyof typeof ImageProcessingStatus]
