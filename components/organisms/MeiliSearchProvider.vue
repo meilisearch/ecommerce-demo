@@ -26,6 +26,22 @@ const { ssr, indexName, initialQuery, searchParams } = toRefs(props)
 // Store a reference to the InstantSearch instance with the proper type
 const instantSearchInstance = ref<InstantSearchHelper | null>(null)
 
+// Middleware function to capture the InstantSearch instance
+const captureInstanceMiddleware = ({ instantSearchInstance: instance }: { instantSearchInstance: InstantSearchHelper }) => {
+  return {
+    onStateChange() {}, // Required hook, can be empty
+    subscribe() {
+      instantSearchInstance.value = instance
+    },
+    unsubscribe() {
+      instantSearchInstance.value = null
+    },
+  }
+}
+
+// Array of middlewares to pass to the component
+const middlewares = [captureInstanceMiddleware]
+
 // Method to manually trigger a search refresh
 const refresh = () => {
   if (instantSearchInstance.value && instantSearchInstance.value.helper) {
@@ -68,7 +84,8 @@ const attributes = computed(() => {
   // }
   return {
     indexName: indexName.value,
-    searchClient: instantMeilisearch.searchClient
+    searchClient: instantMeilisearch.searchClient,
+    middlewares: middlewares
   }
 })
 </script>
@@ -78,13 +95,7 @@ const attributes = computed(() => {
     <!-- Add configure component inline -->
     <AisConfigure v-bind="searchParams" />
 
-    <!-- Capture the instantSearchInstance -->
-    <AisStateResults>
-      <template #default="{ instantSearchInstance: instance }">
-        <div v-if="instantSearchInstance = instance" style="display: none;"></div>
-        <!-- Pass the remaining content -->
-        <slot name="default" />
-      </template>
-    </AisStateResults>
+    <!-- Pass the content directly -->
+    <slot name="default" />
   </component>
 </template>
