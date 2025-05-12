@@ -6,7 +6,7 @@
           <BaseLogo />
         </NuxtLink>
         <SocialLink url="https://github.com/meilisearch/ecommerce-demo" icon="github" title="View the code" class="ml-auto" />
-        <SocialLink url="https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=demo" icon="web" title="Read the guide" class="ml-2" />
+        <SocialLink url="https://www.meilisearch.com/blog/nuxt-ecommerce-search-guide?utm_campaign=ecommerce-demo&utm_source=demo" icon="web" title="Read the guide" class="ml-2" />
       </div>
       <div class="mr-5 mobile-search-bar">
         <slot name="search" />
@@ -18,7 +18,7 @@
         <slot name="search" />
       </div>
       <SocialLink url="https://github.com/meilisearch/ecommerce-demo" icon="github" title="View the code" class="mr-3" />
-      <SocialLink url="https://blog.meilisearch.com/nuxt-ecommerce-search-guide/?utm_campaign=ecommerce-demo&utm_source=github&utm_medium=readme" icon="web" title="Read the guide" />
+      <SocialLink url="https://www.meilisearch.com/blog/nuxt-ecommerce-search-guide?utm_campaign=ecommerce-demo&utm_source=demo" icon="web" title="Read the guide" />
     </div>
   </nav>
 </template>

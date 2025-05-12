@@ -27,3 +27,5 @@ meili_data/
 
 # Image descriptions cache files
 .cache/image-descriptions.json
+# Used locally to import the dataset by batches
+database/dataset_part_*.jsonl
