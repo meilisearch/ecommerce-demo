@@ -4,6 +4,7 @@ import { ModalsContainer } from 'vue-final-modal'
 
 <template>
   <div>
+    <GoogleTagManager />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
